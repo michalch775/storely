@@ -5,9 +5,12 @@
 * Wszystkie zapytania zwracają tablice lub obiekty JSON
 * Podstawowe jednostki w API to: przedmiot, wypożyczenie, użytkownik.
 
-## Kody błędów używane tym w API
+## Kody odpowiedzi używane tym w API
+Każda błędna odpowiedź zwraca wiadomość z informacja jaki konkrtnie błąd wystąpił
 
 * HTTP `4XX` - używane dla błędnych zapytań. Błąd zawsze po stronie klienta
+* HTTP `400` - zapytanie zawiera niepoprawne dane.
+* HTTP `409` - zasób `POST` już istnieje.
 * HTTP `5XX` - błąd po stronie serwera.
 
 ## Format danych
@@ -17,9 +20,7 @@
 
 ## Zabezpieczenia
 
-* Każdy punkt końcowy wymaga autoryzacji przez ssid.
-* SSID jest przesyłane do API przez header `ssid` (najprawdopodobniej zostanie zmienione)
-* SSID uwzględnia wielkość liter
+Work in progress :)
 
 ## Punkty końcowe 
 
@@ -208,6 +209,7 @@ HTTP `201`
 ]
 ```
 
+
 #### Logowanie użytkownika
 
 ```
@@ -354,6 +356,11 @@ HTTP `204`
 
 #### Dodawanie nowego użytkownika
 
+```
+POST /user
+```
+
+
 Parametry
 
 |Nazwa|Typ|Wymagany|Opis|
@@ -375,4 +382,5 @@ HTTP `201`
 	"id":1234   //id dodanego użytkownika
 }
 ```
+
 
