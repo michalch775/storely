@@ -10,17 +10,25 @@ Każda błędna odpowiedź zwraca wiadomość z informacja jaki konkrtnie błąd
 
 * HTTP `4XX` - używane dla błędnych zapytań. Błąd zawsze po stronie klienta
 * HTTP `400` - zapytanie zawiera niepoprawne dane.
+* HTTP `403` - weryfikacja niepoprawna.
+* HTTP `404` - zasób `GET` nie istnieje.
 * HTTP `409` - zasób `POST` już istnieje.
 * HTTP `5XX` - błąd po stronie serwera.
 
 ## Format danych
 
 * Dane w zapytaniach `GET` powinny być wysłane w URI
-* Dane w zapytaniach `POST`, `PUT` i `DELETE` powinny być wysłane w JSON (application/json). Kolejność parametrów jest dowolna
+* Dane w zapytaniach `POST`, `PUT` i `DELETE` powinny być wysłane w `requestBody` w formacie JSON (`application/json`). Kolejność parametrów jest dowolna
 
 ## Zabezpieczenia
 
-Work in progress :)
+* Każdy punkt końcowy jest zabezpieczony i wymaga autoryzacji tokenem
+* Różne punkty końcowe są dostępne dla użytkowników z różnymi uprawnieniami, zgodnie z podziałem punktów końcowych w tym dokumencie.
+* Token generuje się przez zapytanie do endpointu [/login](#logowanie-uzytkownika)
+* Token ma być wysłany przez użytkownika w nagłówku `Authorization`
+* Token ma zawierać przedrostek `Bearer`, jest on z nim generowany
+* Wygenerowany token ma ważność 14 dni i może być odnawiany (odnawianie zostanie zaimplementowane w przyszłości)
+* Aby wylogować sie (zakończyć sesję) należy usunąć token z pamięci klienta. Tokeny nie są przechowywane w bazie danych, tylko sprawdzane na podstawie klucza (zgodnie ze standardem JWT)
 
 ## Punkty końcowe 
 
@@ -32,7 +40,7 @@ Work in progress :)
 |/item/{id}|Błąd|Aktualizacja przedmiotu|Pobranie informacji o przedmiocie|Usunięcie przedmiotu|
 |/user| Dodanie nowego użytkownika | Aktualizacja danych bieżącego użytkownika| Pobranie listy użytkowników | Usunięcie grupy użytkowników
 |/user/{id}| Brak | Aktualizacja danych użytkownika | Pobranie danych użytkownika | Usunięcie użytkownika
-|/user/login| Loguje użytkownika, tworzy sesje |Błąd |Błąd | Wylogowuje użytkownika, kończy sesje
+|/login| Loguje użytkownika, generuje ważny 14 dni token|Błąd |Błąd | Błąd
 |/user/{id}/rental| Dodanie wypożyczenia przez użytkownika | Błąd | Pobranie wypożyczeń użytkownika| Zwrócenie przedmiotu 
 |/rental| Dodanie nowego wypożyczenia | Błąd | Pobranie listy wypożyczeń | Zakończenie grupy wypożyczeń
 |/rental/{id}| Błąd| Błąd | Pobranie informacji o wypożyczeniu | Zakończenie wypożyczenia
@@ -210,16 +218,16 @@ HTTP `201`
 ```
 
 
-#### Logowanie użytkownika
+#### Logowanie uzytkownika
 
 ```
-POST /user/login
+POST /login
 ```
 Parametry
 
 |Nazwa|Typ|Wymagany|Opis|
 |-----|---|--------|----|
-|login|string|tak|login lub email użytkownika|
+|username|string|tak|email użytkownika|
 |password|string|tak|hash hasła użytkownika|
 
 Algorytm hashujący do wybrania
@@ -227,29 +235,25 @@ Algorytm hashujący do wybrania
 
 Odpowiedź
 
-HTTP `201`
+HTTP `200`
 
 ```javascript
 [
 	{
-		"ssid":1234,             //id sesji
+		"token": "Bearer eyJhbG..." //token, który będzie używany do weryfikacji
+	}
 ]
 ```
 
 #### Wylogowanie użytkownika
 
-```
-DELETE /user/login
-```
-
-Odpowiedź
-
-HTTP `204`
-
+Aby wylogować użytkownika należy usunąć token. 
 
 --
 
+
 ###Punkty końcowe dla magazyniera
+
 
 #### Dodawanie nowego przedmiotu
 

@@ -3,19 +3,20 @@ package com.example.smartRecordServer.user;
 import com.example.smartRecordServer.group.Group;
 import com.example.smartRecordServer.itemTemplate.ItemTemplate;
 import com.example.smartRecordServer.rental.Rental;
+import com.example.smartRecordServer.security.ApplicationUserRole;
 import com.example.smartRecordServer.security.PasswordConfig;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.apache.tomcat.jni.Local;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name="AppUser")
@@ -42,9 +43,8 @@ public class User implements UserDetails {
     private String email;
     private LocalDateTime registered;
 
-    private List<? extends GrantedAuthority> grantedAuthorities;
+    private ApplicationUserRole role;
     private boolean isEnabled;
-
 
 
     @JsonIgnore
@@ -65,18 +65,26 @@ public class User implements UserDetails {
         this.email = email;
     }
 
+    public User(String name, String surname, String email, ApplicationUserRole role, String password) {
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.role = role;
+        this.password=password;
+    }
+
     public User(String name,
                 String password,
                 String surname,
                 String email,
-                List<? extends GrantedAuthority> grantedAuthorities,
+                ApplicationUserRole role,
                 Set<Rental> rentals,
                 Group group) {
         this.name = name;
         this.password = password;
         this.surname = surname;
         this.email = email;
-        this.grantedAuthorities = grantedAuthorities;
+        this.role = role;
         this.rentals = rentals;
         this.group = group;
         this.isEnabled=true;
@@ -103,8 +111,7 @@ public class User implements UserDetails {
                 String surname,
                 String email,
                 LocalDateTime registered,
-                List<? extends GrantedAuthority>
-                        grantedAuthorities, boolean isEnabled,
+                ApplicationUserRole role,
                 Set<Rental> rentals,
                 Group group) {
         this.id = id;
@@ -113,8 +120,8 @@ public class User implements UserDetails {
         this.surname = surname;
         this.email = email;
         this.registered = registered;
-        this.grantedAuthorities = grantedAuthorities;
-        this.isEnabled = isEnabled;
+        this.role = role;
+        this.isEnabled = true;
         this.rentals = rentals;
         this.group = group;
     }
@@ -140,7 +147,11 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return grantedAuthorities;
+        List<GrantedAuthority> list = new ArrayList<GrantedAuthority>();
+
+        list.add(new SimpleGrantedAuthority("ROLE_" + role.name()));
+
+        return list;
     }
 
     @Override
@@ -150,7 +161,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return null;
+        return email;
     }
 
     @Override
@@ -170,7 +181,7 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return isEnabled;
+        return true;
     }
 
     public LocalDateTime getRegistered() {
@@ -183,5 +194,13 @@ public class User implements UserDetails {
 
     public Group getGroup() {
         return group;
+    }
+
+    public ApplicationUserRole getRole() {
+        return role;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
