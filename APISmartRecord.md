@@ -9,7 +9,7 @@
 Każda błędna odpowiedź zwraca wiadomość z informacja jaki konkrtnie błąd wystąpił
 
 * HTTP `4XX` - używane dla błędnych zapytań. Błąd zawsze po stronie klienta
-* HTTP `400` - zapytanie zawiera niepoprawne dane.
+* HTTP `400` - niepoprawne zapytanie.
 * HTTP `403` - weryfikacja niepoprawna.
 * HTTP `404` - zasób `GET` nie istnieje.
 * HTTP `409` - zasób `POST` już istnieje.
@@ -26,9 +26,9 @@ Każda błędna odpowiedź zwraca wiadomość z informacja jaki konkrtnie błąd
 * Różne punkty końcowe są dostępne dla użytkowników z różnymi uprawnieniami, zgodnie z podziałem punktów końcowych w tym dokumencie.
 * Token generuje się przez zapytanie do endpointu [/login](#logowanie-uzytkownika)
 * Token ma być wysłany przez użytkownika w nagłówku `Authorization`
-* Token ma zawierać przedrostek `Bearer`, jest on z nim generowany
+* Token ma zawierać przedrostek `Bearer `, jest on z nim generowany
 * Wygenerowany token ma ważność 14 dni i może być odnawiany (odnawianie zostanie zaimplementowane w przyszłości)
-* Aby wylogować sie (zakończyć sesję) należy usunąć token z pamięci klienta. Tokeny nie są przechowywane w bazie danych, tylko sprawdzane na podstawie klucza (zgodnie ze standardem JWT)
+* Aby wylogować się (zakończyć sesję) należy usunąć token z pamięci klienta. Tokeny nie są przechowywane w bazie danych, tylko sprawdzane na podstawie klucza (zgodnie ze standardem JWT)
 
 ## Punkty końcowe 
 
@@ -53,10 +53,18 @@ Sortowanie (sort)
 
 | Wartość| Opis   |
 |--------|--------|
-|nameAsc |według nazwy, rosnąco|
-|nameDesc |według nazwy, malejąco|
-|quantityAsc |według ilości, rosnąco|
-|quantityDesc |według ilości, malejąco|
+|nameASC |według nazwy, rosnąco|
+|nameDESC |według nazwy, malejąco|
+|quantityASC |według ilości, rosnąco|
+|quantityDESC |według ilości, malejąco|
+
+Rola (role)
+
+| Wartość| Opis   |
+|--------|--------|
+|EMPLOYEE|pracownik, użytkownik z tą rolą ma dostęp tylko do panelu pracownika|
+|WAREHOUSEMAN|magazynier, ma dostęp do panelu magazyniera i pracownika (w aplikacji mobilnej)|
+|ADMIN|administrator, ma dostęp do panelu pracownika, magazyniera i administratora|
 
 ### Punkty końcowe dla pracownika
 
@@ -101,7 +109,7 @@ HTTP `200`
 }
 ```
 
-#### Pobieranie listy przedmiotów
+#### Pobieranie listy przedmiotów 
 
 Jest dostępne dla pracownika magazyniera oraz administratora.
 
@@ -114,10 +122,10 @@ Parametry
 |Nazwa|Typ|Wymagany|Opis|
 |-----|---|--------|----|
 |name |string|nie|do filtrowania, może być niepełna |
-|isReturnable |bool|nie|do filtrowania|
-|category |bool|nie|do filtrowania|
-|isRent |bool|nie|do filtrowania|
-|sort|string|nie|domyslnie "nameUp"|
+|isReturnable |boolean|nie|do filtrowania|
+|category | integer |nie|do filtrowania|
+|isRent | boolean |nie|do filtrowania|
+|sort|enum (string)|nie|domyslnie "nameUp"|
 
 Odpowiedź
 
@@ -137,17 +145,21 @@ HTTP `200`
 ```
 #### Aktualizacja danych użytkownika
 
-Jest dostępna dla pracownika, magazyniera i administratora. Resztę atrybutów można zaktualizować z poziomu administratora poprzez endpoint /user/{id}
+Jest dostępna dla pracownika, magazyniera i administratora. Resztę atrybutów można zaktualizować z poziomu administratora poprzez endpoint `/user/{id}`
+
 ```
 PUT /user
 ```
+
+Byc moze zostanie zmienione na `PATCH`
 
 Parametry
 
 |Nazwa|Typ|Wymagany|Opis|
 |-----|---|--------|----|
-|email|string|tak||
 |password|string|tak||
+|newUsername|string|tak|jako username należy podać email użytkowinka|
+|newPassword|string|tak||
 
 Odpowiedź
 
@@ -173,9 +185,12 @@ Odpowiedź
 HTTP `201`
 
 ```
-{
-	"id":1234   //id wypożyczenia
-}
+[
+	{
+		"id":1234        //id wypożyczenia
+		"item_id":1234   //id przedmiotu
+	}
+]
 ```
 
 #### Zwracanie przedmiotu
@@ -249,8 +264,7 @@ HTTP `200`
 
 Aby wylogować użytkownika należy usunąć token. 
 
---
-
+___
 
 ###Punkty końcowe dla magazyniera
 
@@ -265,17 +279,26 @@ Parametry
 
 |Nazwa|Typ|Wymagany|Opis|
 |-----|---|--------|----|
+|code |long|tak||
+|quantity |integer|tak||
+|itemTemplateId |long|nie|id wzorca przedmiotu |
+|itemTemplate|object|nie|należy zawrzeć jeśli nie zawarto itemTemplateId|
+
+obiekt  `itemTemplate`
+
+|Nazwa|Typ|Wymagany|Opis|
+|-----|---|--------|----|
 |name |string|tak||
-|category |int|tak||
-|isReturnable| bool|tak|
-|description|string|tak||
-|crticalQuantity|int|tak||
-|timeLimit|string|tak||
-|allowedGroups|string|tak||
+|category |string|tak||
+|description|string|nie||
+|crticalQuantity|int|nie||
+|timeLimit|string|nie|jesli brak to nielimitowany|
+|allowedGroups|array of integers|nie|zawiera id dozwolonych grup|
+
 
 Odpowiedź
 
-HTTP `201`
+HTTP `200`
 
 ```
 {

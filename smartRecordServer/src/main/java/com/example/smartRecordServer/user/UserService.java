@@ -42,6 +42,11 @@ public class UserService implements UserDetailsService {
                 .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,"Uzytkownik nie istnieje"));
     }
 
+    public User getUserByEmail(String email) throws UsernameNotFoundException{
+        return userRepository.findUserByEmail(email)
+                .orElseThrow(()->new UsernameNotFoundException("Nie znaleziono uzytkowika"));
+    }
+
 
     public void addNewUser(User user){
         Optional<User> userByEmail = userRepository
@@ -52,6 +57,11 @@ public class UserService implements UserDetailsService {
         String password = passwordEncoder.encode(user.getPassword());
         user.setPassword(password);
         userRepository.save(user);
+    }
+
+    public void updateUserByEmail(String email, User user){
+        User userEdit = userRepository.findUserByEmail(email)
+                .orElseThrow(()->new UsernameNotFoundException("Nie znaleziono uzytkowika"));
     }
 
 

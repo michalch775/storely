@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -33,14 +34,29 @@ public class UserController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping(path = "{userId}")
     public User getUser(@PathVariable Long userId){
-        //Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return userService.getUser(userId);
     }
-
 
     @PostMapping
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void registerNewUser(@RequestBody User user){
         userService.addNewUser(user);
+    }
+
+    @PutMapping
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_EMPLOYEE','ROLE_WAREHOUSEMAN')")
+    public void editUserInfo(@RequestBody User user){
+        //TODO:inna klasa czy zostawic tak
+
+        User userToUpdate = new User();
+        userToUpdate.setEmail(user.getEmail());
+        userToUpdate.setPassword(user.getPassword());
+        userToUpdate.setName(user.getName());
+        userToUpdate.setSurname(user.getSurname());
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        userService.updateUserByEmail(authentication.getName(), userToUpdate);
+
     }
 }

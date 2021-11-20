@@ -184,23 +184,59 @@ public class User implements UserDetails {
         return true;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public LocalDateTime getRegistered() {
         return registered;
     }
 
-    public Set<Rental> getRentals() {
-        return rentals;
-    }
-
-    public Group getGroup() {
-        return group;
+    public void setRegistered(LocalDateTime registered) {
+        this.registered = registered;
     }
 
     public ApplicationUserRole getRole() {
         return role;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setRole(ApplicationUserRole role) {
+        this.role = role;
+    }
+
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
+    }
+
+    public Set<Rental> getRentals() {
+        return rentals;
+    }
+
+    public void setRentals(Set<Rental> rentals) {
+        this.rentals = rentals;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
     }
 }
