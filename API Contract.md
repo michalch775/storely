@@ -1,5 +1,30 @@
 # API Smart-Record
 
+- [API Smart-Record](#api-smart-record)
+	- [Najważniejsze informacje](#najważniejsze-informacje)
+	- [Kody odpowiedzi używane tym w API](#kody-odpowiedzi-używane-tym-w-api)
+	- [Format danych](#format-danych)
+	- [Zabezpieczenia](#zabezpieczenia)
+	- [Punkty końcowe](#punkty-końcowe)
+		- [Tabela poglądowa](#tabela-poglądowa)
+		- [Definicje ENUM](#definicje-enum)
+		- [Punkty końcowe dla pracownika](#punkty-końcowe-dla-pracownika)
+			- [Pobranie informacji o przedmiocie](#pobranie-informacji-o-przedmiocie)
+			- [Pobieranie listy przedmiotów](#pobieranie-listy-przedmiotów)
+			- [Aktualizacja danych użytkownika](#aktualizacja-danych-użytkownika)
+			- [Wypożyczanie przedmiotu](#wypożyczanie-przedmiotu)
+			- [Zwracanie przedmiotu](#zwracanie-przedmiotu)
+			- [Pobranie listy wypożyczonych przedmiotów](#pobranie-listy-wypożyczonych-przedmiotów)
+			- [Logowanie uzytkownika](#logowanie-uzytkownika)
+			- [Wylogowanie użytkownika](#wylogowanie-użytkownika)
+		- [Punkty końcowe dla magazyniera](#punkty-końcowe-dla-magazyniera)
+			- [Dodawanie nowego przedmiotu](#dodawanie-nowego-przedmiotu)
+			- [Aktualizacja grupy przedmiotów](#aktualizacja-grupy-przedmiotów)
+			- [Usunięcie grupy przedmiotów](#usunięcie-grupy-przedmiotów)
+			- [Aktualizacja przedmiotu](#aktualizacja-przedmiotu)
+			- [Usuwanie przedmiotu](#usuwanie-przedmiotu)
+			- [Dodawanie nowego użytkownika](#dodawanie-nowego-użytkownika)
+
 ## Najważniejsze informacje
 
 * Wszystkie zapytania zwracają tablice lub obiekty JSON
@@ -266,7 +291,7 @@ Aby wylogować użytkownika należy usunąć token.
 
 ___
 
-###Punkty końcowe dla magazyniera
+### Punkty końcowe dla magazyniera
 
 
 #### Dodawanie nowego przedmiotu

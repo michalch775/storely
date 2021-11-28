@@ -2,7 +2,7 @@ package com.example.smartRecordServer.item;
 
 import com.example.smartRecordServer.itemTemplate.ItemTemplate;
 import com.example.smartRecordServer.itemTemplate.ItemTemplateService;
-import com.example.smartRecordServer.templates.ReturnId;
+import com.example.smartRecordServer.templates.ResponseId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -42,18 +42,21 @@ public class ItemController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping
-    public ReturnId<Long> addItem(@RequestBody ItemDto itemDto){ //TODO: dto czy bez
-        if(itemDto.getItemTemplateId()!=null && itemDto.getItemTemplate()!=null){
+    public ResponseId<Long> addItem(@RequestBody ItemPostDto itemPostDto){ //TODO: dto czy bez
+
+        //return new ResponseId<Long>( itemService.addNewItem(item) );
+
+        if(itemPostDto.getItemTemplateId()!=null && itemPostDto.getItemTemplate()!=null){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
-        else if (itemDto.getItemTemplate() != null) {
-            Item item = new Item(itemDto.getQuantity(), itemDto.getCode(), itemDto.getItemTemplate());
-            return new ReturnId<Long>( itemService.addNewItem(item) );
+        else if (itemPostDto.getItemTemplate() != null) {
+            Item item = new Item(itemPostDto.getQuantity(), itemPostDto.getCode(), itemPostDto.getItemTemplate());
+            return new ResponseId<Long>( itemService.addNewItem(item) );
         }
-        else if (itemDto.getItemTemplateId() != null) {
-            ItemTemplate itemTemplate= itemTemplateService.getItemTemplate(itemDto.getItemTemplateId());
-            Item item = new Item(itemDto.getQuantity(), itemDto.getCode(), itemTemplate);
-            return new ReturnId<Long>( itemService.addNewItem(item) );
+        else if (itemPostDto.getItemTemplateId() != null) {
+            ItemTemplate itemTemplate= itemTemplateService.getItemTemplate(itemPostDto.getItemTemplateId());
+            Item item = new Item(itemPostDto.getQuantity(), itemPostDto.getCode(), itemTemplate);
+            return new ResponseId<Long>( itemService.addNewItem(item) );
         }
         else{
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);

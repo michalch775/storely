@@ -4,6 +4,8 @@ import com.example.smartRecordServer.itemTemplate.ItemTemplate;
 import com.example.smartRecordServer.itemTemplate.ItemTemplateService;
 import com.example.smartRecordServer.rental.Rental;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -31,7 +33,11 @@ public class Item {
     @JsonIgnore
     private Long code;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+
+    @Column(name = "itemTemplateId", insertable = false, updatable = false)
+    private Long itemTemplateId;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "itemTemplateId", referencedColumnName = "id")
     private ItemTemplate itemTemplate;
 
@@ -39,22 +45,30 @@ public class Item {
     @OneToMany(mappedBy = "id")
     private Set<Rental> rentals = new HashSet<>();
 
-
     public Item(Integer quantity, Long code, ItemTemplate itemTemplate) {
         this.quantity = quantity;
         this.code = code;
         this.itemTemplate = itemTemplate;
     }
 
-    public Item(Long id, Integer quantity, Long code, ItemTemplate itemTemplate, Set<Rental> rentals) {
+    public Item(Long id, Integer quantity, Long code, Long itemTemplateId, ItemTemplate itemTemplate, Set<Rental> rentals) {
         this.id = id;
         this.quantity = quantity;
         this.code = code;
+        this.itemTemplateId = itemTemplateId;
         this.itemTemplate = itemTemplate;
         this.rentals = rentals;
     }
 
     public Item() {
+    }
+
+    public Long getItemTemplateId() {
+        return itemTemplateId;
+    }
+
+    public void setItemTemplateId(Long itemTemplateId) {
+        this.itemTemplateId = itemTemplateId;
     }
 
     public Long getId() {

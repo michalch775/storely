@@ -1,9 +1,9 @@
 package com.example.smartRecordServer.templates;
 
-public class ReturnId<T> {
+public class ResponseId<T> {
     private T id;
 
-    public ReturnId(T toReturn) {
+    public ResponseId(T toReturn) {
         this.id = toReturn;
     }
 
