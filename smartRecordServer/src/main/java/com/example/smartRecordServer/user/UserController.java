@@ -57,6 +57,19 @@ public class UserController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         userService.updateUserByEmail(authentication.getName(), userToUpdate);
-
     }
+
+
+    @PutMapping(path = "{userId}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public void editUser(@PathVariable Long userId, @RequestBody User user){
+        userService.updateUserById(userId, user);
+    }
+
+    @DeleteMapping(path = "{userId}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public void deleteUser(@PathVariable Long userId){
+        userService.deleteUser(userId);
+    }
+
 }
