@@ -28,7 +28,7 @@ public class ItemTemplate {
     private Long id;
     private String name;
     private String description; //TODO: as varchar 5000 signs
-    private boolean isReturnable;
+    private boolean isReturnable = true;
     private Time timeLimit;
     private Integer criticalQuantity;
 

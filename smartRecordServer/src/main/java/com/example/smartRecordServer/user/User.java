@@ -32,6 +32,7 @@ public class User implements UserDetails {
     @Column(unique = true, nullable = false, updatable = false)
     private Long id;
     private String name;
+    @JsonIgnore
     private String password;
     private String surname;
     @Column(unique = true, nullable = false)

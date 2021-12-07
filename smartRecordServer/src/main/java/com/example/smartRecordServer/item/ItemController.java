@@ -33,8 +33,8 @@ public class ItemController {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_EMPLOYEE','ROLE_WAREHOUSEMAN')")
     @GetMapping(path = "{itemId}")
     public Item getUser(@PathVariable Long itemId,
-                        @RequestParam(required = false) boolean byCode){
-        if(byCode){
+                        @RequestParam(required = false) String byCode){
+        if(byCode=="true"){
             return itemService.getItemByCode(itemId);
         }
         return itemService.getItemById(itemId);
