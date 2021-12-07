@@ -33,4 +33,5 @@ public class RentalController {
         return rentalService.getRentalsById(rentalId);
     }
 
+
 }

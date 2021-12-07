@@ -27,7 +27,7 @@ public class RentalService {
         return rentalRepository.findAll();
     }
 
-    public void addNewRental(Rental rental){
+    public Long addNewRental(Rental rental){
 
         List<Rental> rentalsByCode = rentalRepository
                 .findByItem_code(rental.getItem().getCode());
@@ -44,7 +44,7 @@ public class RentalService {
                     throw new ResponseStatusException(HttpStatus.CONFLICT, "Ten przedmiot jest juz wypozyczony");
                 }
                 else{
-                    rentalRepository.save(rental);
+                    return rentalRepository.save(rental).getId();
                 }
             }
             else{
@@ -58,7 +58,7 @@ public class RentalService {
                     rental.getItem().setQuantity(rental.getItem().getQuantity() - rental.getQuantity());
                     rental.setReturnDate(LocalDateTime.now());
                     itemRepository.save(rental.getItem());
-                    rentalRepository.save(rental);
+                    return rentalRepository.save(rental).getId();
                 }
                 else{
                     throw new ResponseStatusException(HttpStatus.CONFLICT, "Brak wystarczajacej ilosci na magazynie");
@@ -66,7 +66,7 @@ public class RentalService {
             }
         }
         else{
-            rentalRepository.save(rental);
+            return rentalRepository.save(rental).getId();
         }
     }
 

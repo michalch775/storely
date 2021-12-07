@@ -5,6 +5,8 @@ import com.example.smartRecordServer.item.ItemService;
 import com.example.smartRecordServer.rental.Rental;
 import com.example.smartRecordServer.rental.RentalPostDto;
 import com.example.smartRecordServer.rental.RentalService;
+import com.example.smartRecordServer.templates.ResponseId;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -77,17 +79,31 @@ public class UserController {
         userService.deleteUser(userId);
     }
 
-    @PostMapping("rental/{code}")
+    @PostMapping("rental")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_EMPLOYEE','ROLE_WAREHOUSEMAN')")
-    public void addNewUserRental(@PathVariable Long code,
-                                 @RequestParam Integer quantity){
+    public ResponseId<Long> addNewUserRental(@RequestBody ObjectNode objectNode){
+
+        if(!objectNode.has("code")){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+
+        Long code = objectNode.path("code").asLong();
+        Integer quantity = objectNode.path("quantity").asInt(1);
+
         Item item = itemService.getItemByCode(code);
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         User user = userService.getUserByEmail(authentication.getName());
         Rental rental = new Rental(quantity, user, item );
-        rentalService.addNewRental(rental);
+
+        if(item.getItemTemplate().getGroups().contains(user.getGroup())){
+            return new ResponseId<Long>(rentalService.addNewRental(rental));
+        }
+        else{
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Uzytkownik nie jest w dozwolonej grupie");
+        }
+
     }
 
     @GetMapping("rental")

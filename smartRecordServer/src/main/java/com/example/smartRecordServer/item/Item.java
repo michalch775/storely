@@ -1,5 +1,6 @@
 package com.example.smartRecordServer.item;
 
+import com.example.smartRecordServer.group.Group;
 import com.example.smartRecordServer.itemTemplate.ItemTemplate;
 import com.example.smartRecordServer.itemTemplate.ItemTemplateService;
 import com.example.smartRecordServer.rental.Rental;
@@ -37,6 +38,7 @@ public class Item {
     @JsonIgnore
     @OneToMany(mappedBy = "id")
     private Set<Rental> rentals = new HashSet<>();
+
 
     public Item(Integer quantity, Long code, ItemTemplate itemTemplate) {
         this.quantity = quantity;
