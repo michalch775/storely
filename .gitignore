@@ -31,3 +31,6 @@ hs_err_pid*
 /.gradle
 .gradle
 build.gradle
+
+node_modules
+/node_modules

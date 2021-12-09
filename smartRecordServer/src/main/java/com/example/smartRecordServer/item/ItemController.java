@@ -44,8 +44,6 @@ public class ItemController {
     @PostMapping
     public ResponseId<Long> addItem(@RequestBody ItemPostDto itemPostDto){ //TODO: dto czy bez
 
-        //return new ResponseId<Long>( itemService.addNewItem(item) );
-
         if(itemPostDto.getItemTemplateId()!=null && itemPostDto.getItemTemplate()!=null){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
