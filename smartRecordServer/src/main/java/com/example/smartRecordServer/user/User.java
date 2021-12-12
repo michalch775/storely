@@ -6,6 +6,7 @@ import com.example.smartRecordServer.rental.Rental;
 import com.example.smartRecordServer.security.ApplicationUserRole;
 import com.example.smartRecordServer.security.PasswordConfig;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import net.bytebuddy.implementation.bind.annotation.Default;
 import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -26,25 +27,22 @@ public class User implements UserDetails {
 
 
     @Id
-    @SequenceGenerator(
-            name = "user_sequence",
-            sequenceName = "user_sequence",
-            allocationSize = 1
-
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "user_sequence"
-    )
+    @SequenceGenerator(name = "user_sequence", sequenceName = "user_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
+    @Column(unique = true, nullable = false, updatable = false)
     private Long id;
     private String name;
+    @JsonIgnore
     private String password;
     private String surname;
+    @Column(unique = true, nullable = false)
     private String email;
-    private LocalDateTime registered;
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime registered = LocalDateTime.now();
 
-    private ApplicationUserRole role;
-    private boolean isEnabled;
+    private ApplicationUserRole role = ApplicationUserRole.EMPLOYEE;
+
+    private boolean isEnabled = true;
 
 
     @JsonIgnore
@@ -181,7 +179,7 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return isEnabled;
     }
 
     public void setId(Long id) {
@@ -218,6 +216,10 @@ public class User implements UserDetails {
 
     public void setRole(ApplicationUserRole role) {
         this.role = role;
+    }
+
+    public void setIsEnabled(boolean enabled) {
+        isEnabled = enabled;
     }
 
     public void setEnabled(boolean enabled) {

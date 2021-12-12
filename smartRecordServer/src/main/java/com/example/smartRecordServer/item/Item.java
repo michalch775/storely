@@ -1,9 +1,12 @@
 package com.example.smartRecordServer.item;
 
+import com.example.smartRecordServer.group.Group;
 import com.example.smartRecordServer.itemTemplate.ItemTemplate;
 import com.example.smartRecordServer.itemTemplate.ItemTemplateService;
 import com.example.smartRecordServer.rental.Rental;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -16,22 +19,19 @@ import java.util.Set;
 public class Item {
 
     @Id
-    @SequenceGenerator(
-            name = "item_sequence",
-            sequenceName = "item_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "item_sequence"
-    )
+    @SequenceGenerator(name = "item_sequence", sequenceName = "item_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "item_sequence")
     private Long id;
     private Integer quantity;
 
     @JsonIgnore
     private Long code;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+
+    @Column(name = "itemTemplateId", insertable = false, updatable = false)
+    private Long itemTemplateId;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "itemTemplateId", referencedColumnName = "id")
     private ItemTemplate itemTemplate;
 
@@ -46,15 +46,24 @@ public class Item {
         this.itemTemplate = itemTemplate;
     }
 
-    public Item(Long id, Integer quantity, Long code, ItemTemplate itemTemplate, Set<Rental> rentals) {
+    public Item(Long id, Integer quantity, Long code, Long itemTemplateId, ItemTemplate itemTemplate, Set<Rental> rentals) {
         this.id = id;
         this.quantity = quantity;
         this.code = code;
+        this.itemTemplateId = itemTemplateId;
         this.itemTemplate = itemTemplate;
         this.rentals = rentals;
     }
 
     public Item() {
+    }
+
+    public Long getItemTemplateId() {
+        return itemTemplateId;
+    }
+
+    public void setItemTemplateId(Long itemTemplateId) {
+        this.itemTemplateId = itemTemplateId;
     }
 
     public Long getId() {

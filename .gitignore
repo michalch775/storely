@@ -24,3 +24,13 @@ hs_err_pid*
 
 #system files
 .DS_Store
+
+/.idea
+.idea
+
+/.gradle
+.gradle
+build.gradle
+
+node_modules
+/node_modules

@@ -20,6 +20,11 @@ public class GroupController {
         return groupService.getGroups();
     }
 
+    @GetMapping("{groupId}")
+    public Group getById(@PathVariable Long groupId){
+        return groupService.getGroupById(groupId);
+    }
+
     @PostMapping
     public void registerNewUser(@RequestBody Group group){
         groupService.addNewGroup(group);

@@ -3,30 +3,30 @@ package com.example.smartRecordServer.item;
 import com.example.smartRecordServer.itemTemplate.ItemTemplate;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class ItemDto {
+public class ItemPostDto {
 
     private Integer quantity;
     private Long code;
     private Long itemTemplateId;
     private ItemTemplate itemTemplate;
 
-    public ItemDto() {
+    public ItemPostDto() {
     }
 
-    public ItemDto( Integer quantity, Long code, Long itemTemplateId, ItemTemplate itemTemplate) {
+    public ItemPostDto(Integer quantity, Long code, Long itemTemplateId, ItemTemplate itemTemplate) {
         this.quantity = quantity;
         this.code = code;
         this.itemTemplateId = itemTemplateId;
         this.itemTemplate = itemTemplate;
     }
 
-    public ItemDto(Integer quantity, Long code, Long itemTemplateId) {
+    public ItemPostDto(Integer quantity, Long code, Long itemTemplateId) {
         this.quantity = quantity;
         this.code = code;
         this.itemTemplateId = itemTemplateId;
     }
 
-    public ItemDto(Integer quantity, Long code, ItemTemplate itemTemplate) {
+    public ItemPostDto(Integer quantity, Long code, ItemTemplate itemTemplate) {
         this.quantity = quantity;
         this.code = code;
         this.itemTemplate = itemTemplate;

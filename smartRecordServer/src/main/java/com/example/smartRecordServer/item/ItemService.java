@@ -1,16 +1,18 @@
 package com.example.smartRecordServer.item;
 
 import com.example.smartRecordServer.user.User;
+import org.hibernate.service.spi.ServiceContributor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.beans.BeanProperty;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ItemService {
+public class ItemService  {
 
     private final ItemRepository itemRepository;
 

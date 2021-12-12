@@ -28,6 +28,7 @@ public class Group {
     private Long id;
     private String name;
 
+    @JsonIgnore
     @ManyToMany(
             mappedBy = "groups"
     )
@@ -37,8 +38,19 @@ public class Group {
     @OneToMany(mappedBy = "id")
     private Set<User> users = new HashSet<>();
 
-    public Group(String name) {
+    public Group(Long id, String name, Set<ItemTemplate> items, Set<User> users) {
+        this.id = id;
         this.name = name;
+        this.items = items;
+        this.users = users;
+    }
+
+    public Group(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Group() {
     }
 
     public Long getId() {

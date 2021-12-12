@@ -1,6 +1,7 @@
 package com.example.smartRecordServer.group;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +18,11 @@ public class GroupService {
 
     public List<Group> getGroups() {
         return groupRepository.findAll();
+    }
+
+    public Group getGroupById(Long id) {
+        return groupRepository.findById(id)
+                .orElseThrow(()->new UsernameNotFoundException("Nie znaleziono grupy"));
     }
 
     public void addNewGroup(Group group){
