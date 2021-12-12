@@ -9,11 +9,57 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eae25114-1142-4259-938a-76a12b555627" name="Default Changelist" comment="app added">
-      <change beforePath="$PROJECT_DIR$/.idea/smart-record.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/smart-record.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartRecordMobile/smartRecordMobileApp/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/smartRecordMobile/smartRecordMobileApp/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartRecordMobile/smartRecordMobileApp/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/smartRecordMobile/smartRecordMobileApp/app/build.gradle" afterDir="false" />
+    <list default="true" id="eae25114-1142-4259-938a-76a12b555627" name="Default Changelist" comment="main activities design apply">
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/androidTest/java/com/example/myapplication/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/java/com/example/myapplication/FirstFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/java/com/example/myapplication/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/java/com/example/myapplication/SecondFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/layout/content_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/layout/fragment_first.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/layout/fragment_second.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/menu/menu_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/navigation/nav_graph.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/values-land/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/values-w1240dp/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/values-w600dp/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/values/dimens.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/app/src/test/java/com/example/myapplication/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smartRecordMobile/MyApplication/settings.gradle" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638115116343</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="main activities design apply">
+      <created>1639326844549</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1639326844549</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -79,6 +132,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="app added" />
-    <option name="LAST_COMMIT_MESSAGE" value="app added" />
+    <MESSAGE value="main activities design apply" />
+    <option name="LAST_COMMIT_MESSAGE" value="main activities design apply" />
   </component>
 </project>
