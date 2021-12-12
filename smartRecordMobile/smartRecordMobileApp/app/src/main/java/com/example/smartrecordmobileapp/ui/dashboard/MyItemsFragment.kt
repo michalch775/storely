@@ -10,10 +10,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.smartrecordmobileapp.R
 import com.example.smartrecordmobileapp.databinding.FragmentDashboardBinding
+//aktywność odpowiedzialna za wyświetlanie przedmiotów wypożyczonych przez użytkownika aplikacji
 
-class DashboardFragment : Fragment() {
+class MyItemsFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var MyItemsViewModel: MyItemsViewModel
     private var _binding: FragmentDashboardBinding? = null
 
     // This property is only valid between onCreateView and
@@ -25,14 +26,14 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        MyItemsViewModel =
+            ViewModelProvider(this).get(MyItemsViewModel::class.java)
 
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        MyItemsViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
