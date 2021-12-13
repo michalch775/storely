@@ -1,13 +1,13 @@
-package com.example.smartrecordmobileapp.ui.dashboard
+package com.example.smartrecordmobileapp.ui.notifications
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class MyItemsViewModel : ViewModel() {
+class SettingsViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is view of my items Fragment"
+        value = "This is settings Fragment"
     }
     val text: LiveData<String> = _text
 }
