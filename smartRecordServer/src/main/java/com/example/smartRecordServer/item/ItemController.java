@@ -42,7 +42,7 @@ public class ItemController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping
-    public ResponseId<Long> addItem(@RequestBody ItemPostDto itemPostDto){ //TODO: dto czy bez
+    public ResponseId<Long> addItem(@RequestBody ItemPostDto itemPostDto){
 
         if(itemPostDto.getItemTemplateId()!=null && itemPostDto.getItemTemplate()!=null){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
