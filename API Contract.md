@@ -28,32 +28,32 @@
 ## Najważniejsze informacje
 
 * Wszystkie zapytania zwracają tablice lub obiekty JSON
-* Podstawowe jednostki w API to: przedmiot, wypożyczenie, użytkownik.
+* Podstawowe jednostki w API to: przedmiot `item`, wypożyczenie `rental`, użytkownik `user`.
 
 ## Kody odpowiedzi używane tym w API
 Każda błędna odpowiedź zwraca wiadomość z informacja jaki konkrtnie błąd wystąpił
 
 * HTTP `4XX` - używane dla błędnych zapytań. Błąd zawsze po stronie klienta
 * HTTP `400` - niepoprawne zapytanie.
-* HTTP `403` - weryfikacja niepoprawna.
+* HTTP `403` - autoryzacja nideudana.
 * HTTP `404` - zasób `GET` nie istnieje.
 * HTTP `409` - zasób `POST` już istnieje.
 * HTTP `5XX` - błąd po stronie serwera.
 
 ## Format danych
 
-* Dane w zapytaniach `GET` powinny być wysłane w URI
-* Dane w zapytaniach `POST`, `PUT` i `DELETE` powinny być wysłane w `requestBody` w formacie JSON (`application/json`). Kolejność parametrów jest dowolna
+* Dane w zapytaniach `GET` i `DELETE` powinny być wysłane w URI
+* Dane w zapytaniach `POST` i `PUT` powinny być wysłane w `requestBody` w formacie JSON (`application/json`). Kolejność parametrów jest dowolna.
 
 ## Zabezpieczenia
 
-* Każdy punkt końcowy jest zabezpieczony i wymaga autoryzacji tokenem
-* Różne punkty końcowe są dostępne dla użytkowników z różnymi uprawnieniami, zgodnie z podziałem punktów końcowych w tym dokumencie.
-* Token generuje się przez zapytanie do endpointu [/login](#logowanie-uzytkownika)
-* Token ma być wysłany przez użytkownika w nagłówku `Authorization`
-* Token ma zawierać przedrostek `Bearer `, jest on z nim generowany
-* Wygenerowany token ma ważność 14 dni i może być odnawiany (odnawianie zostanie zaimplementowane w przyszłości)
-* Aby wylogować się (zakończyć sesję) należy usunąć token z pamięci klienta. Tokeny nie są przechowywane w bazie danych, tylko sprawdzane na podstawie klucza (zgodnie ze standardem JWT)
+* Każdy punkt końcowy jest zabezpieczony i wymaga autoryzacji tokenem.
+* Różne punkty końcowe są dostępne dla użytkowników z różnymi uprawnieniami, zgodnie z podziałem punktów końcowych poniej.
+* Token generuje się przez zapytanie do endpointu [/login](#logowanie-uzytkownika).
+* Token ma być wysłany przez użytkownika w nagłówku `Authorization`.
+* Token ma zawierać przedrostek `Bearer `, jest on z nim generowany.
+* Wygenerowany token ma ważność 14 dni i może być odnawiany (odnawianie zostanie zaimplementowane w przyszłości).
+* Aby wylogować się (zakończyć sesję) należy usunąć token z pamięci klienta. Tokeny nie są przechowywane w bazie danych, tylko sprawdzane na podstawie klucza (zgodnie ze standardem JWT).
 
 ## Punkty końcowe 
 

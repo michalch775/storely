@@ -1,7 +1,31 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron');
 
-const path = require('path')
-const isDev = require('electron-is-dev')
+const path = require('path');
+const isDev = require('electron-is-dev');
+const Store = require('electron-store');
+
+//console.log("TRALALAL",app.getPath('userData'));
+
+const defaults = {
+	settings: {
+		darkMode:false,
+    navWidth:"300"
+	}
+};
+
+
+
+const store = new Store({defaults});
+
+ipcMain.on('store-set', (event, {name, value}) => {
+    store.set(name, value);
+    event.returnValue=0;
+});
+
+ipcMain.on('store-get', (event, name) => {
+  //event.returnValue = 1;
+  event.returnValue = store.get(name, undefined);
+});
 
 //require('@electron/remote/main').initialize()
 
@@ -10,6 +34,8 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
+    minWidth:600,
+    minHeight:400,
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true
