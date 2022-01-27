@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Nav from "./components/Nav";
@@ -24,7 +24,6 @@ function App() {
         <Route path="user" element={<Users/>} />
 
         <Route path="login" element={<Login/>} />
-
 
         <Route path="settings" element={<Settings/>} />
 
