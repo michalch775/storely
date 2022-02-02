@@ -1,1 +1,1 @@
-# smart-record
+# storely

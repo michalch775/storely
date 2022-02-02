@@ -6,7 +6,6 @@
 	- [Format danych](#format-danych)
 	- [Zabezpieczenia](#zabezpieczenia)
 	- [Punkty końcowe](#punkty-końcowe)
-		- [Tabela poglądowa](#tabela-poglądowa)
 		- [Definicje ENUM](#definicje-enum)
 		- [Punkty końcowe dla pracownika](#punkty-końcowe-dla-pracownika)
 			- [Pobranie informacji o przedmiocie](#pobranie-informacji-o-przedmiocie)
@@ -33,7 +32,7 @@
 ## Kody odpowiedzi używane tym w API
 Każda błędna odpowiedź zwraca wiadomość z informacja jaki konkrtnie błąd wystąpił
 
-* HTTP `4XX` - używane dla błędnych zapytań. Błąd zawsze po stronie klienta
+* HTTP `4XX` - używane dla błędnych zapytań. Błąd zawsze po stronie klienta. Czyli jak wywala `4XX` to wysłałeś złe zapytanie ;p.
 * HTTP `400` - niepoprawne zapytanie.
 * HTTP `403` - autoryzacja nideudana.
 * HTTP `404` - zasób `GET` nie istnieje.
@@ -42,8 +41,8 @@ Każda błędna odpowiedź zwraca wiadomość z informacja jaki konkrtnie błąd
 
 ## Format danych
 
-* Dane w zapytaniach `GET` i `DELETE` powinny być wysłane w URI
-* Dane w zapytaniach `POST` i `PUT` powinny być wysłane w `requestBody` w formacie JSON (`application/json`). Kolejność parametrów jest dowolna.
+* Dane w zapytaniach `GET` i `DELETE` powinny być wysłane w URI (czyli linku - np. `localhost:8080/user?id=1`)
+* Dane w zapytaniach `POST` i `PUT` powinny być wysłane w `request body` w formacie JSON (`application/json`). Kolejność parametrów jest dowolna.
 
 ## Zabezpieczenia
 
@@ -56,7 +55,7 @@ Każda błędna odpowiedź zwraca wiadomość z informacja jaki konkrtnie błąd
 * Aby wylogować się (zakończyć sesję) należy usunąć token z pamięci klienta. Tokeny nie są przechowywane w bazie danych, tylko sprawdzane na podstawie klucza (zgodnie ze standardem JWT).
 
 ## Punkty końcowe 
-
+<!-- 
 ### Tabela poglądowa
 
 | Zasób | POST | PUT | GET | DELETE |
@@ -70,7 +69,7 @@ Każda błędna odpowiedź zwraca wiadomość z informacja jaki konkrtnie błąd
 |/rental| Dodanie nowego wypożyczenia | Błąd | Pobranie listy wypożyczeń | Zakończenie grupy wypożyczeń
 |/rental/{id}| Błąd| Błąd | Pobranie informacji o wypożyczeniu | Zakończenie wypożyczenia
 |/archive| Błąd| Błąd | Pobranie historii wypożyczeń | Usunięcie grupy wypożyczeń |
-|/archive/{id}| Błąd| Błąd | Pobranie informacji o wypożyczeniu | Usunięcie wypożyczenia 
+|/archive/{id}| Błąd| Błąd | Pobranie informacji o wypożyczeniu | Usunięcie wypożyczenia  -->
 
 ### Definicje ENUM
 
@@ -113,17 +112,17 @@ HTTP `200`
 ```javascript
 {
 	"id":1234,               //id przedmiotu
-	"name":"Wiertarka Bosch" //nazwa przedmiotu
-	"description":"Wiert..." //opis
+	"name":"Wiertarka Bosch", //nazwa przedmiotu
+	"description":"Wiert...", //opis
 	"isReturnable":false,    //czy przedmiot jest zwrotny
 	"quantity":5,            //ilosc
 	"timeLimit":48,          //dozwolony czas wypozyczenia w godzinach
-	"criticalQuantity":2.    //ilość krytyczna
+	"criticalQuantity":2,    //ilość krytyczna
 	"category":              //kategoria
 	{
 		"id":5,               //id kategorii
 		"name":"ubrania"      //nazwa kategorii
-	}
+	},
 	"allowedGroups:          //dozwolone grupy
 	[
 		{
