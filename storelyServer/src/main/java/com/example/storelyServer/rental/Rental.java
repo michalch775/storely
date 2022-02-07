@@ -2,6 +2,9 @@ package com.example.storelyServer.rental;
 
 import com.example.storelyServer.item.Item;
 import com.example.storelyServer.user.User;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.GenericField;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.IndexedEmbedded;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

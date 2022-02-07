@@ -39,9 +39,9 @@ public class UserController {
     @GetMapping
     public List<User> listUsers(
             @RequestParam(required = false, defaultValue = "") String search,
-            @RequestParam(required = false, defaultValue = "0") Integer page){
+            @RequestParam(required = false, defaultValue = "0") Integer offset){
 
-        return userService.getUserSearch(search);
+        return userService.getUserSearch(search, offset);
         //return userService.getUsers(page, search);
     }
 

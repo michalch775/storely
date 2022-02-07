@@ -4,8 +4,7 @@ import com.example.storelyServer.group.Group;
 import com.example.storelyServer.rental.Rental;
 import com.example.storelyServer.security.ApplicationUserRole;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,28 +18,25 @@ import java.util.*;
 @Table(name="AppUser")
 public class User implements UserDetails {
 
-
-
-
     @Id
     @SequenceGenerator(name = "user_sequence", sequenceName = "user_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
     @Column(unique = true, nullable = false, updatable = false)
+    @GenericField
     private Long id;
-    @Field
+    @FullTextField
     private String name;
     @JsonIgnore
     private String password;
-    @Field
+    @FullTextField
     private String surname;
     @Column(unique = true, nullable = false)
-    @Field
+    @FullTextField
     private String email;
     @Column(nullable = false, updatable = false)
     private LocalDateTime registered = LocalDateTime.now();
-    @Field
+    //@GenericField TODO
     private ApplicationUserRole role = ApplicationUserRole.EMPLOYEE;
-    @Field
     private boolean isEnabled = true;
 
 
@@ -50,6 +46,7 @@ public class User implements UserDetails {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="groupId", referencedColumnName = "id")
+    @IndexedEmbedded
     private Group group;
 
 

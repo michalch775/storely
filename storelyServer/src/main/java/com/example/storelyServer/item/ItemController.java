@@ -26,13 +26,14 @@ public class ItemController {
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_EMPLOYEE','ROLE_WAREHOUSEMAN')")
     @GetMapping
-    public List<Item> show(){
-        return itemService.getItems();
+    public List<Item> show(@RequestParam(required = false, defaultValue = "") String search,
+                           @RequestParam(required = false, defaultValue = "0") Integer offset){
+        return itemService.getItems(search, offset);
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_EMPLOYEE','ROLE_WAREHOUSEMAN')")
     @GetMapping(path = "{itemId}")
-    public Item getUser(@PathVariable Long itemId,
+    public Item getItem(@PathVariable Long itemId,
                         @RequestParam(required = false) String byCode){
         if(byCode=="true"){
             return itemService.getItemByCode(itemId);

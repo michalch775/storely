@@ -1,10 +1,9 @@
 package com.example.storelyServer.user;
 
 import org.apache.lucene.search.Query;
-import org.hibernate.search.jpa.FullTextEntityManager;
-import org.hibernate.search.jpa.FullTextQuery;
-import org.hibernate.search.jpa.Search;
-import org.hibernate.search.query.dsl.QueryBuilder;
+import org.hibernate.search.engine.search.query.SearchResult;
+import org.hibernate.search.mapper.orm.Search;
+import org.hibernate.search.mapper.orm.session.SearchSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -28,27 +27,34 @@ public class UserService implements UserDetailsService {
     private final EntityManager entityManager;
 
     @Autowired
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, EntityManager centityManager, EntityManager entityManager) {
-        super();
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, EntityManager entityManager) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.entityManager = entityManager;
     }
 
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException{
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         return userRepository.findUserByEmail(email)
-                .orElseThrow(()->new UsernameNotFoundException("Nie znaleziono uzytkowika"));
+                .orElseThrow(() -> new UsernameNotFoundException("Nie znaleziono uzytkowika"));
     }
 
-    public List<User> getUserSearch(String word){
-        FullTextEntityManager fullTextEntityManager = Search.getFullTextEntityManager(entityManager);
-        QueryBuilder qb = fullTextEntityManager.getSearchFactory().buildQueryBuilder()
-                .forEntity(User.class)
-                .get();
-        Query foodQuery = qb.keyword().onFields("name","surname","email").matching(word).createQuery();
-        FullTextQuery fullTextQuery = fullTextEntityManager.createFullTextQuery(foodQuery, User.class);
-        return (List<User>) fullTextQuery.getResultList();
+    public List<User> getUserSearch(String word, Integer offset) {
+        SearchSession searchSession = Search.session(entityManager);
+
+        SearchResult<User> result = searchSession.search(User.class)
+                .where(f -> f.match()
+                        .fields("name","surname","email","group.name") //TODO:dodac grupe
+                        .matching(word)
+                        .fuzzy(2))
+                .fetch(offset, 20);
+
+        long totalHitCount = result.total().hitCount();
+        List<User> hits = result.hits();
+
+        return hits;
     }
+
+
 
 
     public List<User> getUsers(Integer offset, String searchText) {

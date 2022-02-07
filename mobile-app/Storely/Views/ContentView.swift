@@ -22,7 +22,7 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $selection) {
             WorkshopView().tabItem { /*@START_MENU_TOKEN@*/Text("Tab Label 1")/*@END_MENU_TOKEN@*/ }.tag(Tab.workshop)
-            Text("Tab Content 2").tabItem { /*@START_MENU_TOKEN@*/Text("Tab Label 2")/*@END_MENU_TOKEN@*/ }.tag(Tab.workshop)
+            Text("Tab Content 2").tabItem { /*@START_MENU_TOKEN@*/Text("Tab Label 2")/*@END_MENU_TOKEN@*/ }.tag(Tab.rentals)
         }
         .fullScreenCover(isPresented: .constant(!isLoggedIn)) {
             LoginView()

@@ -3,6 +3,10 @@ package com.example.storelyServer.item;
 import com.example.storelyServer.itemTemplate.ItemTemplate;
 import com.example.storelyServer.rental.Rental;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.GenericField;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.IndexedEmbedded;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -10,6 +14,7 @@ import java.util.Set;
 
 @Entity
 @Table
+@Indexed
 public class Item {
 
     @Id
@@ -19,14 +24,16 @@ public class Item {
     private Integer quantity;
 
     @JsonIgnore
+    @GenericField
     private Long code;
 
 
-    @Column(name = "itemTemplateId", insertable = false, updatable = false)
-    private Long itemTemplateId;
+//    @Column(name = "itemTemplateId", insertable = false, updatable = false)
+//    private Long itemTemplateId;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne( fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     @JoinColumn(name = "itemTemplateId", referencedColumnName = "id")
+    @IndexedEmbedded
     private ItemTemplate itemTemplate;
 
     @JsonIgnore
@@ -40,11 +47,11 @@ public class Item {
         this.itemTemplate = itemTemplate;
     }
 
-    public Item(Long id, Integer quantity, Long code, Long itemTemplateId, ItemTemplate itemTemplate, Set<Rental> rentals) {
+    public Item(Long id, Integer quantity, Long code, ItemTemplate itemTemplate, Set<Rental> rentals) {
         this.id = id;
         this.quantity = quantity;
         this.code = code;
-        this.itemTemplateId = itemTemplateId;
+        //this.itemTemplateId = itemTemplateId;
         this.itemTemplate = itemTemplate;
         this.rentals = rentals;
     }
@@ -52,13 +59,13 @@ public class Item {
     public Item() {
     }
 
-    public Long getItemTemplateId() {
-        return itemTemplateId;
-    }
+//    public Long getItemTemplateId() {
+//        return itemTemplateId;
+//    }
 
-    public void setItemTemplateId(Long itemTemplateId) {
-        this.itemTemplateId = itemTemplateId;
-    }
+//    public void setItemTemplateId(Long itemTemplateId) {
+//        this.itemTemplateId = itemTemplateId;
+//    }
 
     public Long getId() {
         return id;

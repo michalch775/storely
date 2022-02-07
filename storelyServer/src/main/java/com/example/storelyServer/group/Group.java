@@ -4,6 +4,9 @@ package com.example.storelyServer.group;
 import com.example.storelyServer.itemTemplate.ItemTemplate;
 import com.example.storelyServer.user.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.IndexedEmbedded;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -11,6 +14,7 @@ import java.util.Set;
 
 @Entity
 @Table(name="appGroup")
+@Indexed
 public class Group {
     @Id
     @SequenceGenerator(
@@ -25,16 +29,18 @@ public class Group {
     )
 
     private Long id;
+    @FullTextField
     private String name;
 
     @JsonIgnore
     @ManyToMany(
-            mappedBy = "groups"
+            mappedBy = "groups",
+            cascade = CascadeType.DETACH
     )
     private Set<ItemTemplate> items = new HashSet<>();
 
     @JsonIgnore
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "group")
     private Set<User> users = new HashSet<>();
 
     public Group(Long id, String name, Set<ItemTemplate> items, Set<User> users) {

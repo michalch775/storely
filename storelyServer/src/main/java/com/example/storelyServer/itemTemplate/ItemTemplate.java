@@ -4,6 +4,7 @@ import com.example.storelyServer.category.Category;
 import com.example.storelyServer.group.Group;
 import com.example.storelyServer.item.Item;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.search.mapper.pojo.mapping.definition.annotation.*;
 
 import javax.persistence.*;
 import java.sql.Time;
@@ -12,6 +13,7 @@ import java.util.Set;
 
 @Table
 @Entity
+@Indexed
 public class ItemTemplate {
     @Id
     @SequenceGenerator(
@@ -25,35 +27,42 @@ public class ItemTemplate {
             generator = "item_template_sequence"
     )
     private Long id;
+    @FullTextField
     private String name;
+    @FullTextField
+    private String model;
+    @FullTextField
     private String description; //TODO: as varchar 5000 signs
     private boolean isReturnable = true;
     private Time timeLimit;
     private Integer criticalQuantity;
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "categoryId", referencedColumnName = "id")
+    @IndexedEmbedded
     private Category category;
 
 
-    @ManyToMany
     @JoinTable(
             name = "itemGroup",
             joinColumns = @JoinColumn(name = "groupId"),
             inverseJoinColumns = @JoinColumn(name = "itemId")
     )
+    @ManyToMany
+    @IndexedEmbedded
     private Set<Group> groups = new HashSet<>();
 
     @JsonIgnore
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "itemTemplate", cascade = CascadeType.DETACH)
     private Set<Item> items = new HashSet<>();
 
 
     public ItemTemplate(Long id, String name,
                         String description, boolean isReturnable,
                         Time timeLimit, Integer criticalQuantity,
-                        Category category, Set<Group> groups, Set<Item> items) {
+                        Category category, Set<Group> groups, Set<Item> items,
+                        String model) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -63,6 +72,7 @@ public class ItemTemplate {
         this.category = category;
         this.groups = groups;
         this.items = items;
+        this.model = model;
     }
 
     public ItemTemplate() {
@@ -138,5 +148,13 @@ public class ItemTemplate {
 
     public void setItems(Set<Item> items) {
         this.items = items;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 }

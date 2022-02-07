@@ -1,7 +1,9 @@
 package com.example.storelyServer.configuration;
 
-import org.hibernate.search.jpa.FullTextEntityManager;
-import org.hibernate.search.jpa.Search;
+import com.example.storelyServer.user.User;
+import org.hibernate.search.mapper.orm.Search;
+import org.hibernate.search.mapper.orm.massindexing.MassIndexer;
+import org.hibernate.search.mapper.orm.session.SearchSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +22,12 @@ public class IndexingService {
 
     @Transactional
     public void initiateIndexing() throws InterruptedException {
-        FullTextEntityManager fullTextEntityManager = Search.getFullTextEntityManager(em);
-        fullTextEntityManager.createIndexer().startAndWait();
+        SearchSession searchSession = Search.session( em );
+
+        MassIndexer indexer = searchSession.massIndexer();
+
+        //.threadsToLoadObjects( 7 );
+
+        indexer.startAndWait();
     }
 }
