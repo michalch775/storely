@@ -4,6 +4,7 @@ import com.example.storelyServer.group.Group;
 import com.example.storelyServer.rental.Rental;
 import com.example.storelyServer.security.ApplicationUserRole;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -26,7 +27,7 @@ public class User implements UserDetails {
     private Long id;
     @FullTextField
     private String name;
-    @JsonIgnore
+
     private String password;
     @FullTextField
     private String surname;
@@ -120,6 +121,13 @@ public class User implements UserDetails {
         this.group = group;
     }
 
+    public User(String name, String password, String surname, String email) {
+        this.name = name;
+        this.password = password;
+        this.surname = surname;
+        this.email = email;
+    }
+
     public User() {
     }
 
@@ -140,6 +148,7 @@ public class User implements UserDetails {
     }
 
     @Override
+    @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> list = new ArrayList<GrantedAuthority>();
 
@@ -149,25 +158,30 @@ public class User implements UserDetails {
     }
 
     @Override
+    @JsonIgnore
     public String getPassword() {
         return password;
     }
 
     @Override
+    @JsonIgnore
     public String getUsername() {
         return email;
     }
 
+    @JsonIgnore
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
 
+    @JsonIgnore
     @Override
     public boolean isAccountNonLocked() {
         return true;
     }
 
+    @JsonIgnore
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
@@ -186,6 +200,7 @@ public class User implements UserDetails {
         this.name = name;
     }
 
+    @JsonProperty
     public void setPassword(String password) {
         this.password = password;
     }

@@ -1,7 +1,7 @@
 import styles from "../styles/ShortageTableCell.module.scss";
 import React, {FC} from 'react';
 
-const MediumWidget: React.FC<{children:any}>=({children, ...props})=> (
+const ShortageTableCell: React.FC<{children:any}>=({children, ...props})=> (
       <tr className={styles.main}>
         <td>Woda Cisowianka niegazowana</td>
         <td>42  /  50</td>
@@ -20,4 +20,4 @@ const MediumWidget: React.FC<{children:any}>=({children, ...props})=> (
   );
 
 
-export default MediumWidget;
+export default ShortageTableCell;

@@ -4,6 +4,7 @@ import com.example.storelyServer.category.Category;
 import com.example.storelyServer.group.Group;
 import com.example.storelyServer.item.Item;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.*;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ import java.util.Set;
 @Table
 @Entity
 @Indexed
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class ItemTemplate {
     @Id
     @SequenceGenerator(
@@ -34,7 +36,7 @@ public class ItemTemplate {
     @FullTextField
     private String description; //TODO: as varchar 5000 signs
     private boolean isReturnable = true;
-    private Time timeLimit;
+    private Integer timeLimit;
     private Integer criticalQuantity;
 
 
@@ -60,7 +62,7 @@ public class ItemTemplate {
 
     public ItemTemplate(Long id, String name,
                         String description, boolean isReturnable,
-                        Time timeLimit, Integer criticalQuantity,
+                        Integer timeLimit, Integer criticalQuantity,
                         Category category, Set<Group> groups, Set<Item> items,
                         String model) {
         this.id = id;
@@ -110,11 +112,11 @@ public class ItemTemplate {
         isReturnable = returnable;
     }
 
-    public Time getTimeLimit() {
+    public Integer getTimeLimit() {
         return timeLimit;
     }
 
-    public void setTimeLimit(Time timeLimit) {
+    public void setTimeLimit(Integer timeLimit) {
         this.timeLimit = timeLimit;
     }
 

@@ -39,7 +39,8 @@ public class Rental {
     @JoinColumn(name = "itemId", referencedColumnName = "id")
     private Item item;
 
-    public Rental(Integer quantity, User user, Item item) {
+    public Rental(User user, Item item, boolean isReturnable, Integer quantity) {
+        this.isReturnable = isReturnable;
         this.quantity = quantity;
         this.user = user;
         this.item = item;
@@ -113,4 +114,5 @@ public class Rental {
     public void setItem(Item item) {
         this.item = item;
     }
+
 }

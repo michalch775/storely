@@ -13,7 +13,7 @@ struct LoginView: View {
         VStack{
             Spacer()
             
-            VStack {
+            VStack(spacing:15) {
                 TextField("Email", text: .constant(""))
                     .padding()
                     .overlay(RoundedRectangle(cornerRadius: 10)
@@ -25,6 +25,7 @@ struct LoginView: View {
                     .overlay(RoundedRectangle(cornerRadius: 10)
                                 .stroke(Color("DarkGrayAccentColor"), lineWidth: 2)
                         )
+                    
                 
                 Button("Zaloguj"){
                     

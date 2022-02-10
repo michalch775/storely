@@ -3,14 +3,17 @@ package com.example.storelyServer.item;
 import com.example.storelyServer.itemTemplate.ItemTemplate;
 import com.example.storelyServer.rental.Rental;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.GenericField;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.IndexedEmbedded;
 
 import javax.persistence.*;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
+
+import static java.time.LocalDate.now;
 
 @Entity
 @Table
@@ -25,11 +28,10 @@ public class Item {
 
     @JsonIgnore
     @GenericField
+    @Column(unique = true)
     private Long code;
 
-
-//    @Column(name = "itemTemplateId", insertable = false, updatable = false)
-//    private Long itemTemplateId;
+    private Date added = Date.valueOf(LocalDate.now());
 
     @ManyToOne( fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     @JoinColumn(name = "itemTemplateId", referencedColumnName = "id")
@@ -47,10 +49,11 @@ public class Item {
         this.itemTemplate = itemTemplate;
     }
 
-    public Item(Long id, Integer quantity, Long code, ItemTemplate itemTemplate, Set<Rental> rentals) {
+    public Item(Long id, Integer quantity, Long code, Date added, ItemTemplate itemTemplate, Set<Rental> rentals) {
         this.id = id;
         this.quantity = quantity;
         this.code = code;
+        this.added = added;
         //this.itemTemplateId = itemTemplateId;
         this.itemTemplate = itemTemplate;
         this.rentals = rentals;

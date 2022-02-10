@@ -108,34 +108,27 @@ public class UserService implements UserDetailsService {
         if(userByEmail.isPresent()){
             throw new ResponseStatusException(HttpStatus.CONFLICT,"Ten email jest już zajety");
         }
-        String password = passwordEncoder.encode(user.getPassword());
-        user.setPassword(password);
+        System.out.println(user.getPassword());
+
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
         userRepository.save(user);
     }
 
-    public void updateUserByEmail(String email, User user){
+    public void updateUserByEmail(String email, UserPutDto user){
         User userToEdit = userRepository.findUserByEmail(email)
-                .orElseThrow(()->new UsernameNotFoundException("Nie znaleziono uzytkowika"));
+                .orElseThrow(()->new UsernameNotFoundException("Nieznany blad"));
 
-        if(user.getEmail()!=null){
-            userToEdit.setEmail(user.getEmail());
+        if(!passwordEncoder.matches(user.getPassword(), userToEdit.getPassword())){
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Niepoprawne haslo");
         }
-        if(user.getPassword()!=null){
+
+        if(user.getNewEmail()!=null){
+            userToEdit.setEmail(user.getNewEmail());
+        }
+        if(user.getNewPassword()!=null){
             userToEdit.setPassword(passwordEncoder.encode(user.getPassword()));
         }
-        if(user.getName()!=null){
-            userToEdit.setName(user.getName());
-        }
-        if(user.getSurname()!=null){
-            userToEdit.setSurname(user.getSurname());
-        }
-        if(user.getRole()!=null){
-            //userToEdit.setRole(user.getRole());
-        }
-        if(user.getGroup()!=null){
-            userToEdit.setGroup(user.getGroup());
-        }
-
         userRepository.save(userToEdit);
     }
 

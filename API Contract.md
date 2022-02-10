@@ -6,6 +6,7 @@
 	- [Format danych](#format-danych)
 	- [Zabezpieczenia](#zabezpieczenia)
 	- [Punkty końcowe](#punkty-końcowe)
+		- [Tabela poglądowa](#tabela-poglądowa)
 		- [Definicje ENUM](#definicje-enum)
 		- [Punkty końcowe dla pracownika](#punkty-końcowe-dla-pracownika)
 			- [Pobranie informacji o przedmiocie](#pobranie-informacji-o-przedmiocie)
@@ -34,7 +35,7 @@ Każda błędna odpowiedź zwraca wiadomość z informacja jaki konkrtnie błąd
 
 * HTTP `4XX` - używane dla błędnych zapytań. Błąd zawsze po stronie klienta. Czyli jak wywala `4XX` to wysłałeś złe zapytanie ;p.
 * HTTP `400` - niepoprawne zapytanie.
-* HTTP `403` - autoryzacja nideudana.
+* HTTP `403` - autoryzacja nideudana. Przy endpoincie `/login` oznacza niepoprawne dane autoryzacji.
 * HTTP `404` - zasób `GET` nie istnieje.
 * HTTP `409` - zasób `POST` już istnieje.
 * HTTP `5XX` - błąd po stronie serwera.
@@ -51,26 +52,28 @@ Każda błędna odpowiedź zwraca wiadomość z informacja jaki konkrtnie błąd
 * Token generuje się przez zapytanie do endpointu [/login](#logowanie-uzytkownika).
 * Token ma być wysłany przez użytkownika w nagłówku `Authorization`.
 * Token ma zawierać przedrostek `Bearer `, jest on z nim generowany.
-* Wygenerowany token ma ważność 14 dni i może być odnawiany (odnawianie zostanie zaimplementowane w przyszłości).
+* Wygenerowany token ma ważność 14 dni, po 14 dniach wygasa i nalezy zalogowac sie ponownie.
 * Aby wylogować się (zakończyć sesję) należy usunąć token z pamięci klienta. Tokeny nie są przechowywane w bazie danych, tylko sprawdzane na podstawie klucza (zgodnie ze standardem JWT).
 
 ## Punkty końcowe 
-<!-- 
+
 ### Tabela poglądowa
+
+Kolorem zielonym oznaczone są endpointy dostępne dla magazyniera, kolorem niebieskim dla pracownika.  
+Endpointy oznaczone kursywą będą dodane w przyszłości.
 
 | Zasób | POST | PUT | GET | DELETE |
 |-------|------|-----|-----|--------|
-|/item  |Dodanie nowego przedmiotu|Aktualizacja grupy przedmiotów|Pobranie listy przedmiotów|Usunięcie grupy przedmiotów|
-|/item/{id}|Błąd|Aktualizacja przedmiotu|Pobranie informacji o przedmiocie|Usunięcie przedmiotu|
-|/user| Dodanie nowego użytkownika | Aktualizacja danych bieżącego użytkownika| Pobranie listy użytkowników | Usunięcie grupy użytkowników
-|/user/{id}| Brak | Aktualizacja danych użytkownika | Pobranie danych użytkownika | Usunięcie użytkownika
-|/login| Loguje użytkownika, generuje ważny 14 dni token|Błąd |Błąd | Błąd
-|/user/{id}/rental| Dodanie wypożyczenia przez użytkownika | Błąd | Pobranie wypożyczeń użytkownika| Zwrócenie przedmiotu 
-|/rental| Dodanie nowego wypożyczenia | Błąd | Pobranie listy wypożyczeń | Zakończenie grupy wypożyczeń
-|/rental/{id}| Błąd| Błąd | Pobranie informacji o wypożyczeniu | Zakończenie wypożyczenia
-|/archive| Błąd| Błąd | Pobranie historii wypożyczeń | Usunięcie grupy wypożyczeń |
-|/archive/{id}| Błąd| Błąd | Pobranie informacji o wypożyczeniu | Usunięcie wypożyczenia  -->
-
+|/login| <blue>Logowanie</blue>|Błąd |Błąd | Błąd 
+|/item  |<green>Dodanie nowej grupy przedmiotów</green>|*Aktualizacja grupy przedmiotów*|<blue>Pobranie listy przedmiotów</blue>|*Usunięcie grupy przedmiotów*|
+|/item/{itemId}|Błąd|Aktualizacja przedmiotu|<blue>Pobranie informacji o przedmiocie</blue>|Usunięcie przedmiotu|
+|/user| Dodanie nowego użytkownika | <blue>Aktualizacja swoich danych</blue>| Pobranie listy użytkowników | *Usunięcie grupy użytkowników*
+|/user/{userId}| Brak | Aktualizacja danych użytkownika | Pobranie danych użytkownika | Usunięcie użytkownika
+|/user/rental|<blue>Wypozyczenie przedmiotu</blue> | Błąd | <blue>Pobranie swoich wypozyczen</blue>| Błąd
+|/user/rental/{rentalId}|Błąd | Błąd | <blue>Pobranie informacji o wypozyczeniu</blue>| <blue>Zwrócenie przedmiotu</blue> 
+|/rental| Dodanie wypozyczenia | Błąd | Pobranie listy wypożyczeń | *Zakończenie grupy wypożyczeń*
+|/rental/{rentalId}| Błąd| Błąd | Pobranie informacji o wypożyczeniu | Zakończenie wypożyczenia
+<!-- |/user/{id}/rental| <blue>Wypozyczenie przedmiotu</blue> | Błąd | <blue>Pobranie swoich wypozyczen</blue>| <blue>Zwrócenie przedmiotu</blue>  -->
 ### Definicje ENUM
 
 Sortowanie (sort)
@@ -89,20 +92,21 @@ Rola (role)
 |EMPLOYEE|pracownik, użytkownik z tą rolą ma dostęp tylko do panelu pracownika|
 |WAREHOUSEMAN|magazynier, ma dostęp do panelu magazyniera i pracownika (w aplikacji mobilnej)|
 |ADMIN|administrator, ma dostęp do panelu pracownika, magazyniera i administratora|
-
 ### Punkty końcowe dla pracownika
 
-#### Pobranie informacji o przedmiocie 
+#### Pobranie informacji o przedmiocie
 
 Zwraca informacje wyświetlane w widoku przedmiotu. Jest dostępne dla pracownika, magazyniera oraz administratora.
 
 ```
-GET /item/{id}
+GET /item/{id}?byCode=true
 ```
+
+Parametry w uri
+
 |Nazwa|Typ|Wymagany|Opis|
 |-----|---|--------|----|
 |byCode|bool|nie|jeżeli true w uri zamiast zmiennej id powinien znaleźć się numer kodu kreskowego|
-
 
 
 Odpowiedź
@@ -112,18 +116,18 @@ HTTP `200`
 ```javascript
 {
 	"id":1234,               //id przedmiotu
-	"name":"Wiertarka Bosch", //nazwa przedmiotu
-	"description":"Wiert...", //opis
+	"name":"Wiertarka Bosch",//nazwa przedmiotu
+	"description":"Wiert...",//opis
 	"isReturnable":false,    //czy przedmiot jest zwrotny
 	"quantity":5,            //ilosc
 	"timeLimit":48,          //dozwolony czas wypozyczenia w godzinach
 	"criticalQuantity":2,    //ilość krytyczna
 	"category":              //kategoria
 	{
-		"id":5,               //id kategorii
-		"name":"ubrania"      //nazwa kategorii
+		"id":5,                //id kategorii
+		"name":"ubrania"       //nazwa kategorii
 	},
-	"allowedGroups:          //dozwolone grupy
+	"allowedGroups":         //dozwolone grupy
 	[
 		{
 			"id":2,                    //id grupy
@@ -135,36 +139,54 @@ HTTP `200`
 
 #### Pobieranie listy przedmiotów 
 
-Jest dostępne dla pracownika magazyniera oraz administratora.
-
 ```
-GET /item 
+GET /item?search=wiertarka?offset=20
 ```
 
 Parametry
 
 |Nazwa|Typ|Wymagany|Opis|
 |-----|---|--------|----|
-|name |string|nie|do filtrowania, może być niepełna |
+|search |string|nie|fraza do wyszukiwania |
+|offset |int|nie| przesuniecie listy |
+<!-- |name |string|nie|do filtrowania, może być niepełna |
 |isReturnable |boolean|nie|do filtrowania|
 |category | integer |nie|do filtrowania|
 |isRent | boolean |nie|do filtrowania|
-|sort|enum (string)|nie|domyslnie "nameUp"|
+|sort|enum (string)|nie|domyslnie "nameUp"| -->
 
 Odpowiedź
+
+Zwraca tablice o dlugosci maksymalnie 20 obiektów
 
 HTTP `200`
 
 ```javascript
 [
-	{
-		"id":1234,               //id przedmiotu
-		"name":"Wiertarka Bosch" //nazwa przedmiotu
-		"isReturnable":false,    //czy przedmiot jest zwrotny
-		"quantity":5,            //ilosc
-		"rentalTime":48,         //czas w godzinach
-		"criticalQuantity":2.    //ilość krytyczna
-	}
+    {
+        "id": 1,                         //id przedmiotu
+        "quantity": -1,                  //ilosc (przy bezzwrotnych nie brana pod uwage)
+        "itemTemplate": {
+            "id": 1,                     //id wzorca przedmiotu
+            "name": "Wiertarka Bosch",   //nazwa 
+            "model": "wiertakrka GHB600",//model
+            "description": "super...",   //opis
+            "timeLimit": 48,             //maksymalny czas trwania wypozyczenia podawany w godzinach
+            "criticalQuantity": 15,      //ilosc krytyczna
+            "category": {                //kategoria
+                "id": 1,
+                "name": "Narzedzia"     
+            },             
+            "groups": [                  //grupy
+                {
+                    "id": 1,
+                    "name": "Pracownicy biurowi"
+                }
+            ],
+            "returnable": false,         //zwrotny
+            "hibernateLazyInitializer": {}//zignorowac
+        }
+    }
 ]
 ```
 #### Aktualizacja danych użytkownika
@@ -175,15 +197,13 @@ Jest dostępna dla pracownika, magazyniera i administratora. Resztę atrybutów 
 PUT /user
 ```
 
-Byc moze zostanie zmienione na `PATCH`
-
 Parametry
 
 |Nazwa|Typ|Wymagany|Opis|
 |-----|---|--------|----|
 |password|string|tak||
-|newUsername|string|tak|jako username należy podać email użytkowinka|
-|newPassword|string|tak||
+|newEmail|string|nie||
+|newPassword|string|nie||
 
 Odpowiedź
 
@@ -192,7 +212,7 @@ HTTP `200`
 #### Wypożyczanie przedmiotu
 
 ```
-POST /user/{id}/rental 
+POST /user/rental 
 ```
 
 Zapytanie jest **tablicą obiektów** z poniższymi parametrami.
@@ -435,3 +455,13 @@ HTTP `201`
 ```
 
 
+<style>
+blue{
+	color:#4f92ff;
+}
+
+green{
+	color:#55cf63;
+}
+
+</style>

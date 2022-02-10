@@ -3,10 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {AppViewModel} from "./AppViewModel";
+
+const props = {
+    viewModel : new AppViewModel()
+};
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App {...props}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

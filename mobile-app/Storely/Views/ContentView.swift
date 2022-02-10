@@ -10,8 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var selection: Tab = .workshop
-    //@EnvironmentObject var isLoggedIn: Bool
-    var isLoggedIn = true
+    @EnvironmentObject var modelData: ModelData
     
     enum Tab {
         case workshop
@@ -21,12 +20,12 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            WorkshopView().tabItem { /*@START_MENU_TOKEN@*/Text("Tab Label 1")/*@END_MENU_TOKEN@*/ }.tag(Tab.workshop)
+            WorkshopView().tabItem { Text("Tab Label 1") }.tag(Tab.workshop)
             Text("Tab Content 2").tabItem { /*@START_MENU_TOKEN@*/Text("Tab Label 2")/*@END_MENU_TOKEN@*/ }.tag(Tab.rentals)
+            Text("Tab Content 3").tabItem { Text("Tab Label 3") }.tag(Tab.settings)
         }
-        .fullScreenCover(isPresented: .constant(!isLoggedIn)) {
-            LoginView()
-        }
+        .fullScreenCover(isPresented:$modelData.isNonLogged) {
+            LoginView()}
               
     }
         
@@ -35,5 +34,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(ModelData())
+
     }
 }

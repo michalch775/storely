@@ -28,8 +28,7 @@ public class ItemService  {
 
     public List<Item> getItems(String word, Integer offset) {
         SearchSession searchSession = Search.session(entityManager);
-
-        if(word!="") {
+        if(word.length()>0) {
             SearchResult<Item> result = searchSession.search(Item.class)
                     .where(f -> f.match()
                             .fields("itemTemplate.name", "itemTemplate.model","itemTemplate.category.name",

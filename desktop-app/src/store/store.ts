@@ -1,3 +1,6 @@
+import {ApiConfiguration} from "../configuration/ApiConfiguration";
+import {SettingsConfiguration} from "../configuration/SettingsConfiguration";
+
 export class Store {
 
   private _isElectron:boolean=false;
@@ -9,17 +12,24 @@ export class Store {
       this._isElectron=true;
     }
     catch{
-      const settings = {
+      const settings:SettingsConfiguration = {
         darkMode:false,
-        navWidth:"300"
+        navWidth:300
       };
+      const api:ApiConfiguration = {
+        url:"localhost:3000/",
+        token:""
+      }
 
       const d = new Date();
       d.setTime(d.getTime() + (31*24*60*60*1000));
       let expires = "expires="+ d.toUTCString();
 
-      if(document.cookie=="")
-        document.cookie=`settings=${JSON.stringify(settings)};${expires}`;
+      if(document.cookie==""){
+        this.set("settings", settings.toString());
+        this.set("api", api.toString());
+
+      }
     }
   }
   public getIsElectron(){
@@ -35,6 +45,12 @@ export class Store {
       d.setTime(d.getTime() + (31*24*60*60*1000));
       let expires = "expires="+ d.toUTCString();
       document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    }
+  }
+
+  public setToken(){
+    if(this._isElectron){
+
     }
   }
 
