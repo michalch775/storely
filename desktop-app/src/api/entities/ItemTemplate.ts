@@ -6,9 +6,9 @@ export interface ItemTemplate {
     name:string;
     model:string;
     description:string;
-    isReturnable:boolean;
-    timeLimit:number; //hours
+    returnable:boolean;
+    timeLimit:number|null //hours
     criticalQuantity:number;
     category:Category;
-    groups:Array<Group>;
+    groups:Group[];
 }

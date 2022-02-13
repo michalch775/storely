@@ -1,27 +1,23 @@
-import {SettingsConfiguration} from "./configuration/SettingsConfiguration";
-import {Configuration} from "electron-builder";
-import {ApiConfiguration} from "./configuration/ApiConfiguration";
-import {MainEvents} from "./plumbing/events/MainEvents";
-import {ConfigurationLoader} from "./configuration/ConfigurationLoader";
 import {Menu, session, shell} from "electron";
 import DefaultMenu from "electron-default-menu";
 
-const { app, BrowserWindow, ipcMain } = require('electron');
-
+import { app, BrowserWindow, ipcMain } from 'electron';
+import {ConfigurationLoader} from "./configuration/ConfigurationLoader";
+import {Configuration} from "./configuration/Configuration";
+import {MainEvents} from "./ipc/MainEvents";
 const path = require('path');
 const isDev = require('electron-is-dev');
-const Store = require('electron-store');
 
-class Main{
-    private _window: BrowserWindow | null;
+class Main {
+    private _window:  BrowserWindow | null;
     private _ipcEvents: MainEvents;
-    private _configuration : Configuration | null;
+    private _configuration: Configuration | null;
 
-    public constructor(){
+    public constructor() {
         this._window = null;
         this._ipcEvents = new MainEvents();
-        this._configuration =  null;
-        //TODO this._setupCallback;
+        this._configuration = null;
+        this._setupCallbacks();
     }
 
     public execute(): void {
@@ -34,7 +30,7 @@ class Main{
 
         console.info('STARTING ELECTRON MAIN PROCESS');
 
-        app.on('second-instance', this._onSecondInstance);
+        //app.on('second-instance', this._onSecondInstance);
 
         // Initialise the primary instance of the application
         this._initializeApplication();
@@ -42,30 +38,26 @@ class Main{
 
     private _initializeApplication(): void {
 
-        this._configuration = ConfigurationLoader.load();
-        this._ipcEvents.configuration = this._configuration;
+        const configurationBuffer = ConfigurationLoader.load("./store.default.json");
 
-
+        this._ipcEvents.store = configurationBuffer;
         app.on('ready', this._onReady);
 
         app.on('window-all-closed', this._onAllWindowsClosed);
 
         app.on('activate', this._onActivate);
 
-        app.allowRendererProcessReuse = true;
 
-        app.on('open-url', this._onOpenUrl);
-
-        const startupUrl = this._getDeepLinkUrl(process.argv);
-        if (startupUrl) {
-            this._ipcEvents.deepLinkStartupUrl = startupUrl;
-        }
+        // app.on('open-url', this._onOpenUrl);
+        //
+        // const startupUrl = this._getDeepLinkUrl(process.argv);
+        // if (startupUrl) {
+        //     this._ipcEvents.deepLinkStartupUrl = startupUrl;
+        // }
     }
 
     private _onReady(): void {
 
-        // Create the window and use Electron recommended security options
-        // https://www.electronjs.org/docs/tutorial/security
         this._window = new BrowserWindow({
             width: 1200,
             height: 800,
@@ -73,29 +65,26 @@ class Main{
             minHeight: 500,
             webPreferences: {
                 nodeIntegration: false,
-                enableRemoteModule: false,
                 contextIsolation: true,
-                worldSafeExecuteJavaScript: true,
-                preload: path.join(app.getAppPath(), './electronUtils.js'),
+                preload: path.join(app.getAppPath(), './preload.js'),
             },
         });
 
         this._ipcEvents.window = this._window;
 
-        this._registerPrivateUriScheme();
+        //this._registerPrivateUriScheme();
 
         const menu = DefaultMenu(app, shell);
         Menu.setApplicationMenu(Menu.buildFromTemplate(menu));
 
-        this._window.loadURL(
-            isDev
-                ? 'http://localhost:3000'
-                : `file://${path.join(__dirname, '../build/index.html')}`
-        )
+        // this._window.loadURL(
+        //     isDev
+        //         ? 'http://localhost:3000'
+        //         : `file://${path.join(__dirname, '../build/index.html')}`
+        // )
 
-        //this._window.loadFile('./index.html');
+        this._window.loadFile('./index.html');
 
-        // Configure HTTP headers
         this._initialiseOutgoingHttpRequestHeaders();
 
         this._window.on('closed', this._onClosed);
@@ -107,19 +96,14 @@ class Main{
 
     private _onActivate(): void {
 
+        //if (BrowserWindow.getAllWindows().length === 0) createWindow();
+
         if (this._window === null) {
             this._onReady();
         }
         //if (BrowserWindow.getAllWindows().length === 0) createWindow();
     }
 
-    private _onSecondInstance(event: any, argv: any) {
-
-        const url = this._getDeepLinkUrl(argv);
-        if (url) {
-            this._receiveNotificationInRunningInstance(url);
-        }
-    }
 
     private _initialiseOutgoingHttpRequestHeaders() {
 
@@ -134,53 +118,41 @@ class Main{
         session.defaultSession.webRequest.onBeforeSendHeaders({urls: []} as any, headerCallback);
     }
 
-    private _onOpenUrl(event: any, schemeData: string) {
 
-        event.preventDefault();
 
-        if (this._window) {
+    private _onClosed(): void {
+        this._window = null;
+    }
 
-            // If we have a running window we can just forward the notification to it
-            this._receiveNotificationInRunningInstance(schemeData);
-        } else {
+    private _onAllWindowsClosed(): void {
 
-            // If this is a startup deep linking message we need to store it until after startup
-            this._ipcEvents.deepLinkStartupUrl = schemeData;
+        if (process.platform !== 'darwin') {
+            app.quit();
         }
     }
 
-    private _receiveNotificationInRunningInstance(privateSchemeUrl: string) {
 
-        // The existing instance of the app brings itself to the foreground
-        if (this._window) {
-
-            if (this._window.isMinimized()) {
-                this._window.restore();
-            }
-
-            this._window.focus();
-        }
-
-        // Send the event to the renderer side of the app
-        this._ipcEvents.sendPrivateSchemeNotificationUrl(privateSchemeUrl);
+    private _setupCallbacks() {
+        this._onReady = this._onReady.bind(this);
+        this._onActivate = this._onActivate.bind(this);
+        this._onClosed = this._onClosed.bind(this);
+        this._onAllWindowsClosed = this._onAllWindowsClosed.bind(this);
     }
+}
 
-    private _getDeepLinkUrl(argv: any): string | null {
+try {
+    const main = new Main();
+    main.execute();
 
-        for (const arg of argv) {
-            const value = arg as string;
-            if (value.indexOf(this._configuration!.oauth.privateSchemeName) !== -1) {
-                return value;
-            }
-        }
+} catch (e) {
 
-        return null;
-    }
-
+    console.log(e);
+    app.exit();
+}
 
 
 
-
+/*
 
     const settingsConfiguration:SettingsConfiguration={
         darkMode:false,
@@ -225,7 +197,7 @@ function createWindow() {
             enableRemoteModule: false,
             contextIsolation:true,
             worldSafeExecuteJavaScript:true,
-            preload:path.join(app.getAppPath(), "./electronUtils.js")
+            preload:path.join(app.getAppPath(), "./preload.js")
         }
     })
 
@@ -265,4 +237,4 @@ app.on('open-url', function(event:any, schemeData:string){
 
 }
 }
-
+*/

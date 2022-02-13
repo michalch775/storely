@@ -1,19 +1,19 @@
 import './App.scss';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./views/Home";
-import Nav from "./components/Nav";
-import Login from "./views/Login";
-import Delays from "./views/Delays";
-import Items from "./views/Items";
-import Shortages from "./views/Shortages";
-import Users from "./views/Users";
-import Settings from "./views/Settings";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import HomeContainer from "./views/Home/HomeContainer";
+import NavComponent from "./components/Nav/NavComponent";
+import LoginContainer from "./views/Login/LoginContainer";
+import Delays from "./views/Delays/Delays";
+import ItemsContainer from "./views/Items/ItemsContainer";
+import Shortages from "./views/Shortages/Shortages";
+import Users from "./views/Users/Users";
+import Settings from "./views/Settings/Settings";
 import {AppProps} from "./AppProps";
 import {useState, useEffect} from "react";
 import {AppState} from "./AppState";
-import {RouteHelper} from "./plumbing/utilities/RouteHelper";
-import {SetErrorEvent} from "./plumbing/events/SetErrorEvent";
-import {EventNames} from "./plumbing/events/EventNames";
+import {RouteHelper} from "./utilities/RouteHelper";
+import {SetErrorEvent} from "./events/SetErrorEvent";
+import {EventNames} from "./events/EventNames";
 
 
 function App(props:AppProps) : JSX.Element {
@@ -26,7 +26,7 @@ function App(props:AppProps) : JSX.Element {
     return () => cleanup();
   }, []);
 
-  const startup = async ():Promise<void> =>{
+  async function startup():Promise<void>{
     try{
       await model.initialise();
       setError(null);
@@ -40,20 +40,21 @@ function App(props:AppProps) : JSX.Element {
       })
     }
     catch(e){
+      console.log(e);
       setError(e);
     }
   }
 
-  const cleanup = async ():Promise<void> =>{
+  function cleanup(){
     model.eventBus.detach(EventNames.LoginRequired, onLoginRequired);
   }
 
-  const onLoginRequired = async ():Promise<void> =>{
-    // model.apiViewEvents.clearState();
-    // LoginNavigation.navigateToLoginRequired();
+  function onLoginRequired(): void {
+    model.apiViewEvents.clearState();
+    location.hash = '/login';
   }
 
-  const onHome = async ():Promise<void> =>{
+  async function onHome ():Promise<void> {
     if(!state.isInitialised){
       cleanup();
       await startup();
@@ -76,12 +77,13 @@ function App(props:AppProps) : JSX.Element {
     }
   }
 
-  const login = async ():Promise<void> =>{
+  async function login ():Promise<void> {
     try{
+
 
     }
     catch(e){
-      setError();
+      setError(e);
     }
   }
 
@@ -89,23 +91,52 @@ function App(props:AppProps) : JSX.Element {
     model.eventBus.emit(EventNames.SetError, null, new SetErrorEvent('main',e));
   }
 
-  return (
-    <Router>
-    <Nav/>
-      <Routes>
-        <Route path="delay" element={<Delays/>} />
-        <Route path="item" element={<Items/>} />
-        <Route path="shortage" element={<Shortages/>} />
-        <Route path="user" element={<Users/>} />
 
-        <Route path="login" element={<Login/>} />
 
-        <Route path="settings" element={<Settings/>} />
+  function renderInitialScreen(){
+    return(<div>initial</div>);
+  }
 
-        <Route path="/" element={<Home/>} />
-      </Routes>
-    </Router>
-  );
+  function renderMain() {
+
+    const itemsProps = {
+      viewModel:model.getItemsViewModel()
+    }
+
+    const navProps = {
+      ipcEvents:props.viewModel.ipcEvents,
+      configuration:props.viewModel.configuration
+    }
+
+    const loginProps = {
+      viewModel:model.getLoginViewModel()
+    }
+
+    return (
+        <Router>
+          <NavComponent {...navProps}/>
+          <Routes>
+            <Route path="delay" element={<Delays/>}/>
+            <Route path="item" element={<ItemsContainer {...itemsProps}/>}/>
+            <Route path="shortage" element={<Shortages/>}/>
+            <Route path="user" element={<Users/>}/>
+
+            <Route path="login" element={<LoginContainer {...loginProps}/>}/>
+
+            <Route path="settings" element={<Settings/>}/>
+
+            <Route path="/" element={<HomeContainer/>}/>
+            <Route path="*" element={<HomeContainer/>}/>
+          </Routes>
+        </Router>
+    );
+  }
+  if (!state.isInitialised) {
+    return renderInitialScreen();
+  } else {
+    return renderMain();
+  }
+
 }
 
 export default App;

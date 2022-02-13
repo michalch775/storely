@@ -1,7 +1,7 @@
 import styles from "../styles/Filter.module.scss";
 import React, {useState} from 'react';
-import {ReactComponent as ArrowDown} from '../assets/iosArrowDown.svg';
-import {ReactComponent as ArrowUp} from '../assets/iosArrowUp.svg';
+import ArrowDown from '../assets/iosArrowDown.svg';
+import ArrowUp from '../assets/iosArrowUp.svg';
 
 
 function Filter() {
@@ -17,7 +17,7 @@ function Filter() {
     <div className={styles.main} onClick={()=>onClick()}>
       <div className={styles.text}>Filtruj</div>
       <div className={styles.arrow}>
-        {filterOpen?<ArrowUp/>:<ArrowDown/>}
+          {filterOpen?<ArrowUp/>:<ArrowDown/>}
       </div>
       {filterOpen&&
       <div className = {styles.filterOptions}>

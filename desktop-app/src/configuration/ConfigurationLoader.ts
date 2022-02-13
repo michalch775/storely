@@ -1,11 +1,12 @@
-import {Configuration} from './configuration';
-import Store from "electron-store";
+import fs from 'fs-extra';
+import {Configuration} from './Configuration';
 
 
 export class ConfigurationLoader {
 
-    public static load(): Configuration {
-        const store = new Store();
-        return JSON.parse(store.toString());
+    public static load(configFilePath: string): Configuration {
+
+        const configurationBuffer = fs.readFileSync(configFilePath);
+        return JSON.parse(configurationBuffer.toString());
     }
 }

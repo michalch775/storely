@@ -35,7 +35,7 @@ public class ItemService  {
                                     "itemTemplate.groups.name") //TODO:dodac grupe
                             .matching(word)
                             .fuzzy(2))
-                    .fetch(offset, 20);
+                    .fetch(offset, 10);
 
             List<Item> hits = result.hits();
 
@@ -44,7 +44,7 @@ public class ItemService  {
         else{
             SearchResult<Item> result = searchSession.search(Item.class)
                     .where(f->f.matchAll())
-                    .fetch(offset, 20);
+                    .fetch(offset, 10);
 
             List<Item> hits = result.hits();
 

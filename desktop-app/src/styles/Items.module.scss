@@ -87,6 +87,31 @@
       }
 
     }
+    .item{
+       width:100%;
+     }
+    .barTd{
+
+      .flex{
+        display:flex;
+        flex-wrap:nowrap;
+        align-items: center;
+        justify-content: center;
+      }
+
+    }
+    .bar{
+      margin-left:10px;
+      height:15px;
+      width:100px;
+      background-color: var(--mainBackground);
+      border-radius:2px;
+    }
+    .barRed{
+      background-color: var(--red);
+      height:100%;
+    }
+
 
     tbody tr{
       margin-top:5px;
@@ -95,6 +120,7 @@
         box-sizing: border-box;
         background-color: var(--background);
         text-align: center;
+        padding:8px 0;
         width:50px;
       }
 
@@ -118,3 +144,4 @@
 
 
 }
+
