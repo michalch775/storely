@@ -41,7 +41,7 @@ function ItemsContainer(props: ItemsContainerProps):JSX.Element {
     }
 
     async function loadData(search:string="", offset:number=0): Promise<void> {
-        console.log(search)
+
         const onSuccess = (items: Item[]) => {
             if(items.length<10)
                 setState((s)=>({...s, hasMore:false}));
@@ -63,6 +63,8 @@ function ItemsContainer(props: ItemsContainerProps):JSX.Element {
                 };
             });
         };
+        if(offset===0)
+            setState((s)=>({...s, items:[], hasMore:true}))
 
         model.eventBus.emit(EventNames.SetError, null, new SetErrorEvent('items', null));
         await model.callApi(onSuccess, onError, search, offset);

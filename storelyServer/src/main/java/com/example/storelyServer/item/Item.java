@@ -3,6 +3,7 @@ package com.example.storelyServer.item;
 import com.example.storelyServer.itemTemplate.ItemTemplate;
 import com.example.storelyServer.rental.Rental;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.search.engine.backend.types.Sortable;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.GenericField;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.IndexedEmbedded;
@@ -13,8 +14,6 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-import static java.time.LocalDate.now;
-
 @Entity
 @Table
 @Indexed
@@ -24,6 +23,7 @@ public class Item {
     @SequenceGenerator(name = "item_sequence", sequenceName = "item_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "item_sequence")
     private Long id;
+    @GenericField(sortable = Sortable.YES)
     private Integer quantity;
 
     @JsonIgnore
@@ -31,6 +31,7 @@ public class Item {
     @Column(unique = true)
     private Long code;
 
+    @GenericField(sortable= Sortable.YES)
     private Date added = Date.valueOf(LocalDate.now());
 
     @ManyToOne( fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
@@ -108,5 +109,13 @@ public class Item {
 
     public void setRentals(Set<Rental> rentals) {
         this.rentals = rentals;
+    }
+
+    public void setAdded(Date added) {
+        this.added = added;
+    }
+
+    public Date getAdded() {
+        return added;
     }
 }

@@ -57,7 +57,7 @@ function NavComponent(props:NavComponentProps) {
       style={{ width: sidebarWidth }}
       onMouseDown={(e) => e.preventDefault()}>
 
-      <div className={styles.logo}>MyInventory</div>
+      <div className={styles.logo}>Storely</div>
 
       <ul className={styles.list}>
         <li><Link to="/" className={styles.linkBox}>Strona główna</Link></li>

@@ -30,9 +30,13 @@ export class ApiClient {
   }
 
   public async getItems(search:string, offset:number){
-    console.log("search",search)
     return await this._request(`item?search=${search}&offset=${offset}`, "GET");
   }
+
+  //apiClient
+  //authenticator
+  //AppModel
+  //ViewModel (dla kazdego ekranu)
 
 
   private async _request(

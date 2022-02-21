@@ -5,6 +5,7 @@ import com.example.storelyServer.group.Group;
 import com.example.storelyServer.item.Item;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.search.engine.backend.types.Sortable;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.*;
 
 import javax.persistence.*;
@@ -29,6 +30,7 @@ public class ItemTemplate {
             generator = "item_template_sequence"
     )
     private Long id;
+    @KeywordField(name="name_sort",sortable = Sortable.YES)
     @FullTextField
     private String name;
     @FullTextField

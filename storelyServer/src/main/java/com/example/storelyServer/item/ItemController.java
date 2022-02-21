@@ -27,8 +27,11 @@ public class ItemController {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_EMPLOYEE','ROLE_WAREHOUSEMAN')")
     @GetMapping
     public List<Item> show(@RequestParam(required = false, defaultValue = "") String search,
-                           @RequestParam(required = false, defaultValue = "0") Integer offset){
-        return itemService.getItems(search, offset);
+                           @RequestParam(required = false, defaultValue = "0") Integer offset,
+                           @RequestParam(required = false, defaultValue = "ADDED") ItemSortBy sort){
+        System.out.println(sort);
+        System.out.println(sort.getValue());
+        return itemService.getItems(search, offset, sort);
     }
 
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_EMPLOYEE','ROLE_WAREHOUSEMAN')")

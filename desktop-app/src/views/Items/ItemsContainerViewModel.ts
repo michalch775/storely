@@ -35,11 +35,8 @@ export class ItemsContainerViewModel {
         offset:number): Promise<void> {
 
         try {
-            console.log("OFFSET", offset)
             this._apiViewEvents.onViewLoading(ApiViewNames.Main);
-
             const items = await this._apiClient.getItems(search, offset);
-            console.log(items)
             this._apiViewEvents.onViewLoaded(ApiViewNames.Main);
             onSuccess(items);
 

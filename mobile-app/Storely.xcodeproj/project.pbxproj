@@ -9,7 +9,22 @@
 /* Begin PBXBuildFile section */
 		903736F027A581250004E802 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903736EF27A581250004E802 /* LoginView.swift */; };
 		903736F727A586EC0004E802 /* WorkshopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903736F627A586EC0004E802 /* WorkshopView.swift */; };
-		903736FA27A588090004E802 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903736F927A588090004E802 /* ModelData.swift */; };
+		905FBBAB27BFD6E70019E619 /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FBBAA27BFD6E70019E619 /* TokenStorage.swift */; };
+		905FBBAE27BFD73D0019E619 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 905FBBAD27BFD73D0019E619 /* SwiftKeychainWrapper */; };
+		905FBBB027BFDAD70019E619 /* ApiConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FBBAF27BFDAD70019E619 /* ApiConfiguration.swift */; };
+		905FBBB427BFDBE90019E619 /* ConfigurationLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FBBB327BFDBE90019E619 /* ConfigurationLoader.swift */; };
+		905FBBB627BFDC4F0019E619 /* app.config.json in Resources */ = {isa = PBXBuildFile; fileRef = 905FBBB527BFDC4F0019E619 /* app.config.json */; };
+		905FBBB927BFDCB40019E619 /* ErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FBBB827BFDCB40019E619 /* ErrorCodes.swift */; };
+		905FBBBB27BFDCC80019E619 /* ErrorConsoleReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FBBBA27BFDCC80019E619 /* ErrorConsoleReporter.swift */; };
+		905FBBBD27BFDCE20019E619 /* ErrorFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FBBBC27BFDCE20019E619 /* ErrorFormatter.swift */; };
+		905FBBBF27BFDCF60019E619 /* ErrorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FBBBE27BFDCF60019E619 /* ErrorFactory.swift */; };
+		905FBBC127BFDD060019E619 /* ErrorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FBBC027BFDD060019E619 /* ErrorLine.swift */; };
+		905FBBC327BFDD160019E619 /* UIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FBBC227BFDD160019E619 /* UIError.swift */; };
+		90D7980427BBAF7B002DF0D8 /* SwiftCoroutine in Frameworks */ = {isa = PBXBuildFile; productRef = 90D7980327BBAF7B002DF0D8 /* SwiftCoroutine */; };
+		90D7980827BBB000002DF0D8 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D7980727BBAFFF002DF0D8 /* Authenticator.swift */; };
+		90D7980A27BBB00D002DF0D8 /* AuthenticatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D7980927BBB00D002DF0D8 /* AuthenticatorImpl.swift */; };
+		90D7980C27BBB056002DF0D8 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D7980B27BBB056002DF0D8 /* Configuration.swift */; };
+		90E7788627BBA827005C6FFC /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E7788527BBA827005C6FFC /* ApiClient.swift */; };
 		90F7C5C627A53D6600FFB9A3 /* StorelyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F7C5C527A53D6600FFB9A3 /* StorelyApp.swift */; };
 		90F7C5C827A53D6600FFB9A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F7C5C727A53D6600FFB9A3 /* ContentView.swift */; };
 		90F7C5CA27A53D6700FFB9A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90F7C5C927A53D6700FFB9A3 /* Assets.xcassets */; };
@@ -39,7 +54,20 @@
 /* Begin PBXFileReference section */
 		903736EF27A581250004E802 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		903736F627A586EC0004E802 /* WorkshopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopView.swift; sourceTree = "<group>"; };
-		903736F927A588090004E802 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		905FBBAA27BFD6E70019E619 /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
+		905FBBAF27BFDAD70019E619 /* ApiConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfiguration.swift; sourceTree = "<group>"; };
+		905FBBB327BFDBE90019E619 /* ConfigurationLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationLoader.swift; sourceTree = "<group>"; };
+		905FBBB527BFDC4F0019E619 /* app.config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = app.config.json; sourceTree = "<group>"; };
+		905FBBB827BFDCB40019E619 /* ErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCodes.swift; sourceTree = "<group>"; };
+		905FBBBA27BFDCC80019E619 /* ErrorConsoleReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorConsoleReporter.swift; sourceTree = "<group>"; };
+		905FBBBC27BFDCE20019E619 /* ErrorFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorFormatter.swift; sourceTree = "<group>"; };
+		905FBBBE27BFDCF60019E619 /* ErrorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorFactory.swift; sourceTree = "<group>"; };
+		905FBBC027BFDD060019E619 /* ErrorLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLine.swift; sourceTree = "<group>"; };
+		905FBBC227BFDD160019E619 /* UIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIError.swift; sourceTree = "<group>"; };
+		90D7980727BBAFFF002DF0D8 /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
+		90D7980927BBB00D002DF0D8 /* AuthenticatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorImpl.swift; sourceTree = "<group>"; };
+		90D7980B27BBB056002DF0D8 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		90E7788527BBA827005C6FFC /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		90F7C5C227A53D6600FFB9A3 /* Storely.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Storely.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90F7C5C527A53D6600FFB9A3 /* StorelyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorelyApp.swift; sourceTree = "<group>"; };
 		90F7C5C727A53D6600FFB9A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +85,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				905FBBAE27BFD73D0019E619 /* SwiftKeychainWrapper in Frameworks */,
+				90D7980427BBAF7B002DF0D8 /* SwiftCoroutine in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,12 +129,61 @@
 			path = Rental;
 			sourceTree = "<group>";
 		};
-		903736F827A587C80004E802 /* Model */ = {
+		905FBBB727BFDC900019E619 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
-				903736F927A588090004E802 /* ModelData.swift */,
+				905FBBB827BFDCB40019E619 /* ErrorCodes.swift */,
+				905FBBBA27BFDCC80019E619 /* ErrorConsoleReporter.swift */,
+				905FBBBC27BFDCE20019E619 /* ErrorFormatter.swift */,
+				905FBBBE27BFDCF60019E619 /* ErrorFactory.swift */,
+				905FBBC027BFDD060019E619 /* ErrorLine.swift */,
+				905FBBC227BFDD160019E619 /* UIError.swift */,
 			);
-			path = Model;
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		90D7980527BBAFAD002DF0D8 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				90D7980B27BBB056002DF0D8 /* Configuration.swift */,
+				905FBBAF27BFDAD70019E619 /* ApiConfiguration.swift */,
+				905FBBB327BFDBE90019E619 /* ConfigurationLoader.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		90D7980627BBAFD8002DF0D8 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				90D7980727BBAFFF002DF0D8 /* Authenticator.swift */,
+				90D7980927BBB00D002DF0D8 /* AuthenticatorImpl.swift */,
+				905FBBAA27BFD6E70019E619 /* TokenStorage.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		90E7788127BBA7C9005C6FFC /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				90E7788427BBA813005C6FFC /* Entities */,
+				90E7788227BBA7D3005C6FFC /* Client */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		90E7788227BBA7D3005C6FFC /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				90E7788527BBA827005C6FFC /* ApiClient.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		90E7788427BBA813005C6FFC /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		90F7C5B927A53D6600FFB9A3 = {
@@ -130,11 +209,15 @@
 		90F7C5C427A53D6600FFB9A3 /* Storely */ = {
 			isa = PBXGroup;
 			children = (
+				905FBBB727BFDC900019E619 /* Errors */,
+				90D7980627BBAFD8002DF0D8 /* Auth */,
+				90D7980527BBAFAD002DF0D8 /* Configuration */,
+				90E7788127BBA7C9005C6FFC /* Api */,
 				90F7C5C527A53D6600FFB9A3 /* StorelyApp.swift */,
 				90F7C62827A5478B00FFB9A3 /* Views */,
-				903736F827A587C80004E802 /* Model */,
 				90F7C5C927A53D6700FFB9A3 /* Assets.xcassets */,
 				90F7C5CB27A53D6700FFB9A3 /* Preview Content */,
+				905FBBB527BFDC4F0019E619 /* app.config.json */,
 			);
 			path = Storely;
 			sourceTree = "<group>";
@@ -192,6 +275,10 @@
 			dependencies = (
 			);
 			name = Storely;
+			packageProductDependencies = (
+				90D7980327BBAF7B002DF0D8 /* SwiftCoroutine */,
+				905FBBAD27BFD73D0019E619 /* SwiftKeychainWrapper */,
+			);
 			productName = Storely;
 			productReference = 90F7C5C227A53D6600FFB9A3 /* Storely.app */;
 			productType = "com.apple.product-type.application";
@@ -264,6 +351,10 @@
 				Base,
 			);
 			mainGroup = 90F7C5B927A53D6600FFB9A3;
+			packageReferences = (
+				90D7980227BBAF7B002DF0D8 /* XCRemoteSwiftPackageReference "SwiftCoroutine" */,
+				905FBBAC27BFD73D0019E619 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+			);
 			productRefGroup = 90F7C5C327A53D6600FFB9A3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -282,6 +373,7 @@
 			files = (
 				90F7C5CD27A53D6700FFB9A3 /* Preview Assets.xcassets in Resources */,
 				90F7C5CA27A53D6700FFB9A3 /* Assets.xcassets in Resources */,
+				905FBBB627BFDC4F0019E619 /* app.config.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,10 +399,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				90F7C5C827A53D6600FFB9A3 /* ContentView.swift in Sources */,
+				90D7980827BBB000002DF0D8 /* Authenticator.swift in Sources */,
+				905FBBBF27BFDCF60019E619 /* ErrorFactory.swift in Sources */,
 				903736F727A586EC0004E802 /* WorkshopView.swift in Sources */,
-				903736FA27A588090004E802 /* ModelData.swift in Sources */,
+				905FBBB027BFDAD70019E619 /* ApiConfiguration.swift in Sources */,
 				903736F027A581250004E802 /* LoginView.swift in Sources */,
 				90F7C5C627A53D6600FFB9A3 /* StorelyApp.swift in Sources */,
+				905FBBC327BFDD160019E619 /* UIError.swift in Sources */,
+				905FBBBB27BFDCC80019E619 /* ErrorConsoleReporter.swift in Sources */,
+				905FBBBD27BFDCE20019E619 /* ErrorFormatter.swift in Sources */,
+				90E7788627BBA827005C6FFC /* ApiClient.swift in Sources */,
+				905FBBB927BFDCB40019E619 /* ErrorCodes.swift in Sources */,
+				90D7980C27BBB056002DF0D8 /* Configuration.swift in Sources */,
+				905FBBC127BFDD060019E619 /* ErrorLine.swift in Sources */,
+				905FBBAB27BFD6E70019E619 /* TokenStorage.swift in Sources */,
+				90D7980A27BBB00D002DF0D8 /* AuthenticatorImpl.swift in Sources */,
+				905FBBB427BFDBE90019E619 /* ConfigurationLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,6 +743,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		905FBBAC27BFD73D0019E619 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		90D7980227BBAF7B002DF0D8 /* XCRemoteSwiftPackageReference "SwiftCoroutine" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/belozierov/SwiftCoroutine";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		905FBBAD27BFD73D0019E619 /* SwiftKeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 905FBBAC27BFD73D0019E619 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			productName = SwiftKeychainWrapper;
+		};
+		90D7980327BBAF7B002DF0D8 /* SwiftCoroutine */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 90D7980227BBAF7B002DF0D8 /* XCRemoteSwiftPackageReference "SwiftCoroutine" */;
+			productName = SwiftCoroutine;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 90F7C5BA27A53D6600FFB9A3 /* Project object */;
 }

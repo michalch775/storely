@@ -26,15 +26,17 @@ public class ItemService  {
     }
 
 
-    public List<Item> getItems(String word, Integer offset) {
+    public List<Item> getItems(String word, Integer offset, ItemSortBy sort) {//TODO porzadne sortowanie i wyszukiwanie
         SearchSession searchSession = Search.session(entityManager);
         if(word.length()>0) {
             SearchResult<Item> result = searchSession.search(Item.class)
                     .where(f -> f.match()
                             .fields("itemTemplate.name", "itemTemplate.model","itemTemplate.category.name",
-                                    "itemTemplate.groups.name") //TODO:dodac grupe
+                                    "itemTemplate.groups.name")
                             .matching(word)
                             .fuzzy(2))
+                    .sort( f -> f.field( sort.getValue() )
+                            .then().field( "itemTemplate.name_sort" ) )
                     .fetch(offset, 10);
 
             List<Item> hits = result.hits();

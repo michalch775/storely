@@ -13,15 +13,15 @@ import {LoginContainerViewModel} from "./views/Login/LoginContainerViewModel";
 
 export class AppViewModel{
     private _apiClient : ApiClient | null;
-    private _configuration:Configuration|null;
+    private _configuration:Configuration | null;
 
-    private _itemsContainerViewModel:ItemsContainerViewModel |null;
-    private _loginContainerViewModel:LoginContainerViewModel | null;
+    private _itemsContainerViewModel: ItemsContainerViewModel | null;
+    private _loginContainerViewModel: LoginContainerViewModel | null;
 
 
-    private readonly _ipcEvents:RendererEvents;
-    private readonly _eventBus:EventBus;
-    private readonly _apiViewEvents:ApiViewEvents;
+    private readonly _ipcEvents: RendererEvents;
+    private readonly _eventBus: EventBus;
+    private readonly _apiViewEvents: ApiViewEvents;
 
     private _authenticator : Authenticator | null;
 

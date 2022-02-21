@@ -1,6 +1,5 @@
 import {Authenticator} from "./Authenticator";
 import {RendererEvents} from "../ipc/RendererEvents";
-import {ConcurrentActionHandler} from "../utilities/ConccurentActionHandler";
 import {ErrorFactory} from "../errors/ErrorFactory";
 import {ErrorCodes} from "../errors/ErrorCodes";
 import {LoginManager} from "./LoginManager";
@@ -11,8 +10,9 @@ import {NavigateEvent} from "../events/NavigateEvent";
 export class AuthenticatorImpl implements Authenticator {
 
     private readonly _events: RendererEvents;
-    private readonly _url: string;
     private readonly _eventBus: EventBus;
+
+    private readonly _url: string;
     private _token: string | null;
 
     public constructor(events: RendererEvents, eventBus:EventBus, url:string) {
@@ -36,6 +36,7 @@ export class AuthenticatorImpl implements Authenticator {
     }
 
 
+    //zwraca token
     public async getAccessToken(): Promise<string> {
 
         // Load tokens from secure storage if required
