@@ -1,3 +1,5 @@
+//musze dla skanActivity zrobić viewModel
+
 package com.example.smartrecordmobileapp.ui.scanning
 
 import android.content.pm.PackageManager
@@ -30,8 +32,6 @@ class Scan : AppCompatActivity() {
         setupPermissions()
         codeScanner()
     }
-//codeScannerprzez to zakomentowane nie działa, super
-
 
     private fun codeScanner() {
         val scanView = findViewById<CodeScannerView>(R.id.scanView)
@@ -45,7 +45,6 @@ class Scan : AppCompatActivity() {
             scanMode = ScanMode.SINGLE
             isAutoFocusEnabled = true
             isFlashEnabled = false
-
 
             decodeCallback = DecodeCallback {
                 runOnUiThread {
