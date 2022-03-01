@@ -44,3 +44,7 @@ class MainActivity : AppCompatActivity() {
         //działa
     }
 }
+
+
+// w projekcie będę używał aktywności (activities), żywych danych (live data), fragmentów (fragments) i modeli widoków (view model) i wątków (threads)
+// live data jest jeszcze do ogarnięcia, nie do końca rozumiem na czym polega jego działanie
