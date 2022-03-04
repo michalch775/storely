@@ -112,7 +112,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Lato:wght@100;300;400;700;900&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --lightMain:#278BFF;\n  --lighterMain:#3693FF;\n  --darkMain:#0076FF;\n  --mediumMain:#0080FF;\n  --navMain:#0089FF;\n  --background:#fff;\n  --textOnMain:#fff;\n  --elementsOnBackground:#000;\n  --mainBackground:#F2F2F2;\n  --lightText:#7B7B7B;\n  --ultraLightText:#A2A2A2;\n  --red:#FF6060;\n  --switchBackground:#EAEAEA;\n  --switchText:#4D4D4D;\n  --switchContrastText:#fff;\n  --inputPlaceholder:#8D8D8D;\n  --inputBackground:#EAEAEA;\n}\n\nhtml {\n  width: 100%;\n  height: 100%;\n  overflow-x: hidden;\n}\n\nbody {\n  margin: 0;\n  font-family: \"Poppins\", sans-serif;\n  /* font-family: 'Lato', sans-serif;\n  font-family: 'Montserrat', sans-serif; */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  background-color: var(--mainBackground);\n  width: inherit;\n  height: inherit;\n}\n\ncode {\n  font-family: source-code-pro, Menlo, Monaco, Consolas, \"Courier New\", monospace;\n}\n\n#root {\n  width: inherit;\n  height: inherit;\n  display: flex;\n}", "",{"version":3,"sources":["webpack://./_variables.scss","webpack://./index.scss"],"names":[],"mappings":"AAAA;EACA,mBAAA;EACA,qBAAA;EACA,kBAAA;EACA,oBAAA;EACA,iBAAA;EACA,iBAAA;EACA,iBAAA;EACA,2BAAA;EACA,wBAAA;EACA,mBAAA;EACA,wBAAA;EACA,aAAA;EACA,0BAAA;EACA,oBAAA;EACA,yBAAA;EACA,0BAAA;EACA,yBAAA;ACEA;;AAfA;EACE,WAAA;EACA,YAAA;EACA,kBAAA;AAkBF;;AAfA;EACE,SAAA;EACA,kCAAA;EACA;0CAAA;EAEA,mCAAA;EACA,kCAAA;EAEA,uCAAA;EAEA,cAAA;EACA,eAAA;AAgBF;;AAZA;EACE,+EAAA;AAeF;;AAZA;EACE,cAAA;EACA,eAAA;EACA,aAAA;AAeF","sourcesContent":[":root{\n--lightMain:#278BFF;\n--lighterMain:#3693FF;\n--darkMain:#0076FF;\n--mediumMain:#0080FF;\n--navMain:#0089FF;\n--background:#fff;\n--textOnMain:#fff;\n--elementsOnBackground:#000;\n--mainBackground:#F2F2F2;\n--lightText:#7B7B7B;\n--ultraLightText:#A2A2A2;\n--red:#FF6060;\n--switchBackground:#EAEAEA;\n--switchText:#4D4D4D;\n--switchContrastText:#fff;\n--inputPlaceholder:#8D8D8D;\n--inputBackground:#EAEAEA;\n}\n@media (prefers-color-scheme: dark) {\n  :root{\n    // --lightMain:#278BFF;\n    // --lighterMain:#36414E;\n    // --darkMain:#262E38;\n    // --mediumMain:#36414E;\n    // --background:#fff;\n    // --textOnMain:#fff;\n    // --elementsOnBackground:#fff;\n    // --mainBackground:#3D3D3D;\n  }\n\n}\n","@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Lato:wght@100;300;400;700;900&display=swap');\n@import \"_variables\";\n@import \"_mixins\";\n\nhtml{\n  width:100%;\n  height:100%;\n  overflow-x: hidden;\n}\n\nbody {\n  margin: 0;\n  font-family: 'Poppins', sans-serif;\n  /* font-family: 'Lato', sans-serif;\n  font-family: 'Montserrat', sans-serif; */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n\n  background-color: var(--mainBackground);\n\n  width:inherit;\n  height:inherit;\n}\n\n\ncode {\n  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',\n    monospace;\n}\n#root{\n  width:inherit;\n  height:inherit;\n  display:flex;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n/*!\n * All Rights Reserved\n *\n * Copyright (c) 2022 Michał Chruścielski\n */\n:root {\n  --lightMain:#278BFF;\n  --lighterMain:#3693FF;\n  --darkMain:#0076FF;\n  --mediumMain:#0080FF;\n  --navMain:#0089FF;\n  --background:#fff;\n  --textOnMain:#fff;\n  --elementsOnBackground:#000;\n  --mainBackground:#F2F2F2;\n  --lightText:#7B7B7B;\n  --ultraLightText:#A2A2A2;\n  --red:#FF6060;\n  --switchBackground:#EAEAEA;\n  --switchText:#4D4D4D;\n  --switchContrastText:#fff;\n  --inputPlaceholder:#8D8D8D;\n  --inputBackground:#EAEAEA;\n  --deepMain:#1F71D0;\n}\n\nhtml {\n  width: 100%;\n  height: 100%;\n  overflow-x: hidden;\n}\n\nbody {\n  margin: 0;\n  font-family: \"Poppins\", sans-serif;\n  /* font-family: 'Lato', sans-serif;\n  font-family: 'Montserrat', sans-serif; */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  background-color: var(--mainBackground);\n  width: inherit;\n  height: inherit;\n}\n\ncode {\n  font-family: source-code-pro, Menlo, Monaco, Consolas, \"Courier New\", monospace;\n}\n\n#root {\n  width: inherit;\n  height: inherit;\n  display: flex;\n}", "",{"version":3,"sources":["webpack://./index.scss","webpack://./_variables.scss"],"names":[],"mappings":"AAAA,gBAAgB;ACAhB;;;;EAAA;AAMA;EACA,mBAAA;EACA,qBAAA;EACA,kBAAA;EACA,oBAAA;EACA,iBAAA;EACA,iBAAA;EACA,iBAAA;EACA,2BAAA;EACA,wBAAA;EACA,mBAAA;EACA,wBAAA;EACA,aAAA;EACA,0BAAA;EACA,oBAAA;EACA,yBAAA;EACA,0BAAA;EACA,yBAAA;EACE,kBAAA;ADEF;;AAtBA;EACE,WAAA;EACA,YAAA;EACA,kBAAA;AAyBF;;AAtBA;EACE,SAAA;EACA,kCAAA;EACA;0CAAA;EAEA,mCAAA;EACA,kCAAA;EAEA,uCAAA;EAEA,cAAA;EACA,eAAA;AAuBF;;AAnBA;EACE,+EAAA;AAsBF;;AAnBA;EACE,cAAA;EACA,eAAA;EACA,aAAA;AAsBF","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Lato:wght@100;300;400;700;900&display=swap');\n@import \"_variables\";\n@import \"_mixins\";\n\nhtml{\n  width:100%;\n  height:100%;\n  overflow-x: hidden;\n}\n\nbody {\n  margin: 0;\n  font-family: 'Poppins', sans-serif;\n  /* font-family: 'Lato', sans-serif;\n  font-family: 'Montserrat', sans-serif; */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n\n  background-color: var(--mainBackground);\n\n  width:inherit;\n  height:inherit;\n}\n\n\ncode {\n  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',\n    monospace;\n}\n#root{\n  width:inherit;\n  height:inherit;\n  display:flex;\n}\n","/*!\n * All Rights Reserved\n *\n * Copyright (c) 2022 Michał Chruścielski\n */\n\n:root{\n--lightMain:#278BFF;\n--lighterMain:#3693FF;\n--darkMain:#0076FF;\n--mediumMain:#0080FF;\n--navMain:#0089FF;\n--background:#fff;\n--textOnMain:#fff;\n--elementsOnBackground:#000;\n--mainBackground:#F2F2F2;\n--lightText:#7B7B7B;\n--ultraLightText:#A2A2A2;\n--red:#FF6060;\n--switchBackground:#EAEAEA;\n--switchText:#4D4D4D;\n--switchContrastText:#fff;\n--inputPlaceholder:#8D8D8D;\n--inputBackground:#EAEAEA;\n  --deepMain:#1F71D0;\n}\n@media (prefers-color-scheme: dark) {\n  :root{\n    // --lightMain:#278BFF;\n    // --lighterMain:#36414E;\n    // --darkMain:#262E38;\n    // --mediumMain:#36414E;\n    // --background:#fff;\n    // --textOnMain:#fff;\n    // --elementsOnBackground:#fff;\n    // --mainBackground:#3D3D3D;\n  }\n\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -331,7 +331,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --lightMain:#278BFF;\n  --lighterMain:#3693FF;\n  --darkMain:#0076FF;\n  --mediumMain:#0080FF;\n  --navMain:#0089FF;\n  --background:#fff;\n  --textOnMain:#fff;\n  --elementsOnBackground:#000;\n  --mainBackground:#F2F2F2;\n  --lightText:#7B7B7B;\n  --ultraLightText:#A2A2A2;\n  --red:#FF6060;\n  --switchBackground:#EAEAEA;\n  --switchText:#4D4D4D;\n  --switchContrastText:#fff;\n  --inputPlaceholder:#8D8D8D;\n  --inputBackground:#EAEAEA;\n}\n\n.Zz_Png7ZP5231uZADenA {\n  width: 311px;\n  height: 100%;\n  position: relative;\n  top: 0;\n  left: 0;\n  flex-grow: 0;\n  flex-shrink: 0;\n  min-width: 50px;\n  max-width: 350px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  z-index: 2;\n  background-color: var(--navMain);\n  float: left;\n}\n.Zz_Png7ZP5231uZADenA .Ku7Uvb39vs3_JKFv7Ev5 {\n  position: absolute;\n  height: 100%;\n  width: 7px;\n  top: 0;\n  right: -3px;\n  cursor: col-resize;\n  resize: horizontal;\n}\n\n.tyy0LWiCY6nF8e1MaShK {\n  padding: 24px;\n  text-decoration: none;\n  color: var(--textOnMain);\n  font-size: 22px;\n  font-weight: 700;\n  display: flex;\n  align-items: center;\n  background-color: red;\n  height: 60px;\n  width: 100%;\n  flex-grow: 0;\n  flex-shrink: 0;\n  justify-self: flex-end;\n  box-sizing: border-box;\n  overflow: hidden;\n  background-color: var(--lighterMain);\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  border-top: 1px solid var(--background);\n}\n.tyy0LWiCY6nF8e1MaShK:focus, .tyy0LWiCY6nF8e1MaShK:hover, .tyy0LWiCY6nF8e1MaShK:visited, .tyy0LWiCY6nF8e1MaShK:link, .tyy0LWiCY6nF8e1MaShK:active {\n  text-decoration: none;\n}\n\n.Awa5pl98489YRTsOZQc5 {\n  font-size: 34px;\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 700;\n  color: var(--textOnMain);\n  width: 100%;\n  overflow: hidden;\n  text-align: center;\n  padding: 10px 0;\n  box-sizing: border-box;\n}\n\n.SjiqQolS9lqzlGv3tkS7 {\n  max-height: 550px;\n  height: 100%;\n  width: 100%;\n  overflow: hidden;\n  list-style-type: none;\n  margin: 0;\n  padding: 0;\n}\n.SjiqQolS9lqzlGv3tkS7 li {\n  color: var(--textOnMain);\n  font-size: 22px;\n  font-weight: 700;\n  box-sizing: border-box;\n  background-color: var(--mediumMain);\n  width: 100%;\n}\n.SjiqQolS9lqzlGv3tkS7 li:last-child {\n  border-bottom: 1px solid var(--background);\n}\n.SjiqQolS9lqzlGv3tkS7 li a {\n  background-color: var(--mediumMain);\n  padding: 10px;\n  text-decoration: none;\n  color: var(--textOnMain);\n  width: 100%;\n  height: 100%;\n}", "",{"version":3,"sources":["webpack://./_variables.scss","webpack://./styles/Nav.module.scss"],"names":[],"mappings":"AAAA;EACA,mBAAA;EACA,qBAAA;EACA,kBAAA;EACA,oBAAA;EACA,iBAAA;EACA,iBAAA;EACA,iBAAA;EACA,2BAAA;EACA,wBAAA;EACA,mBAAA;EACA,wBAAA;EACA,aAAA;EACA,0BAAA;EACA,oBAAA;EACA,yBAAA;EACA,0BAAA;EACA,yBAAA;ACCA;;AAhBA;EACE,YAAA;EACA,YAAA;EACA,kBAAA;EACA,MAAA;EACA,OAAA;EACA,YAAA;EACA,cAAA;EACA,eAAA;EACA,gBAAA;EACA,aAAA;EACA,sBAAA;EACA,8BAAA;EACA,UAAA;EACA,gCAAA;EACA,WAAA;AAmBF;AAhBE;EACE,kBAAA;EACA,YAAA;EACA,UAAA;EACA,MAAA;EACA,WAAA;EACA,kBAAA;EACA,kBAAA;AAkBJ;;AAbA;EACE,aAAA;EACA,qBAAA;EACA,wBAAA;EACA,eAAA;EACA,gBAAA;EACA,aAAA;EACA,mBAAA;EACA,qBAAA;EACA,YAAA;EACA,WAAA;EACA,YAAA;EACA,cAAA;EACA,sBAAA;EACA,sBAAA;EACA,gBAAA;EACA,oCAAA;EACA,mBAAA;EACA,uBAAA;EACA,uCAAA;AAgBF;AAVE;EACM,qBAAA;AAYR;;AARA;EACE,eAAA;EACA,qCAAA;EACA,gBAAA;EACA,wBAAA;EACA,WAAA;EACA,gBAAA;EACA,kBAAA;EACA,eAAA;EACA,sBAAA;AAWF;;AAPA;EACE,iBAAA;EACA,YAAA;EACA,WAAA;EACA,gBAAA;EACA,qBAAA;EACA,SAAA;EACA,UAAA;AAUF;AARE;EACE,wBAAA;EACA,eAAA;EACA,gBAAA;EACA,sBAAA;EACA,mCAAA;EACA,WAAA;AAUJ;AARI;EACE,0CAAA;AAUN;AARI;EACE,mCAAA;EACA,aAAA;EACA,qBAAA;EACA,wBAAA;EACA,WAAA;EACA,YAAA;AAUN","sourcesContent":[":root{\n--lightMain:#278BFF;\n--lighterMain:#3693FF;\n--darkMain:#0076FF;\n--mediumMain:#0080FF;\n--navMain:#0089FF;\n--background:#fff;\n--textOnMain:#fff;\n--elementsOnBackground:#000;\n--mainBackground:#F2F2F2;\n--lightText:#7B7B7B;\n--ultraLightText:#A2A2A2;\n--red:#FF6060;\n--switchBackground:#EAEAEA;\n--switchText:#4D4D4D;\n--switchContrastText:#fff;\n--inputPlaceholder:#8D8D8D;\n--inputBackground:#EAEAEA;\n}\n@media (prefers-color-scheme: dark) {\n  :root{\n    // --lightMain:#278BFF;\n    // --lighterMain:#36414E;\n    // --darkMain:#262E38;\n    // --mediumMain:#36414E;\n    // --background:#fff;\n    // --textOnMain:#fff;\n    // --elementsOnBackground:#fff;\n    // --mainBackground:#3D3D3D;\n  }\n\n}\n","@import \"../_variables\";\n\n.mainBox{\n  width:311px;\n  height:100%;\n  position:relative;\n  top:0;\n  left:0;\n  flex-grow: 0;\n  flex-shrink: 0;\n  min-width: 50px;\n  max-width: 350px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  z-index: 2;\n  background-color: var(--navMain);\n  float:left;\n\n\n  .appSidebarResizer {\n    position:absolute;\n    height:100%;\n    width:7px;\n    top:0;\n    right:-3px;\n    cursor: col-resize;\n    resize: horizontal;\n  }\n\n}\n\n.linkBox{\n  padding:24px;\n  text-decoration: none;\n  color:var(--textOnMain);\n  font-size:22px;\n  font-weight: 700;\n  display:flex;\n  align-items: center;\n  background-color: red;\n  height:60px;\n  width:100%;\n  flex-grow: 0;\n  flex-shrink: 0;\n  justify-self:flex-end;\n  box-sizing: border-box;\n  overflow:hidden;\n  background-color:var(--lighterMain);\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  border-top:1px solid var(--background);\n\n\n\n\n\n  &:focus, &:hover, &:visited, &:link, &:active {\n        text-decoration: none;\n    }\n}\n\n.logo{\n  font-size:34px;\n  font-family: 'Montserrat', sans-serif;\n  font-weight:700;\n  color:var(--textOnMain);\n  width:100%;\n  overflow:hidden;\n  text-align: center;\n  padding:10px 0;\n  box-sizing: border-box;\n\n}\n\n.list{\n  max-height:550px;\n  height:100%;\n  width:100%;\n  overflow:hidden;\n  list-style-type: none;\n  margin:0;\n  padding:0;\n\n  li{\n    color:var(--textOnMain);\n    font-size:22px;\n    font-weight:700;\n    box-sizing: border-box;\n    background-color: var(--mediumMain);\n    width:100%;\n\n    &:last-child{\n      border-bottom:1px solid var(--background);\n    }\n    a{\n      background-color: var(--mediumMain);\n      padding:10px;\n      text-decoration: none;\n      color:var(--textOnMain);\n      width:100%;\n      height:100%;\n\n    }\n  }\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n/*!\n * All Rights Reserved\n *\n * Copyright (c) 2022 Michał Chruścielski\n */\n:root {\n  --lightMain:#278BFF;\n  --lighterMain:#3693FF;\n  --darkMain:#0076FF;\n  --mediumMain:#0080FF;\n  --navMain:#0089FF;\n  --background:#fff;\n  --textOnMain:#fff;\n  --elementsOnBackground:#000;\n  --mainBackground:#F2F2F2;\n  --lightText:#7B7B7B;\n  --ultraLightText:#A2A2A2;\n  --red:#FF6060;\n  --switchBackground:#EAEAEA;\n  --switchText:#4D4D4D;\n  --switchContrastText:#fff;\n  --inputPlaceholder:#8D8D8D;\n  --inputBackground:#EAEAEA;\n  --deepMain:#1F71D0;\n}\n\n.Zz_Png7ZP5231uZADenA {\n  width: 311px;\n  height: 100%;\n  position: relative;\n  top: 0;\n  left: 0;\n  flex-grow: 0;\n  flex-shrink: 0;\n  min-width: 50px;\n  max-width: 350px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  z-index: 2;\n  background-color: var(--navMain);\n  float: left;\n}\n.Zz_Png7ZP5231uZADenA .Ku7Uvb39vs3_JKFv7Ev5 {\n  position: absolute;\n  height: 100%;\n  width: 7px;\n  top: 0;\n  right: -3px;\n  cursor: col-resize;\n  resize: horizontal;\n}\n\n.tyy0LWiCY6nF8e1MaShK {\n  padding: 24px;\n  text-decoration: none;\n  color: var(--textOnMain);\n  font-size: 22px;\n  font-weight: 700;\n  display: flex;\n  align-items: center;\n  background-color: red;\n  height: 60px;\n  width: 100%;\n  flex-grow: 0;\n  flex-shrink: 0;\n  justify-self: flex-end;\n  box-sizing: border-box;\n  overflow: hidden;\n  background-color: var(--lighterMain);\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  border-top: 1px solid var(--background);\n}\n.tyy0LWiCY6nF8e1MaShK:focus, .tyy0LWiCY6nF8e1MaShK:hover, .tyy0LWiCY6nF8e1MaShK:visited, .tyy0LWiCY6nF8e1MaShK:link, .tyy0LWiCY6nF8e1MaShK:active {\n  text-decoration: none;\n}\n\n.Awa5pl98489YRTsOZQc5 {\n  font-size: 34px;\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 700;\n  color: var(--textOnMain);\n  width: 100%;\n  overflow: hidden;\n  text-align: center;\n  padding: 10px 0;\n  box-sizing: border-box;\n}\n\n.SjiqQolS9lqzlGv3tkS7 {\n  max-height: 550px;\n  height: 100%;\n  width: 100%;\n  overflow: hidden;\n  list-style-type: none;\n  margin: 0;\n  padding: 0;\n}\n.SjiqQolS9lqzlGv3tkS7 li {\n  color: var(--textOnMain);\n  font-size: 22px;\n  font-weight: 700;\n  box-sizing: border-box;\n  background-color: var(--mediumMain);\n  width: 100%;\n}\n.SjiqQolS9lqzlGv3tkS7 li:last-child {\n  border-bottom: 1px solid var(--background);\n}\n.SjiqQolS9lqzlGv3tkS7 li a {\n  background-color: var(--mediumMain);\n  padding: 10px;\n  text-decoration: none;\n  color: var(--textOnMain);\n  width: 100%;\n  height: 100%;\n}", "",{"version":3,"sources":["webpack://./styles/Nav.module.scss","webpack://./_variables.scss"],"names":[],"mappings":"AAAA,gBAAgB;ACAhB;;;;EAAA;AAMA;EACA,mBAAA;EACA,qBAAA;EACA,kBAAA;EACA,oBAAA;EACA,iBAAA;EACA,iBAAA;EACA,iBAAA;EACA,2BAAA;EACA,wBAAA;EACA,mBAAA;EACA,wBAAA;EACA,aAAA;EACA,0BAAA;EACA,oBAAA;EACA,yBAAA;EACA,0BAAA;EACA,yBAAA;EACE,kBAAA;ADCF;;AAvBA;EACE,YAAA;EACA,YAAA;EACA,kBAAA;EACA,MAAA;EACA,OAAA;EACA,YAAA;EACA,cAAA;EACA,eAAA;EACA,gBAAA;EACA,aAAA;EACA,sBAAA;EACA,8BAAA;EACA,UAAA;EACA,gCAAA;EACA,WAAA;AA0BF;AAvBE;EACE,kBAAA;EACA,YAAA;EACA,UAAA;EACA,MAAA;EACA,WAAA;EACA,kBAAA;EACA,kBAAA;AAyBJ;;AApBA;EACE,aAAA;EACA,qBAAA;EACA,wBAAA;EACA,eAAA;EACA,gBAAA;EACA,aAAA;EACA,mBAAA;EACA,qBAAA;EACA,YAAA;EACA,WAAA;EACA,YAAA;EACA,cAAA;EACA,sBAAA;EACA,sBAAA;EACA,gBAAA;EACA,oCAAA;EACA,mBAAA;EACA,uBAAA;EACA,uCAAA;AAuBF;AAjBE;EACM,qBAAA;AAmBR;;AAfA;EACE,eAAA;EACA,qCAAA;EACA,gBAAA;EACA,wBAAA;EACA,WAAA;EACA,gBAAA;EACA,kBAAA;EACA,eAAA;EACA,sBAAA;AAkBF;;AAdA;EACE,iBAAA;EACA,YAAA;EACA,WAAA;EACA,gBAAA;EACA,qBAAA;EACA,SAAA;EACA,UAAA;AAiBF;AAfE;EACE,wBAAA;EACA,eAAA;EACA,gBAAA;EACA,sBAAA;EACA,mCAAA;EACA,WAAA;AAiBJ;AAfI;EACE,0CAAA;AAiBN;AAfI;EACE,mCAAA;EACA,aAAA;EACA,qBAAA;EACA,wBAAA;EACA,WAAA;EACA,YAAA;AAiBN","sourcesContent":["@import \"../_variables\";\n\n.mainBox{\n  width:311px;\n  height:100%;\n  position:relative;\n  top:0;\n  left:0;\n  flex-grow: 0;\n  flex-shrink: 0;\n  min-width: 50px;\n  max-width: 350px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  z-index: 2;\n  background-color: var(--navMain);\n  float:left;\n\n\n  .appSidebarResizer {\n    position:absolute;\n    height:100%;\n    width:7px;\n    top:0;\n    right:-3px;\n    cursor: col-resize;\n    resize: horizontal;\n  }\n\n}\n\n.linkBox{\n  padding:24px;\n  text-decoration: none;\n  color:var(--textOnMain);\n  font-size:22px;\n  font-weight: 700;\n  display:flex;\n  align-items: center;\n  background-color: red;\n  height:60px;\n  width:100%;\n  flex-grow: 0;\n  flex-shrink: 0;\n  justify-self:flex-end;\n  box-sizing: border-box;\n  overflow:hidden;\n  background-color:var(--lighterMain);\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  border-top:1px solid var(--background);\n\n\n\n\n\n  &:focus, &:hover, &:visited, &:link, &:active {\n        text-decoration: none;\n    }\n}\n\n.logo{\n  font-size:34px;\n  font-family: 'Montserrat', sans-serif;\n  font-weight:700;\n  color:var(--textOnMain);\n  width:100%;\n  overflow:hidden;\n  text-align: center;\n  padding:10px 0;\n  box-sizing: border-box;\n\n}\n\n.list{\n  max-height:550px;\n  height:100%;\n  width:100%;\n  overflow:hidden;\n  list-style-type: none;\n  margin:0;\n  padding:0;\n\n  li{\n    color:var(--textOnMain);\n    font-size:22px;\n    font-weight:700;\n    box-sizing: border-box;\n    background-color: var(--mediumMain);\n    width:100%;\n\n    &:last-child{\n      border-bottom:1px solid var(--background);\n    }\n    a{\n      background-color: var(--mediumMain);\n      padding:10px;\n      text-decoration: none;\n      color:var(--textOnMain);\n      width:100%;\n      height:100%;\n\n    }\n  }\n}\n","/*!\n * All Rights Reserved\n *\n * Copyright (c) 2022 Michał Chruścielski\n */\n\n:root{\n--lightMain:#278BFF;\n--lighterMain:#3693FF;\n--darkMain:#0076FF;\n--mediumMain:#0080FF;\n--navMain:#0089FF;\n--background:#fff;\n--textOnMain:#fff;\n--elementsOnBackground:#000;\n--mainBackground:#F2F2F2;\n--lightText:#7B7B7B;\n--ultraLightText:#A2A2A2;\n--red:#FF6060;\n--switchBackground:#EAEAEA;\n--switchText:#4D4D4D;\n--switchContrastText:#fff;\n--inputPlaceholder:#8D8D8D;\n--inputBackground:#EAEAEA;\n  --deepMain:#1F71D0;\n}\n@media (prefers-color-scheme: dark) {\n  :root{\n    // --lightMain:#278BFF;\n    // --lighterMain:#36414E;\n    // --darkMain:#262E38;\n    // --mediumMain:#36414E;\n    // --background:#fff;\n    // --textOnMain:#fff;\n    // --elementsOnBackground:#fff;\n    // --mainBackground:#3D3D3D;\n  }\n\n}\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"mainBox": "Zz_Png7ZP5231uZADenA",
@@ -1365,6 +1365,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _events_SetErrorEvent__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./events/SetErrorEvent */ "./events/SetErrorEvent.ts");
 /* harmony import */ var _events_EventNames__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./events/EventNames */ "./events/EventNames.ts");
 
+/*
+ * All Rights Reserved
+ *
+ * Copyright (c) 2022 Michał Chruścielski
+ */
 
 
 
@@ -1450,7 +1455,10 @@ function App(props) {
         const loginProps = {
             viewModel: model.getLoginViewModel()
         };
-        return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.HashRouter, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Nav_NavComponent__WEBPACK_IMPORTED_MODULE_3__["default"], Object.assign({}, navProps), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Routes, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, { path: "delay", element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_views_Delays_Delays__WEBPACK_IMPORTED_MODULE_5__["default"], {}, void 0) }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, { path: "item", element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_views_Items_ItemsContainer__WEBPACK_IMPORTED_MODULE_6__["default"], Object.assign({}, itemsProps), void 0) }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, { path: "shortage", element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_views_Shortages_Shortages__WEBPACK_IMPORTED_MODULE_7__["default"], {}, void 0) }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, { path: "user", element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_views_Users_Users__WEBPACK_IMPORTED_MODULE_8__["default"], {}, void 0) }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, { path: "login", element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_views_Login_LoginContainer__WEBPACK_IMPORTED_MODULE_4__["default"], Object.assign({}, loginProps), void 0) }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, { path: "settings", element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_views_Settings_Settings__WEBPACK_IMPORTED_MODULE_9__["default"], {}, void 0) }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, { path: "/", element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_views_Home_HomeContainer__WEBPACK_IMPORTED_MODULE_2__["default"], {}, void 0) }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, { path: "*", element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_views_Home_HomeContainer__WEBPACK_IMPORTED_MODULE_2__["default"], {}, void 0) }, void 0)] }, void 0)] }, void 0));
+        const homeProps = {
+            viewModel: model.getHomeViewModel()
+        };
+        return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.HashRouter, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Nav_NavComponent__WEBPACK_IMPORTED_MODULE_3__["default"], Object.assign({}, navProps), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Routes, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, { path: "delay", element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_views_Delays_Delays__WEBPACK_IMPORTED_MODULE_5__["default"], {}, void 0) }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, { path: "item", element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_views_Items_ItemsContainer__WEBPACK_IMPORTED_MODULE_6__["default"], Object.assign({}, itemsProps), void 0) }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, { path: "shortage", element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_views_Shortages_Shortages__WEBPACK_IMPORTED_MODULE_7__["default"], {}, void 0) }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, { path: "user", element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_views_Users_Users__WEBPACK_IMPORTED_MODULE_8__["default"], {}, void 0) }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, { path: "login", element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_views_Login_LoginContainer__WEBPACK_IMPORTED_MODULE_4__["default"], Object.assign({}, loginProps), void 0) }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, { path: "settings", element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_views_Settings_Settings__WEBPACK_IMPORTED_MODULE_9__["default"], {}, void 0) }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, { path: "/", element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_views_Home_HomeContainer__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({}, homeProps), void 0) }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, { path: "*", element: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_views_Home_HomeContainer__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({}, homeProps), void 0) }, void 0)] }, void 0)] }, void 0));
     }
     if (!state.isInitialised) {
         return renderInitialScreen();
@@ -1485,6 +1493,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utilities_ApiViewEvents__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./utilities/ApiViewEvents */ "./utilities/ApiViewEvents.ts");
 /* harmony import */ var _utilities_ApiViewNames__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./utilities/ApiViewNames */ "./utilities/ApiViewNames.ts");
 /* harmony import */ var _views_Login_LoginContainerViewModel__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/Login/LoginContainerViewModel */ "./views/Login/LoginContainerViewModel.ts");
+/* harmony import */ var _views_Home_HomeContainerViewModel__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/Home/HomeContainerViewModel */ "./views/Home/HomeContainerViewModel.ts");
+/*
+ * All Rights Reserved
+ *
+ * Copyright (c) 2022 Michał Chruścielski
+ */
+
 
 
 
@@ -1506,6 +1521,7 @@ class AppViewModel {
         this._apiViewEvents.addView(_utilities_ApiViewNames__WEBPACK_IMPORTED_MODULE_8__.ApiViewNames.Main);
         this._itemsContainerViewModel = null;
         this._loginContainerViewModel = null;
+        this._homeContainerViewModel = null;
         this._isInitialised = false;
         this._setupCallbacks();
     }
@@ -1545,6 +1561,12 @@ class AppViewModel {
         }
         return this._loginContainerViewModel;
     }
+    getHomeViewModel() {
+        if (!this._homeContainerViewModel) {
+            this._homeContainerViewModel = new _views_Home_HomeContainerViewModel__WEBPACK_IMPORTED_MODULE_10__.HomeContainerViewModel(this._apiClient, this._eventBus, this._apiViewEvents);
+        }
+        return this._homeContainerViewModel;
+    }
     reloadMainView() {
         this._eventBus.emit(_events_EventNames__WEBPACK_IMPORTED_MODULE_2__.EventNames.ReloadMainView, null, new _events_ReloadMainViewEvent__WEBPACK_IMPORTED_MODULE_3__.ReloadMainViewEvent());
     }
@@ -1569,6 +1591,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "../node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _errors_ErrorFactory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../errors/ErrorFactory */ "./errors/ErrorFactory.ts");
+/* harmony import */ var _entities_ItemSortByEnum__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../entities/ItemSortByEnum */ "./api/entities/ItemSortByEnum.ts");
+/*
+ * All Rights Reserved
+ *
+ * Copyright (c) 2022 Michał Chruścielski
+ */
+
 
 
 class ApiClient {
@@ -1579,19 +1608,28 @@ class ApiClient {
             this._url += '/';
         }
     }
+    // ITEM REQUESTS
     async getItemByCode(code) {
         return await this._request(`item/${code}?byCode=true`, "GET");
     }
     async getItemById(id) {
         return await this._request(`item/${id}`, "GET");
     }
-    async getItems(search, offset) {
-        return await this._request(`item?search=${search}&offset=${offset}`, "GET");
+    async getItems(search, offset, sort) {
+        console.log(`itemview?search=${search}&offset=${offset}&sort=${_entities_ItemSortByEnum__WEBPACK_IMPORTED_MODULE_2__.ItemSortBy[sort]}`);
+        return await this._request(`itemview?search=${search}&offset=${offset}&sort=${_entities_ItemSortByEnum__WEBPACK_IMPORTED_MODULE_2__.ItemSortBy[sort]}`, "GET");
     }
-    //apiClient
-    //authenticator
-    //AppModel
-    //ViewModel (dla kazdego ekranu)
+    //  HOME REQUESTS 
+    async getRentalChart() {
+        return await this._request(`dashboard/chart/rental`, "GET");
+    }
+    async getRetrievalChart() {
+        console.log('oh daddy');
+        return await this._request(`dashboard/chart/retrieval`, "GET");
+    }
+    async getHomeWidgets() {
+        return await this._request(`dashboard/widgets`, "GET");
+    }
     async _request(path, method, body) {
         const url = `${this._url}${path}`;
         let token;
@@ -1631,6 +1669,26 @@ class ApiClient {
         return error.response && error.response.status === 403;
     }
 }
+
+
+/***/ }),
+
+/***/ "./api/entities/ItemSortByEnum.ts":
+/*!****************************************!*\
+  !*** ./api/entities/ItemSortByEnum.ts ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ItemSortBy": () => (/* binding */ ItemSortBy)
+/* harmony export */ });
+var ItemSortBy;
+(function (ItemSortBy) {
+    ItemSortBy[ItemSortBy["ADDED"] = 0] = "ADDED";
+    ItemSortBy[ItemSortBy["QUANTITY"] = 1] = "QUANTITY";
+    ItemSortBy[ItemSortBy["NAME"] = 2] = "NAME";
+})(ItemSortBy || (ItemSortBy = {}));
 
 
 /***/ }),
@@ -1891,17 +1949,17 @@ function SearchComponent(props) {
     function onChange(e) {
         props.onChange(e.target.value);
     }
-    return (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { placeholder: "Szukaj", className: _styles_Search_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].main, onChange: onChange }, void 0);
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", { placeholder: "Szukaj", className: _styles_Search_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].main, onChange: onChange }, void 0));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SearchComponent);
 
 
 /***/ }),
 
-/***/ "./components/SortSwitch.tsx":
-/*!***********************************!*\
-  !*** ./components/SortSwitch.tsx ***!
-  \***********************************/
+/***/ "./components/SortSwitch/SortSwitchComponent.tsx":
+/*!*******************************************************!*\
+  !*** ./components/SortSwitch/SortSwitchComponent.tsx ***!
+  \*******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -1909,25 +1967,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "../node_modules/react/jsx-runtime.js");
-/* harmony import */ var _styles_SortSwitch_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../styles/SortSwitch.module.scss */ "./styles/SortSwitch.module.scss");
+/* harmony import */ var _styles_SortSwitch_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../styles/SortSwitch.module.scss */ "./styles/SortSwitch.module.scss");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "../node_modules/react/index.js");
 
 
 //import {Store} from '../store/store';
 
-function SortSwitch() {
-    const values = ['test1', 'test2', 'test3'];
+function SortSwitchComponent(props) {
     const colorBox = (0,react__WEBPACK_IMPORTED_MODULE_2__.useRef)(null);
     const valuesRef = (0,react__WEBPACK_IMPORTED_MODULE_2__.useRef)(null);
-    const onClick = (e) => {
+    const onClick = (e, x) => {
         console.log(e);
         if (colorBox != null
             && colorBox.current != null) {
             colorBox.current.style.left = e.target.offsetLeft + "px";
             colorBox.current.style.width = e.target.offsetWidth + "px";
-            for (let item of valuesRef.current.children) {
+            for (const item of valuesRef.current.children) {
                 item.style.color = "var(--switchText)";
             }
+            props.onChange(x);
             e.target.style.color = "var(--switchContrastText)";
         }
     };
@@ -1936,9 +1994,9 @@ function SortSwitch() {
         colorBox.current.style.width = valuesRef.current.children[0].offsetWidth + "px";
         valuesRef.current.children[0].style.color = "var(--switchContrastText)";
     }, []);
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_SortSwitch_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].main }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", Object.assign({ className: _styles_SortSwitch_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].values, ref: valuesRef }, { children: values.map((x, i) => (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", Object.assign({ className: _styles_SortSwitch_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].valueBox, onClick: (e) => onClick(e) }, { children: x }), i)) }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { ref: colorBox, className: _styles_SortSwitch_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].colorBox }, void 0)] }), void 0));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_SortSwitch_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].main }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", Object.assign({ className: _styles_SortSwitch_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].values, ref: valuesRef }, { children: props.values.map((x, i) => (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", Object.assign({ className: _styles_SortSwitch_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].valueBox, onClick: (e) => onClick(e, x.enum) }, { children: x.value }), i)) }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { ref: colorBox, className: _styles_SortSwitch_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].colorBox }, void 0)] }), void 0));
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SortSwitch);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SortSwitchComponent);
 
 
 /***/ }),
@@ -2732,28 +2790,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _kurkle_color__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @kurkle/color */ "../node_modules/@kurkle/color/dist/color.esm.js");
 /* harmony import */ var _styles_HomeChartComponent_module_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../styles/HomeChartComponent.module.scss */ "./styles/HomeChartComponent.module.scss");
 
+/*
+ * All Rights Reserved
+ *
+ * Copyright (c) 2022 Michał Chruścielski
+ */
 
 
 
 
-function HomeChartComponent() {
+function HomeChartComponent(props) {
     const chart = (0,react__WEBPACK_IMPORTED_MODULE_2__.useRef)(null);
-    let labels = [];
-    let data = [];
-    for (let i = 1; i <= 30; i++) {
-        labels.push(i);
-        data.push(Math.floor(Math.random() * (200 - 5)) + 5);
-    }
     function transparentize(value, opacity) {
-        var alpha = opacity === undefined ? 0.5 : 1 - opacity;
+        const alpha = opacity === undefined ? 0.5 : 1 - opacity;
         return (0,_kurkle_color__WEBPACK_IMPORTED_MODULE_3__["default"])(value).alpha(alpha).rgbString();
     }
     function colorize(opaque) {
         return (ctx) => {
-            var v = ctx.parsed.y;
-            var c = v < 50 ? '#D60000'
-                : v < 100 ? '#F46300'
-                    : v < 200 ? '#0358B6'
+            const v = ctx.parsed.y;
+            const c = v < 10 ? '#D60000'
+                : v < 50 ? '#F46300'
+                    : v < 100 ? '#0358B6'
                         : '#44DE28';
             return opaque ? c : transparentize(c, 1 - Math.abs(v / 150));
         };
@@ -2762,9 +2819,8 @@ function HomeChartComponent() {
     const config = {
         type: "bar",
         data: {
-            labels: labels,
             datasets: [{
-                    data: data
+                    data: props.chart
                 }],
         },
         options: {
@@ -2780,6 +2836,10 @@ function HomeChartComponent() {
                     borderWidth: 2
                 },
             },
+            parsing: {
+                xAxisKey: 'date',
+                yAxisKey: 'amount'
+            }
         },
         scales: {
             x: {
@@ -2792,11 +2852,15 @@ function HomeChartComponent() {
     };
     (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
         if (chart
-            && chart.current) {
+            && chart.current
+            && props.chart != []
+            && props.chart != undefined
+            && props.chart.length > 0) {
+            console.log("XD");
             const myChart1 = new chart_js_auto__WEBPACK_IMPORTED_MODULE_1__["default"](chart.current, config);
         }
-    }, []);
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("canvas", Object.assign({ className: _styles_HomeChartComponent_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].main, ref: chart }, { children: "Unknown error" }), void 0));
+    });
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("canvas", Object.assign({ className: _styles_HomeChartComponent_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].main, ref: chart }, { children: "oups... unknown error :(" }), void 0));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HomeChartComponent);
 
@@ -2816,18 +2880,114 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "../node_modules/react/jsx-runtime.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "../node_modules/react/index.js");
 /* harmony import */ var _HomeView__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HomeView */ "./views/Home/HomeView.tsx");
+/* harmony import */ var _events_EventNames__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../events/EventNames */ "./events/EventNames.ts");
+/* harmony import */ var _events_NavigateEvent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../events/NavigateEvent */ "./events/NavigateEvent.ts");
+/* harmony import */ var _events_SetErrorEvent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../events/SetErrorEvent */ "./events/SetErrorEvent.ts");
+
+/*
+ * All Rights Reserved
+ *
+ * Copyright (c) 2022 Michał Chruścielski
+ */
 
 
 
-function HomeContainer() {
+
+
+function HomeContainer(props) {
+    const model = props.viewModel;
+    const [state, setState] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
+        widgets: null,
+        rentalChart: [],
+        retrievalChart: [],
+    });
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+        startup();
+        return () => cleanup();
     }, []);
-    const containerProps = {
-    //TODO
+    async function startup() {
+        model.eventBus.emit(_events_EventNames__WEBPACK_IMPORTED_MODULE_3__.EventNames.Navigate, null, new _events_NavigateEvent__WEBPACK_IMPORTED_MODULE_4__.NavigateEvent(true));
+        model.eventBus.on(_events_EventNames__WEBPACK_IMPORTED_MODULE_3__.EventNames.ReloadMainView, onReload);
+        await loadData();
+    }
+    function cleanup() {
+        model.eventBus.detach(_events_EventNames__WEBPACK_IMPORTED_MODULE_3__.EventNames.ReloadMainView, onReload);
+    }
+    async function onReload(event) {
+        await loadData();
+    }
+    async function loadData() {
+        const onSuccess = (widgets, rentalChart, retrievalChart) => {
+            setState((s) => {
+                return Object.assign(Object.assign({}, s), { widgets: widgets, rentalChart: rentalChart, retrievalChart: retrievalChart });
+            });
+        };
+        const onError = (error) => {
+            model.eventBus.emit(_events_EventNames__WEBPACK_IMPORTED_MODULE_3__.EventNames.SetError, null, new _events_SetErrorEvent__WEBPACK_IMPORTED_MODULE_5__.SetErrorEvent('main', error));
+            setState((s) => {
+                return Object.assign(Object.assign({}, s), { widgets: null, rentalChart: [], retrievalChart: [] });
+            });
+        };
+        model.eventBus.emit(_events_EventNames__WEBPACK_IMPORTED_MODULE_3__.EventNames.SetError, null, new _events_SetErrorEvent__WEBPACK_IMPORTED_MODULE_5__.SetErrorEvent('main', null));
+        await model.callApi(onSuccess, onError);
+    }
+    const childProps = {
+        widgets: state.widgets,
+        rentalChart: state.rentalChart,
+        retrievalChart: state.retrievalChart
     };
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_HomeView__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({}, containerProps), void 0));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_HomeView__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({}, childProps), void 0));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HomeContainer);
+
+
+/***/ }),
+
+/***/ "./views/Home/HomeContainerViewModel.ts":
+/*!**********************************************!*\
+  !*** ./views/Home/HomeContainerViewModel.ts ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "HomeContainerViewModel": () => (/* binding */ HomeContainerViewModel)
+/* harmony export */ });
+/* harmony import */ var _utilities_ApiViewNames__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/ApiViewNames */ "./utilities/ApiViewNames.ts");
+/* harmony import */ var _errors_ErrorFactory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../errors/ErrorFactory */ "./errors/ErrorFactory.ts");
+/*
+ * All Rights Reserved
+ *
+ * Copyright (c) 2022 Michał Chruścielski
+ */
+
+
+class HomeContainerViewModel {
+    constructor(apiClient, eventBus, apiViewEvents) {
+        this._apiClient = apiClient;
+        this._eventBus = eventBus;
+        this._apiViewEvents = apiViewEvents;
+    }
+    get eventBus() {
+        return this._eventBus;
+    }
+    async callApi(onSuccess, onError) {
+        try {
+            this._apiViewEvents.onViewLoading(_utilities_ApiViewNames__WEBPACK_IMPORTED_MODULE_0__.ApiViewNames.Main);
+            const rentalChart = await this._apiClient.getRentalChart();
+            const retrievalChart = await this._apiClient.getRetrievalChart();
+            const widgets = await this._apiClient.getHomeWidgets();
+            this._apiViewEvents.onViewLoaded(_utilities_ApiViewNames__WEBPACK_IMPORTED_MODULE_0__.ApiViewNames.Main);
+            onSuccess(widgets, rentalChart, retrievalChart);
+        }
+        catch (e) {
+            console.log("EEE", e);
+            const error = _errors_ErrorFactory__WEBPACK_IMPORTED_MODULE_1__.ErrorFactory.fromException(e);
+            this._apiViewEvents.onViewLoadFailed(_utilities_ApiViewNames__WEBPACK_IMPORTED_MODULE_0__.ApiViewNames.Main, error);
+            onError(error);
+        }
+    }
+}
 
 
 /***/ }),
@@ -2844,21 +3004,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "../node_modules/react/jsx-runtime.js");
 /* harmony import */ var _items_MediumWidget__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../items/MediumWidget */ "./items/MediumWidget.tsx");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "../node_modules/react/index.js");
-/* harmony import */ var _HomeChartComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./HomeChartComponent */ "./views/Home/HomeChartComponent.tsx");
-/* harmony import */ var _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../styles/Home.module.scss */ "./styles/Home.module.scss");
+/* harmony import */ var _HomeChartComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HomeChartComponent */ "./views/Home/HomeChartComponent.tsx");
+/* harmony import */ var _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../styles/Home.module.scss */ "./styles/Home.module.scss");
+
+/*
+ * All Rights Reserved
+ *
+ * Copyright (c) 2022 Michał Chruścielski
+ */
 
 
 
-
-
-function Home() {
-    (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
-    }, []);
+function Home(props) {
     function renderItem() {
-        return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("tr", Object.assign({ className: _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].main }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", { children: "Woda Cisowianka niegazowana" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", { children: "42  /  50" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", { children: "21" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", Object.assign({ className: _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].barTd }, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].flex }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { children: "84%" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", Object.assign({ className: _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].bar }, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].barRed, style: { width: 84 } }, void 0) }), void 0)] }), void 0) }), void 0)] }), void 0));
+        return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("tr", Object.assign({ className: _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].main }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", { children: "Woda Cisowianka niegazowana" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", { children: "42  /  50" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", { children: "21" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", Object.assign({ className: _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].barTd }, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].flex }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { children: "84%" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", Object.assign({ className: _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].bar }, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { className: _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].barRed, style: { width: 84 } }, void 0) }), void 0)] }), void 0) }), void 0)] }), void 0));
     }
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].main }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].widgets }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_1__["default"], Object.assign({ number: 254 }, { children: "Wypo\u017Cyczenia dzi\u015B" }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_1__["default"], Object.assign({ number: 1024 }, { children: "Pobrania dzi\u015B" }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_1__["default"], Object.assign({ number: 5555 }, { children: "Zwroty dzi\u015B" }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_1__["default"], Object.assign({ number: 5555 }, { children: "Nowych przedmiot\u00F3w dzi\u015B" }), void 0)] }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].dashboard }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].chart }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("h3", { children: ["Wypo\u017Cyczenia w ci\u0105gu", (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {}, void 0), " ostatnich 30 dni"] }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_HomeChartComponent__WEBPACK_IMPORTED_MODULE_3__["default"], {}, void 0) }, void 0)] }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].chart }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("h3", { children: ["Pobrania w ci\u0105gu", (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {}, void 0), " ostatnich 30 dni"] }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_HomeChartComponent__WEBPACK_IMPORTED_MODULE_3__["default"], {}, void 0) }, void 0)] }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].list }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { children: "Deficyt" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("table", { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("thead", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("tr", { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "PRZEDMIOT" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "ILO\u015A\u0106/POZIOM MINIMALNY" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "\u015AREDNIA TYGODNIOWA WYPO\u017BYCZE\u0143" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "POKRYCIE ILO\u015ACI MINIMALNEJ" }, void 0)] }, void 0) }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("tbody", { children: renderItem() }, void 0)] }, void 0)] }), void 0)] }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {}, void 0)] }), void 0));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].main }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].widgets }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_1__["default"], Object.assign({ number: props.widgets != null ? props.widgets.rentalsToday : null }, { children: "Wypo\u017Cyczenia dzi\u015B" }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_1__["default"], Object.assign({ number: props.widgets != null ? props.widgets.retrievalsToday : null }, { children: "Pobrania dzi\u015B" }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_1__["default"], Object.assign({ number: props.widgets != null ? props.widgets.returnsToday : null }, { children: "Zwroty dzi\u015B" }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_1__["default"], Object.assign({ number: props.widgets != null ? props.widgets.itemsAddedToday : null }, { children: "Nowych przedmiot\u00F3w dzi\u015B" }), void 0)] }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].dashboard }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].chart }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("h3", { children: ["Wypo\u017Cyczenia w ci\u0105gu", (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {}, void 0), " ostatnich 30 dni"] }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_HomeChartComponent__WEBPACK_IMPORTED_MODULE_2__["default"], { chart: props.rentalChart }, void 0) }, void 0)] }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].chart }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("h3", { children: ["Pobrania w ci\u0105gu", (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {}, void 0), " ostatnich 30 dni"] }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_HomeChartComponent__WEBPACK_IMPORTED_MODULE_2__["default"], { chart: props.retrievalChart }, void 0) }, void 0)] }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Home_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].list }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { children: "Deficyt" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("table", { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("thead", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("tr", { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "PRZEDMIOT" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "ILO\u015A\u0106/POZIOM MINIMALNY" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "\u015AREDNIA TYGODNIOWA WYPO\u017BYCZE\u0143" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "POKRYCIE ILO\u015ACI MINIMALNEJ" }, void 0)] }, void 0) }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("tbody", { children: renderItem() }, void 0)] }, void 0)] }), void 0)] }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {}, void 0)] }), void 0));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Home);
 
@@ -2881,6 +3042,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _events_NavigateEvent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../events/NavigateEvent */ "./events/NavigateEvent.ts");
 /* harmony import */ var _events_SetErrorEvent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../events/SetErrorEvent */ "./events/SetErrorEvent.ts");
 /* harmony import */ var _ItemsView__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ItemsView */ "./views/Items/ItemsView.tsx");
+/* harmony import */ var _api_entities_ItemSortByEnum__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../api/entities/ItemSortByEnum */ "./api/entities/ItemSortByEnum.ts");
+
 
 
 
@@ -2908,7 +3071,7 @@ function ItemsContainer(props) {
     async function onReload(event) {
         await loadData();
     }
-    async function loadData(search = "", offset = 0) {
+    async function loadData(search = "", offset = 0, sort = _api_entities_ItemSortByEnum__WEBPACK_IMPORTED_MODULE_6__.ItemSortBy.ADDED) {
         const onSuccess = (items) => {
             if (items.length < 10)
                 setState((s) => (Object.assign(Object.assign({}, s), { hasMore: false })));
@@ -2925,7 +3088,7 @@ function ItemsContainer(props) {
         if (offset === 0)
             setState((s) => (Object.assign(Object.assign({}, s), { items: [], hasMore: true })));
         model.eventBus.emit(_events_EventNames__WEBPACK_IMPORTED_MODULE_2__.EventNames.SetError, null, new _events_SetErrorEvent__WEBPACK_IMPORTED_MODULE_4__.SetErrorEvent('items', null));
-        await model.callApi(onSuccess, onError, search, offset);
+        await model.callApi(onSuccess, onError, search, offset, sort);
     }
     const childProps = {
         items: state.items,
@@ -2962,10 +3125,10 @@ class ItemsContainerViewModel {
     get eventBus() {
         return this._eventBus;
     }
-    async callApi(onSuccess, onError, search, offset) {
+    async callApi(onSuccess, onError, search, offset, sort) {
         try {
             this._apiViewEvents.onViewLoading(_utilities_ApiViewNames__WEBPACK_IMPORTED_MODULE_0__.ApiViewNames.Main);
-            const items = await this._apiClient.getItems(search, offset);
+            const items = await this._apiClient.getItems(search, offset, sort);
             this._apiViewEvents.onViewLoaded(_utilities_ApiViewNames__WEBPACK_IMPORTED_MODULE_0__.ApiViewNames.Main);
             onSuccess(items);
         }
@@ -2995,11 +3158,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_Items_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../styles/Items.module.scss */ "./styles/Items.module.scss");
 /* harmony import */ var _items_MediumWidget__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../items/MediumWidget */ "./items/MediumWidget.tsx");
 /* harmony import */ var _components_Search_SearchComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Search/SearchComponent */ "./components/Search/SearchComponent.tsx");
-/* harmony import */ var _components_SortSwitch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/SortSwitch */ "./components/SortSwitch.tsx");
+/* harmony import */ var _components_SortSwitch_SortSwitchComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/SortSwitch/SortSwitchComponent */ "./components/SortSwitch/SortSwitchComponent.tsx");
 /* harmony import */ var _components_Filter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/Filter */ "./components/Filter.tsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "../node_modules/react/index.js");
 /* harmony import */ var react_infinite_scroller__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-infinite-scroller */ "../node_modules/react-infinite-scroller/index.js");
 /* harmony import */ var react_infinite_scroller__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_infinite_scroller__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _api_entities_ItemSortByEnum__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../api/entities/ItemSortByEnum */ "./api/entities/ItemSortByEnum.ts");
+
+/*
+ * All Rights Reserved
+ *
+ * Copyright (c) 2022 Michał Chruścielski
+ */
 
 
 
@@ -3012,6 +3182,7 @@ function ItemsView(props) {
     const [state, setState] = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)({
         offset: 0,
         text: "",
+        sortBy: _api_entities_ItemSortByEnum__WEBPACK_IMPORTED_MODULE_8__.ItemSortBy.ADDED,
         isLoading: false
     });
     (0,react__WEBPACK_IMPORTED_MODULE_6__.useEffect)(() => {
@@ -3019,22 +3190,43 @@ function ItemsView(props) {
     });
     async function reload(value) {
         if (!state.isLoading) {
-            setState((prevState) => ({ offset: 0, text: value, isLoading: true }));
-            await props.onReload(value, state.offset);
+            await setState((prevState) => (Object.assign(Object.assign({}, prevState), { offset: 0, text: value, isLoading: true })));
+            await props.onReload(value, 0, state.sortBy);
+            setState((prevState) => (Object.assign(Object.assign({}, prevState), { isLoading: false })));
+        }
+    }
+    async function reload_sort(value) {
+        if (!state.isLoading) {
+            await setState((prevState) => (Object.assign(Object.assign({}, prevState), { offset: 0, sortBy: value, isLoading: true })));
+            await props.onReload(state.text, state.offset, value);
             setState((prevState) => (Object.assign(Object.assign({}, prevState), { isLoading: false })));
         }
     }
     async function loadMore() {
         if (!state.isLoading) {
-            setState((prevState) => (Object.assign(Object.assign({}, prevState), { offset: prevState.offset + 10, isLoading: true })));
-            await props.onReload(state.text, state.offset);
+            await setState((prevState) => (Object.assign(Object.assign({}, prevState), { offset: prevState.offset + 10, isLoading: true })));
+            await props.onReload(state.text, state.offset, state.sortBy);
             setState((prevState) => (Object.assign(Object.assign({}, prevState), { isLoading: false })));
         }
     }
     function renderItem(item, key) {
-        return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("tr", Object.assign({ className: _styles_Items_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].item }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", { children: item.itemTemplate.name }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", { children: item.itemTemplate.returnable ? null : item.quantity }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", { children: "21" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", { children: item.itemTemplate.category.name }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", { children: item.itemTemplate.returnable ? "zwrotne" : "bezzwrotne" }, void 0)] }), key));
+        return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("tr", Object.assign({ className: _styles_Items_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].item }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", { children: item.name }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", { children: item.quantity }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", { children: "21" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", { children: item.category.name }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", { children: item.returnable ? "zwrotne" : "bezzwrotne" }, void 0)] }), key));
     }
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Items_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].main }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Items_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].widgets }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({ number: 254 }, { children: "Wypo\u017Cyczenia dzi\u015B" }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({ number: 1024 }, { children: "Pobrania dzi\u015B" }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({ number: 5555 }, { children: "Zwroty dzi\u015B" }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({ number: 5555 }, { children: "Nowych przedmiot\u00F3w dzi\u015B" }), void 0)] }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Items_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].list }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Items_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].listHeader }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { children: "Przedmioty w magazynie" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Items_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].listHeaderFlex }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Search_SearchComponent__WEBPACK_IMPORTED_MODULE_3__["default"], { onChange: reload }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_SortSwitch__WEBPACK_IMPORTED_MODULE_4__["default"], {}, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Filter__WEBPACK_IMPORTED_MODULE_5__["default"], {}, void 0)] }), void 0)] }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)((react_infinite_scroller__WEBPACK_IMPORTED_MODULE_7___default()), Object.assign({ pageStart: 0, loadMore: loadMore, hasMore: props.hasMore, loader: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", Object.assign({ className: "loader" }, { children: "Loading ..." }), 0), useWindow: false }, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("table", { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("thead", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("tr", { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "Nazwa" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "Ilo\u015B\u0107" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "\u015Arednia tygodniowa wyda\u0144" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "Kategoria" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "Rodzaj" }, void 0)] }, void 0) }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("tbody", { children: props.items.map((item, key) => renderItem(item, key)) }, void 0)] }, void 0) }), void 0)] }), void 0)] }), void 0));
+    const sortSwitchValues = [
+        {
+            value: "data",
+            enum: _api_entities_ItemSortByEnum__WEBPACK_IMPORTED_MODULE_8__.ItemSortBy.ADDED
+        },
+        {
+            value: "nazwa",
+            enum: _api_entities_ItemSortByEnum__WEBPACK_IMPORTED_MODULE_8__.ItemSortBy.NAME
+        },
+        {
+            value: "ilość",
+            enum: _api_entities_ItemSortByEnum__WEBPACK_IMPORTED_MODULE_8__.ItemSortBy.QUANTITY
+        },
+    ];
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Items_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].main }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Items_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].widgets }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({ number: 254 }, { children: "Wypo\u017Cyczenia dzi\u015B" }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({ number: 1024 }, { children: "Pobrania dzi\u015B" }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({ number: 5555 }, { children: "Zwroty dzi\u015B" }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({ number: 5555 }, { children: "Nowych przedmiot\u00F3w dzi\u015B" }), void 0)] }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Items_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].list }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Items_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].listHeader }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { children: "Przedmioty w magazynie" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Items_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].listHeaderFlex }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Search_SearchComponent__WEBPACK_IMPORTED_MODULE_3__["default"], { onChange: reload }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_SortSwitch_SortSwitchComponent__WEBPACK_IMPORTED_MODULE_4__["default"], { onChange: reload_sort, values: sortSwitchValues }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Filter__WEBPACK_IMPORTED_MODULE_5__["default"], {}, void 0)] }), void 0)] }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)((react_infinite_scroller__WEBPACK_IMPORTED_MODULE_7___default()), Object.assign({ pageStart: 0, loadMore: loadMore, hasMore: props.hasMore, loader: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", Object.assign({ className: "loader" }, { children: "Loading ..." }), 0), useWindow: false }, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("table", { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("thead", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("tr", { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "Nazwa" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "Ilo\u015B\u0107" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "\u015Arednia tygodniowa wyda\u0144" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "Kategoria" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "Rodzaj" }, void 0)] }, void 0) }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("tbody", { children: props.items.map((item, key) => renderItem(item, key)) }, void 0)] }, void 0) }), void 0)] }), void 0)] }), void 0));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ItemsView);
 
@@ -3209,17 +3401,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "../node_modules/react/jsx-runtime.js");
 /* harmony import */ var _styles_Shortages_module_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../styles/Shortages.module.scss */ "./styles/Shortages.module.scss");
 /* harmony import */ var _items_MediumWidget__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../items/MediumWidget */ "./items/MediumWidget.tsx");
-/* harmony import */ var _components_SortSwitch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/SortSwitch */ "./components/SortSwitch.tsx");
-/* harmony import */ var _components_Filter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Filter */ "./components/Filter.tsx");
-/* harmony import */ var _items_ShortageTableCell__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../items/ShortageTableCell */ "./items/ShortageTableCell.tsx");
-
+/* harmony import */ var _components_Filter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Filter */ "./components/Filter.tsx");
+/* harmony import */ var _items_ShortageTableCell__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../items/ShortageTableCell */ "./items/ShortageTableCell.tsx");
 
 
 
 
 
 function Shortages() {
-    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Shortages_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].main }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Shortages_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].widgets }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({ number: 254 }, { children: "Wypo\u017Cyczenia dzi\u015B" }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({ number: 1024 }, { children: "Pobrania dzi\u015B" }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({ number: 5555 }, { children: "Zwroty dzi\u015B" }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({ number: 5555 }, { children: "Nowych przedmiot\u00F3w dzi\u015B" }), void 0)] }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Shortages_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].list }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Shortages_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].listHeader }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { children: "Przedmioty poni\u017Cej poziomu minimalnego" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Shortages_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].listHeaderFlex }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_SortSwitch__WEBPACK_IMPORTED_MODULE_3__["default"], {}, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Filter__WEBPACK_IMPORTED_MODULE_4__["default"], {}, void 0)] }), void 0)] }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("table", { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("thead", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("tr", { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "Nazwa" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "Ilo\u015B\u0107 / Poziom minimalny" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "\u015Arednia tygodniowa wypo\u017Cycze\u0144" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "Pokrycie ilo\u015Bci minimalnej" }, void 0)] }, void 0) }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("tbody", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_ShortageTableCell__WEBPACK_IMPORTED_MODULE_5__["default"], { children: "test" }, void 0) }, void 0)] }, void 0)] }), void 0)] }), void 0));
+    return ((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Shortages_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].main }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Shortages_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].widgets }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({ number: 254 }, { children: "Wypo\u017Cyczenia dzi\u015B" }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({ number: 1024 }, { children: "Pobrania dzi\u015B" }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({ number: 5555 }, { children: "Zwroty dzi\u015B" }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_MediumWidget__WEBPACK_IMPORTED_MODULE_2__["default"], Object.assign({ number: 5555 }, { children: "Nowych przedmiot\u00F3w dzi\u015B" }), void 0)] }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Shortages_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].list }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", Object.assign({ className: _styles_Shortages_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].listHeader }, { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", { children: "Przedmioty poni\u017Cej poziomu minimalnego" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", Object.assign({ className: _styles_Shortages_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].listHeaderFlex }, { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Filter__WEBPACK_IMPORTED_MODULE_3__["default"], {}, void 0) }), void 0)] }), void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("table", { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("thead", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("tr", { children: [(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "Nazwa" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "Ilo\u015B\u0107 / Poziom minimalny" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "\u015Arednia tygodniowa wypo\u017Cycze\u0144" }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("th", { children: "Pokrycie ilo\u015Bci minimalnej" }, void 0)] }, void 0) }, void 0), (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("tbody", { children: (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_items_ShortageTableCell__WEBPACK_IMPORTED_MODULE_4__["default"], { children: "test" }, void 0) }, void 0)] }, void 0)] }), void 0)] }), void 0));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Shortages);
 

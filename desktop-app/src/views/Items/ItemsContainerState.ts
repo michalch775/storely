@@ -1,6 +1,6 @@
-import {Item} from "../../api/entities/Item";
+import {ItemView} from "../../api/entities/ItemView";
 
 export interface ItemsContainerState{
-    items:Item[];
+    items:ItemView[];
     hasMore:boolean;
 }

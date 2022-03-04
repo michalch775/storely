@@ -1,5 +1,7 @@
 package com.example.storelyServer.item;
 
+import org.hibernate.search.engine.search.sort.dsl.SortOrder;
+
 public enum ItemSortBy {
     ADDED,
     QUANTITY,
@@ -8,17 +10,26 @@ public enum ItemSortBy {
 
 
     public String getValue(){
-        if(this.name() == String.valueOf(this.ADDED)){
-            return "added";
+        switch (this){
+            case QUANTITY:
+                return "quantity";
+            case NAME:
+                return "name_sort";
+            case ADDED:
+            default:
+                return "added";
         }
-        else if(this.name() == String.valueOf(this.QUANTITY)){
-            return "quantity";
-        }
-        else if(this.name() == String.valueOf(this.NAME)){
-            return "itemTemplate.name_sort";
-        }
-        else{
-            return "added";
+    }
+
+    public SortOrder getOrder(){
+        switch (this){
+            case QUANTITY:
+            case ADDED:
+            case NAME:
+                return SortOrder.DESC;
+            default:
+                return SortOrder.ASC;
+
         }
     }
 }

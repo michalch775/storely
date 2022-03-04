@@ -3,6 +3,7 @@ package com.example.storelyServer.itemTemplate;
 import com.example.storelyServer.category.Category;
 import com.example.storelyServer.group.Group;
 import com.example.storelyServer.item.Item;
+import com.example.storelyServer.user.UserRepository;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.search.engine.backend.types.Sortable;
@@ -38,8 +39,8 @@ public class ItemTemplate {
     @FullTextField
     private String description; //TODO: as varchar 5000 signs
     private boolean isReturnable = true;
-    private Integer timeLimit;
-    private Integer criticalQuantity;
+    private Integer timeLimit = 48;
+    private Integer criticalQuantity = 0;
 
 
     @ManyToOne(cascade = CascadeType.DETACH)
@@ -60,6 +61,8 @@ public class ItemTemplate {
     @JsonIgnore
     @OneToMany(mappedBy = "itemTemplate", cascade = CascadeType.DETACH)
     private Set<Item> items = new HashSet<>();
+
+
 
 
     public ItemTemplate(Long id, String name,

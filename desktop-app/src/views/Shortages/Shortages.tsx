@@ -1,6 +1,6 @@
 import styles from '../../styles/Shortages.module.scss';
 import MediumWidget from '../../items/MediumWidget';
-import SortSwitch from '../../components/SortSwitch';
+import SortSwitchComponent from '../../components/SortSwitch/SortSwitchComponent';
 import SearchComponent from '../../components/Search/SearchComponent';
 import Filter from '../../components/Filter';
 import ShortageTableCell from '../../items/ShortageTableCell';
@@ -22,7 +22,7 @@ function Shortages() {
             <h2>Przedmioty poniżej poziomu minimalnego</h2>
             <div className={styles.listHeaderFlex}>
               {/*<SearchComponent/>*/}
-              <SortSwitch/>
+              {/*<SortSwitchComponent/>*/}
               <Filter/>
             </div>
           </div>

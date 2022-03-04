@@ -1,7 +1,7 @@
-import {Item} from "../../api/entities/Item";
+import {ItemView} from "../../api/entities/ItemView";
 
 export interface ItemsViewProps{
-    items:Item[];
+    items:ItemView[];
     onReload:any;
     hasMore:boolean;
 }

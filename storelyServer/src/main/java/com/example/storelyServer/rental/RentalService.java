@@ -19,6 +19,11 @@ import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+
+/**
+ * Klasa obslugujaca logike wypozyczen (Spring Service)
+ * @author Michał Chruścielski
+ */
 @Service
 public class RentalService {
     private final RentalRepository rentalRepository;
@@ -33,14 +38,39 @@ public class RentalService {
         this.userRepository = userRepository;
     }
 
+    /**
+     * zwraca wypozyczenia
+     * @return <code>List<Rental></code> lista wypozyczen
+     */
     public List<Rental> getRentals() {
         return rentalRepository.findAll();
     }
 
-    public Long addNewRental(Rental rental){
+
+    /**
+     * dodaje nowe wypozyczenie
+     * @param email
+     * @param code
+     * @param quantity
+     * @return <code>Long</code> id wypozyczenia
+     */
+    public Long addNewRental(String email, Long code, Integer quantity){
+
+        Item item = itemRepository.findItemByCode(code)
+                .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,"Przedmiot nie istnieje"));
+
+        User user = userRepository.findUserByEmail(email)
+                .orElseThrow(()->new UsernameNotFoundException("Nie znaleziono uzytkowika"));
+
+        if(!item.getItemTemplate().getGroups().contains(user.getGroup())){
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Uzytkownik nie jest w dozwolonej grupie");
+        }
+
+
+        //Rental rental = new Rental(quantity, user, item );
 
         List<Rental> rentalsByCode = rentalRepository
-                .findByItem_code(rental.getItem().getCode());
+                .findByItem_code(item.getCode());
 
         //int sum = rentalsByCode.stream().mapToInt(Integer::intValue).sum();
 
@@ -49,26 +79,20 @@ public class RentalService {
 
             var result = rentalsByCode.stream().filter(wasReturned)
                     .collect(Collectors.toList());
-            if(rental.getItem().getItemTemplate().isReturnable()){
-                if(!result.isEmpty()){
-                    throw new ResponseStatusException(HttpStatus.CONFLICT, "Ten przedmiot jest juz wypozyczony");
+
+            if(item.getItemTemplate().isReturnable()){
+                if(result.isEmpty()){
+                    return rentalRepository.save(new Rental(user, item, quantity)).getId();
                 }
                 else{
-                    return rentalRepository.save(rental).getId();
+                    throw new ResponseStatusException(HttpStatus.CONFLICT, "Ten przedmiot jest juz wypozyczony");
                 }
             }
             else{
-                int sum =0;
-                for(int i=0; i<rentalsByCode.size(); i++){
-                    sum+=rentalsByCode.get(i).getQuantity();
-                }
-
-                if(rental.getItem().getQuantity() > 0
-                        && rental.getItem().getQuantity() >= rental.getQuantity()){
-                    rental.getItem().setQuantity(rental.getItem().getQuantity() - rental.getQuantity());
-                    rental.setReturnDate(LocalDateTime.now());
-                    itemRepository.save(rental.getItem());
-                    return rentalRepository.save(rental).getId();
+                if(item.getQuantity() >= quantity){
+                    item.setQuantity(item.getQuantity() - quantity);
+                    itemRepository.save(item);
+                    return rentalRepository.save(new Rental(user, item, quantity)).getId();
                 }
                 else{
                     throw new ResponseStatusException(HttpStatus.CONFLICT, "Brak wystarczajacej ilosci na magazynie");
@@ -76,11 +100,21 @@ public class RentalService {
             }
         }
         else{
-            return rentalRepository.save(rental).getId();
+
+            if(!item.getItemTemplate().isReturnable() && item.getQuantity()>=quantity){
+                item.setQuantity(item.getQuantity() - quantity);
+                itemRepository.save(item);
+                return rentalRepository.save(new Rental(user, item, quantity)).getId();
+            }
+            else {
+                throw new ResponseStatusException(HttpStatus.CONFLICT, "Brak wystarczajacej ilosci na magazynie");
+            }
         }
     }
 
+    /*
     public List<ResponseCode> addNewRentalGroup(String userEmail, List<RentalListPostDto> list){
+
 
         User user = userRepository.findUserByEmail(userEmail)
                 .orElseThrow(()->new UsernameNotFoundException("Nie znaleziono uzytkowika"));
@@ -155,12 +189,12 @@ public class RentalService {
 
     }
 
-    public void returnRentalGroup(String userEmail, List<ResponseId<Long>> list){//TODO obsluga grupowych zwrotow
+    public void returnRentalGroup(String userEmail, List<ResponseId> list){//TODO obsluga grupowych zwrotow
         User user = userRepository.findUserByEmail(userEmail)
                 .orElseThrow(()->new UsernameNotFoundException("Nie znaleziono uzytkowika"));
 
         List<ResponseCode> responseCodeList = new ArrayList<>();
-        for (ResponseId<Long> idObj : list){
+        for (ResponseId idObj : list){
             Rental rental = rentalRepository.findById(idObj.getId())
                     .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,"Wypozyczenie nie istnieje"));
             if(rental.getUser().getId()==user.getId()){
@@ -176,20 +210,44 @@ public class RentalService {
 
        // return responseCodeList;
     }
+     */
 
+
+    /**
+     * zwraca wypozyczenia uzytkownika
+     * @param email email uzytkownika, ktorego wypozyczenia zwraca
+     * @return <code>List<Rental></code> lista wypozyczen
+     */
     public List<Rental> getRentalsByUserEmail(String email){
         return rentalRepository.findByUser_email(email);
 
     }
 
+
+    /**
+     * zamyka wypozyczenie, czyli robi zwrot przedmiotu
+     * przy udanym zwrocie nie zwraca nic, a zapytanie zwraca <code>HTTP 200</code>
+     * @param id id wypozyczenia do zamkniecia
+     */
     public void closeRental(Long id){
         Rental rental = rentalRepository.findById(id)
                 .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,"Wypozyczenie nie istnieje"));
-        rental.setReturnDate(LocalDateTime.now());
+        if(rental.getReturnDate()==null) {
+            rental.setReturnDate(LocalDateTime.now());
+        }
+        else{
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Wypozyczenie zostalo juz zakonczone");
+        }
+
         rentalRepository.save(rental);
 
     }
 
+    /**
+     * pobiera wypozyczenie po id
+     * @param id id wypozyczenia
+     * @return <code>Rental</code> wypozyczenie
+     */
     public Rental getRentalsById(Long id){
         return rentalRepository.findById(id)
                 .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,"Wypozyczenie nie istnieje"));

@@ -7,6 +7,7 @@ import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.IndexedEmbedded;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -27,7 +28,6 @@ public class Rental {
 
     private LocalDateTime rentDate = LocalDateTime.now();
     private LocalDateTime returnDate;
-    private boolean isReturnable;
     private Integer quantity;
 
 
@@ -39,18 +39,16 @@ public class Rental {
     @JoinColumn(name = "itemId", referencedColumnName = "id")
     private Item item;
 
-    public Rental(User user, Item item, boolean isReturnable, Integer quantity) {
-        this.isReturnable = isReturnable;
+    public Rental(User user, Item item, Integer quantity) {
         this.quantity = quantity;
         this.user = user;
         this.item = item;
     }
 
-    public Rental(Long id, LocalDateTime rentDate, LocalDateTime returnDate, boolean isReturnable, Integer quantity, User user, Item item) {
+    public Rental(Long id, LocalDateTime rentDate, LocalDateTime returnDate,  Integer quantity, User user, Item item) {
         this.id = id;
         this.rentDate = rentDate;
         this.returnDate = returnDate;
-        this.isReturnable = isReturnable;
         this.quantity = quantity;
         this.user = user;
         this.item = item;
@@ -72,7 +70,7 @@ public class Rental {
     }
 
     public boolean isReturnable() {
-        return isReturnable;
+        return item.getItemTemplate().isReturnable();
     }
 
     public Integer getQuantity() {
@@ -99,9 +97,6 @@ public class Rental {
         this.returnDate = returnDate;
     }
 
-    public void setReturnable(boolean returnable) {
-        isReturnable = returnable;
-    }
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
@@ -113,6 +108,10 @@ public class Rental {
 
     public void setItem(Item item) {
         this.item = item;
+    }
+
+    public LocalDate getRentLocalDate(){
+        return this.rentDate.toLocalDate();
     }
 
 }

@@ -1,17 +1,17 @@
 package com.example.storelyServer.templates;
 
-public class ResponseId<T> {
-    private T id;
+public class ResponseId {
+    private Long id;
 
-    public ResponseId(T toReturn) {
+    public ResponseId(Long toReturn) {
         this.id = toReturn;
     }
 
-    public T getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(T id) {
+    public void setId(Long id) {
         this.id = id;
     }
 }

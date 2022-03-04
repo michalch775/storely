@@ -1,0 +1,25 @@
+/*!
+ * All Rights Reserved
+ *
+ * Copyright (c) 2022 Michał Chruścielski
+ */
+
+.main{
+
+}
+
+.sideBar{
+  position: sticky;
+
+  .stats{
+    .backgroundHeader{
+      background-color:var(--deepMain);
+      height:200px;
+      width:100%;
+
+    }
+    .header{
+
+    }
+  }
+}

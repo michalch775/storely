@@ -2,6 +2,8 @@ package com.example.storelyServer.group;
 
 
 import com.example.storelyServer.itemTemplate.ItemTemplate;
+import com.example.storelyServer.itemView.ItemView;
+import com.example.storelyServer.shortage.Shortage;
 import com.example.storelyServer.user.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.FullTextField;
@@ -38,6 +40,14 @@ public class Group {
             cascade = CascadeType.DETACH
     )
     private Set<ItemTemplate> items = new HashSet<>();
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "groups")
+    private Set<ItemView> itemViews = new HashSet<>();
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "groups")
+    private Set<Shortage> shortages = new HashSet<>();
 
     @JsonIgnore
     @OneToMany(mappedBy = "group")

@@ -9,10 +9,11 @@ import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.IndexedEmbedded;
 
 import javax.persistence.*;
-import java.sql.Date;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
+
+import static java.time.LocalDateTime.now;
 
 @Entity
 @Table
@@ -32,7 +33,7 @@ public class Item {
     private Long code;
 
     @GenericField(sortable= Sortable.YES)
-    private Date added = Date.valueOf(LocalDate.now());
+    private LocalDateTime added = now();
 
     @ManyToOne( fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     @JoinColumn(name = "itemTemplateId", referencedColumnName = "id")
@@ -50,7 +51,7 @@ public class Item {
         this.itemTemplate = itemTemplate;
     }
 
-    public Item(Long id, Integer quantity, Long code, Date added, ItemTemplate itemTemplate, Set<Rental> rentals) {
+    public Item(Long id, Integer quantity, Long code, LocalDateTime added, ItemTemplate itemTemplate, Set<Rental> rentals) {
         this.id = id;
         this.quantity = quantity;
         this.code = code;
@@ -111,11 +112,11 @@ public class Item {
         this.rentals = rentals;
     }
 
-    public void setAdded(Date added) {
+    public void setAdded(LocalDateTime added) {
         this.added = added;
     }
 
-    public Date getAdded() {
+    public LocalDateTime getAdded() {
         return added;
     }
 }

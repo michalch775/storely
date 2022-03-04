@@ -32,7 +32,9 @@ class Scan : AppCompatActivity() {
     }
 //codeScannerprzez to zakomentowane nie działa, super
 
-
+    /**
+     *
+     */
     private fun codeScanner() {
         val scanView = findViewById<CodeScannerView>(R.id.scanView)
         codeScanner = CodeScanner(this, scanView)

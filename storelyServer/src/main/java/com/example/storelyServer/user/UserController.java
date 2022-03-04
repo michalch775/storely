@@ -7,6 +7,7 @@ import com.example.storelyServer.rental.RentalListPostDto;
 import com.example.storelyServer.rental.RentalService;
 import com.example.storelyServer.templates.ResponseCode;
 import com.example.storelyServer.templates.ResponseId;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -81,15 +82,30 @@ public class UserController {
 
     @PostMapping("rental")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_EMPLOYEE','ROLE_WAREHOUSEMAN')")
-    public List<ResponseCode> addNewUserRental(@RequestBody List<RentalListPostDto> list){
+    public ResponseId addNewUserRental(@RequestBody ObjectNode objectNode){
 
-        if(list.isEmpty()){
+        if(!objectNode.has("code")){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
 
+        Long code = objectNode.path("code").asLong();
+        Integer quantity = objectNode.path("quantity").asInt(1);
+
+
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        return rentalService.addNewRentalGroup(authentication.getName(), list);
+        return new ResponseId(rentalService.addNewRental(authentication.getName(), code, quantity));
+
+
+//
+//        if(list.isEmpty()){
+//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+//        }
+//
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//
+//        return rentalService.addNewRentalGroup(authentication.getName(), list);
 
     }
 

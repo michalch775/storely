@@ -29,8 +29,6 @@ public class ItemController {
     public List<Item> show(@RequestParam(required = false, defaultValue = "") String search,
                            @RequestParam(required = false, defaultValue = "0") Integer offset,
                            @RequestParam(required = false, defaultValue = "ADDED") ItemSortBy sort){
-        System.out.println(sort);
-        System.out.println(sort.getValue());
         return itemService.getItems(search, offset, sort);
     }
 
@@ -46,19 +44,19 @@ public class ItemController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping
-    public ResponseId<Long> addItem(@RequestBody ItemPostDto itemPostDto){
+    public ResponseId addItem(@RequestBody ItemPostDto itemPostDto){
 
         if(itemPostDto.getItemTemplateId()!=null && itemPostDto.getItemTemplate()!=null){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
         else if (itemPostDto.getItemTemplate() != null) {
             Item item = new Item(itemPostDto.getQuantity(), itemPostDto.getCode(), itemPostDto.getItemTemplate());
-            return new ResponseId<Long>( itemService.addNewItem(item) );
+            return new ResponseId( itemService.addNewItem(item) );
         }
         else if (itemPostDto.getItemTemplateId() != null) {
             ItemTemplate itemTemplate= itemTemplateService.getItemTemplate(itemPostDto.getItemTemplateId());
             Item item = new Item(itemPostDto.getQuantity(), itemPostDto.getCode(), itemTemplate);
-            return new ResponseId<Long>( itemService.addNewItem(item) );
+            return new ResponseId( itemService.addNewItem(item) );
         }
         else{
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);

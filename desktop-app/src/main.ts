@@ -5,7 +5,9 @@ import { app, BrowserWindow, ipcMain } from 'electron';
 import {ConfigurationLoader} from "./configuration/ConfigurationLoader";
 import {Configuration} from "./configuration/Configuration";
 import {MainEvents} from "./ipc/MainEvents";
+//eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path');
+//eslint-disable-next-line @typescript-eslint/no-var-requires
 const isDev = require('electron-is-dev');
 
 class Main {

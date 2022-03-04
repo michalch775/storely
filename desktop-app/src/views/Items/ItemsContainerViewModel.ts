@@ -1,10 +1,17 @@
+/*
+ * All Rights Reserved
+ *
+ * Copyright (c) 2022 Michał Chruścielski
+ */
+
 import {ApiClient} from "../../api/client/ApiClient";
 import EventBus from "js-event-bus";
 import {ApiViewEvents} from "../../utilities/ApiViewEvents";
 import {UIError} from "../../errors/UiError";
-import {Item} from "../../api/entities/Item";
 import {ApiViewNames} from "../../utilities/ApiViewNames";
 import {ErrorFactory} from "../../errors/ErrorFactory";
+import {ItemSortBy} from "../../api/enums/ItemSortBy";
+import {ItemView} from "../../api/entities/ItemView";
 
 export class ItemsContainerViewModel {
 
@@ -29,20 +36,21 @@ export class ItemsContainerViewModel {
 
 
     public async callApi(
-        onSuccess: (items: Item[]) => void,
+        onSuccess: (items: ItemView[]) => void,
         onError: (error: UIError) => void,
         search:string,
-        offset:number): Promise<void> {
+        offset:number,
+        sort:ItemSortBy): Promise<void> {
 
         try {
             this._apiViewEvents.onViewLoading(ApiViewNames.Main);
-            const items = await this._apiClient.getItems(search, offset);
+            const items = await this._apiClient.getItems(search, offset, sort);
             this._apiViewEvents.onViewLoaded(ApiViewNames.Main);
             onSuccess(items);
 
 
         } catch (e) {
-            console.log("EEE",e)
+            console.log("EEE",e);
             const error = ErrorFactory.fromException(e);
             this._apiViewEvents.onViewLoadFailed(ApiViewNames.Main, error);
             onError(error);

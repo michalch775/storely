@@ -1,18 +1,17 @@
+/*
+ * All Rights Reserved
+ *
+ * Copyright (c) 2022 Michał Chruścielski
+ */
+
 import MediumWidget from '../../items/MediumWidget';
-import ShortageTableCell from '../../items/ShortageTableCell';
-import React, {useEffect, useRef} from 'react';
+import React from 'react';
 import HomeChartComponent from "./HomeChartComponent";
 
 import styles from '../../styles/Home.module.scss';
+import {HomeViewProps} from "./HomeViewProps";
 
-function Home() {
-
-
-    useEffect(() => {
-
-    },[]);
-
-
+function Home(props:HomeViewProps) {
 
     function renderItem(){
         return(
@@ -25,7 +24,7 @@ function Home() {
                         <div>84%</div>
                         <div className={styles.bar}>
                             <div className={styles.barRed}
-                                 style={{width:84}}/>
+                                style={{width:84}}/>
                         </div>
                     </div>
                 </td>
@@ -37,22 +36,22 @@ function Home() {
     return (
         <div className={styles.main}>
             <div className={styles.widgets}>
-                <MediumWidget number={254}>Wypożyczenia dziś</MediumWidget>
-                <MediumWidget number={1024}>Pobrania dziś</MediumWidget>
-                <MediumWidget number={5555}>Zwroty dziś</MediumWidget>
-                <MediumWidget number={5555}>Nowych przedmiotów dziś</MediumWidget>
+                <MediumWidget number={props.widgets != null ? props.widgets.rentalsToday : null}>Wypożyczenia dziś</MediumWidget>
+                <MediumWidget number={props.widgets != null ? props.widgets.retrievalsToday : null}>Pobrania dziś</MediumWidget>
+                <MediumWidget number={props.widgets != null ? props.widgets.returnsToday : null}>Zwroty dziś</MediumWidget>
+                <MediumWidget number={props.widgets != null ? props.widgets.itemsAddedToday : null}>Nowych przedmiotów dziś</MediumWidget>
             </div>
             <div className={styles.dashboard}>
                 <div className={styles.chart}>
                     <h3>Wypożyczenia w ciągu<br/> ostatnich 30 dni</h3>
                     <div>
-                        <HomeChartComponent/>
+                        <HomeChartComponent chart={props.rentalChart}/>
                     </div>
                 </div>
                 <div className={styles.chart}>
                     <h3>Pobrania w ciągu<br/> ostatnich 30 dni</h3>
                     <div>
-                        <HomeChartComponent/>
+                        <HomeChartComponent chart={props.retrievalChart}/>
                     </div>
                 </div>
                 <div className={styles.list}>
@@ -60,12 +59,12 @@ function Home() {
 
                     <table>
                         <thead>
-                        <tr>
-                            <th>PRZEDMIOT</th>
-                            <th>ILOŚĆ/POZIOM MINIMALNY</th>
-                            <th>ŚREDNIA TYGODNIOWA WYPOŻYCZEŃ</th>
-                            <th>POKRYCIE ILOŚCI MINIMALNEJ</th>
-                        </tr>
+                            <tr>
+                                <th>PRZEDMIOT</th>
+                                <th>ILOŚĆ/POZIOM MINIMALNY</th>
+                                <th>ŚREDNIA TYGODNIOWA WYPOŻYCZEŃ</th>
+                                <th>POKRYCIE ILOŚCI MINIMALNEJ</th>
+                            </tr>
                         </thead>
                         <tbody>
                             {renderItem()}

@@ -1,15 +1,22 @@
+/*
+ * All Rights Reserved
+ *
+ * Copyright (c) 2022 Michał Chruścielski
+ */
+
 import {ItemsContainerState} from "./ItemsContainerState";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {EventNames} from "../../events/EventNames";
 import {NavigateEvent} from "../../events/NavigateEvent";
 import {ItemsContainerProps} from "./ItemsContainerProps";
 import {ReloadMainViewEvent} from "../../events/ReloadMainViewEvent";
-import {Item} from "../../api/entities/Item";
 import {SetErrorEvent} from "../../events/SetErrorEvent";
 import ItemsView from "./ItemsView";
 import {UIError} from "../../errors/UiError";
+import {ItemSortBy} from "../../api/enums/ItemSortBy";
+import {ItemView} from "../../api/entities/ItemView";
 
-function ItemsContainer(props: ItemsContainerProps):JSX.Element {
+function ItemsContainer(props: ItemsContainerProps): JSX.Element {
 
     const model = props.viewModel;
     const [state, setState] = useState<ItemsContainerState>({
@@ -40,9 +47,9 @@ function ItemsContainer(props: ItemsContainerProps):JSX.Element {
         await loadData();
     }
 
-    async function loadData(search:string="", offset:number=0): Promise<void> {
+    async function loadData(search="", offset=0, sort:ItemSortBy=ItemSortBy.ADDED): Promise<void> {
 
-        const onSuccess = (items: Item[]) => {
+        const onSuccess = (items: ItemView[]) => {
             if(items.length<10)
                 setState((s)=>({...s, hasMore:false}));
             setState((s) => {
@@ -64,10 +71,10 @@ function ItemsContainer(props: ItemsContainerProps):JSX.Element {
             });
         };
         if(offset===0)
-            setState((s)=>({...s, items:[], hasMore:true}))
+            setState((s)=>({...s, items:[], hasMore:true}));
 
         model.eventBus.emit(EventNames.SetError, null, new SetErrorEvent('items', null));
-        await model.callApi(onSuccess, onError, search, offset);
+        await model.callApi(onSuccess, onError, search, offset, sort);
     }
 
 

@@ -1,3 +1,9 @@
+/*!
+ * All Rights Reserved
+ *
+ * Copyright (c) 2022 Michał Chruścielski
+ */
+
 :root{
 --lightMain:#278BFF;
 --lighterMain:#3693FF;
@@ -16,6 +22,7 @@
 --switchContrastText:#fff;
 --inputPlaceholder:#8D8D8D;
 --inputBackground:#EAEAEA;
+  --deepMain:#1F71D0;
 }
 @media (prefers-color-scheme: dark) {
   :root{

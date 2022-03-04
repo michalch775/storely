@@ -68,7 +68,7 @@
   ],
   "build": {
     "extends": null,
-    "appId": "com.example.electron-cra",
+    "appId": "com.example.storely",
     "files": [
       "dist/**/*",
       "build/**/*",
@@ -98,6 +98,8 @@
     ]
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.12.1",
+    "@typescript-eslint/parser": "^5.12.1",
     "concurrently": "^7.0.0",
     "copyfiles": "^2.3.0",
     "cross-env": "^7.0.3",
@@ -105,8 +107,10 @@
     "electron-builder": "^22.14.13",
     "electron-packager": "^15.3.0",
     "electron-rebuild": "^3.2.3",
-    "eslint": "^7.15.0",
-    "eslint-plugin-react": "^7.21.5",
+    "eslint": "^8.10.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-no-loops": "^0.3.0",
+    "eslint-plugin-react": "^7.29.2",
     "node-loader": "^1.0.2",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",

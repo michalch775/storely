@@ -1,3 +1,9 @@
+/*
+ * All Rights Reserved
+ *
+ * Copyright (c) 2022 Michał Chruścielski
+ */
+
 import {ApiClient} from "./api/client/ApiClient";
 import EventBus from "js-event-bus";
 import {EventNames} from "./events/EventNames";
@@ -10,22 +16,25 @@ import {ItemsContainerViewModel} from "./views/Items/ItemsContainerViewModel";
 import {ApiViewEvents} from "./utilities/ApiViewEvents";
 import {ApiViewNames} from "./utilities/ApiViewNames";
 import {LoginContainerViewModel} from "./views/Login/LoginContainerViewModel";
+import {HomeContainerViewModel} from "./views/Home/HomeContainerViewModel";
 
 export class AppViewModel{
     private _apiClient : ApiClient | null;
-    private _configuration:Configuration | null;
+    private _configuration: Configuration | null;
 
     private _itemsContainerViewModel: ItemsContainerViewModel | null;
     private _loginContainerViewModel: LoginContainerViewModel | null;
+    private _homeContainerViewModel: HomeContainerViewModel | null;
+
 
 
     private readonly _ipcEvents: RendererEvents;
     private readonly _eventBus: EventBus;
     private readonly _apiViewEvents: ApiViewEvents;
 
-    private _authenticator : Authenticator | null;
+    private _authenticator: Authenticator | null;
 
-    private _isInitialised : boolean;
+    private _isInitialised: boolean;
 
     public constructor() {
         this._apiClient = null;
@@ -39,6 +48,8 @@ export class AppViewModel{
 
         this._itemsContainerViewModel = null;
         this._loginContainerViewModel = null;
+        this._homeContainerViewModel = null;
+
 
         this._isInitialised = false;
 
@@ -107,6 +118,21 @@ export class AppViewModel{
         }
 
         return this._loginContainerViewModel;
+    }
+
+    public getHomeViewModel(): HomeContainerViewModel {
+
+        if (!this._homeContainerViewModel) {
+
+            this._homeContainerViewModel = new HomeContainerViewModel
+            (
+                this._apiClient!,
+                this._eventBus,
+                this._apiViewEvents,
+            );
+        }
+
+        return this._homeContainerViewModel;
     }
 
 
