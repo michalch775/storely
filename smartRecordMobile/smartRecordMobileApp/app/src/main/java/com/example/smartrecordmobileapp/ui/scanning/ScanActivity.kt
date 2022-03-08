@@ -23,7 +23,6 @@ import com.budiyev.android.codescanner.ScanMode
 private const val CAMERA_REQUEST_CODE = 101
 
 class Scan : AppCompatActivity() {
-
     private lateinit var codeScanner: CodeScanner
 
     override fun onCreate(savedInstanceState: Bundle?) {
