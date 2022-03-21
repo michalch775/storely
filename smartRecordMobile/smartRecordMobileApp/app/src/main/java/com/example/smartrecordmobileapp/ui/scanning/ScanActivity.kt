@@ -2,6 +2,7 @@
 
 package com.example.smartrecordmobileapp.ui.scanning
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,18 +20,37 @@ import com.budiyev.android.codescanner.CodeScannerView
 import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
+import com.example.smartrecordmobileapp.MainActivity
+import com.example.smartrecordmobileapp.databinding.ActivityScanBinding
 
 private const val CAMERA_REQUEST_CODE = 101
 
 class Scan : AppCompatActivity() {
     private lateinit var codeScanner: CodeScanner
 
+    private lateinit var binding: ActivityScanBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_scan)
+
+        binding = ActivityScanBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        startMainActivity()
         setupPermissions()
         codeScanner()
     }
+
+    fun startMainActivity(){
+        val btnGoToMainActivity = binding.btnClose
+
+        btnGoToMainActivity.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+    }
+
 
     private fun codeScanner() {
         val scanView = findViewById<CodeScannerView>(R.id.scanView)
@@ -64,6 +84,8 @@ class Scan : AppCompatActivity() {
         scanView.setOnClickListener {
             codeScanner.startPreview()
         }
+
+
     }
 
     override fun onResume() {
