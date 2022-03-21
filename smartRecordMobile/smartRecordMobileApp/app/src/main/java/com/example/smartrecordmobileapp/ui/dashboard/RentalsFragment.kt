@@ -1,5 +1,6 @@
 package com.example.smartrecordmobileapp.ui.dashboard
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.smartrecordmobileapp.R
 import com.example.smartrecordmobileapp.databinding.FragmentRentalsBinding
+import com.example.smartrecordmobileapp.ui.scanning.Scan
 
 
 //aktywność odpowiedzialna za wyświetlanie przedmiotów wypożyczonych przez użytkownika aplikacji
@@ -36,16 +38,24 @@ class RentalsFragment : Fragment() {
         _binding = FragmentRentalsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        //setup navigation from store to scanning
-        val btnGoToScan: Button = binding.btnGoToScan
-        btnGoToScan.setOnClickListener { Navigation.findNavController(binding.root).navigate(R.id.action_navigation_rentals_to_navigation_scanning) }
-
-
         val textView: TextView = binding.textRentals
         myItemsViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+
+        startScanActivity()
+
         return root
+    }
+
+    fun startScanActivity(){
+        val btnGoToScan = binding.btnGoToScanRentals
+
+        btnGoToScan.setOnClickListener {
+            requireActivity().run{
+                startActivity(Intent(this, Scan::class.java))
+            }
+        }
     }
 
     override fun onDestroyView() {

@@ -10,9 +10,6 @@
         android:name="com.example.smartrecordmobileapp.ui.home.StoreFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_store" >
-        <action
-            android:id="@+id/action_navigation_store_to_navigation_scanning"
-            app:destination="@id/navigation_scanning" />
     </fragment>
 
     <fragment
@@ -20,9 +17,6 @@
         android:name="com.example.smartrecordmobileapp.ui.dashboard.RentalsFragment"
         android:label="@string/title_rentals"
         tools:layout="@layout/fragment_rentals" >
-        <action
-            android:id="@+id/action_navigation_rentals_to_navigation_scanning"
-            app:destination="@id/navigation_scanning" />
     </fragment>
 
     <fragment
@@ -31,15 +25,4 @@
         android:label="@string/title_settings"
         tools:layout="@layout/fragment_settings" />
 
-    <fragment
-        android:id="@+id/navigation_scanning"
-        android:name="com.example.smartrecordmobileapp.ui.scanning.ScanningFragment"
-        tools:layout="@layout/fragment_scanning" >
-        <action
-            android:id="@+id/action_scanningFragment_to_navigation_store"
-            app:destination="@id/navigation_store" />
-        <action
-            android:id="@+id/action_navigation_scanning_to_navigation_rentals"
-            app:destination="@id/navigation_rentals" />
-    </fragment>
 </navigation>

@@ -2,19 +2,17 @@ package com.example.smartrecordmobileapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.WindowCompat
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.smartrecordmobileapp.R.id
 import com.example.smartrecordmobileapp.databinding.ActivityMainBinding
 import com.example.smartrecordmobileapp.ui.scanning.Scan
-import com.example.smartrecordmobileapp.ui.scanning.ScanningFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,23 +37,26 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        // próbuje zrobić tak, żeby porównać aktualny fragment z fragmentem skanowania, jeśli to to samo to chowam pasek nawigacji
-        // można też spróbować dostać się do frgamentu nawigacji poprzez fragment skanowania
-        // może dałoby się użyć tutaj liveData - jeśli fragment skanowania jest używany zmienia wartość zmiennej, mainActivity to widzi i chowa pasek, jak skanowanie nie jest używane to main activity włącza pasek spowrotem
-
-        //dobra, poza tym to trzeba jeszcze ogarnąć tak żeby fragment skanowania w ogóle działał
 
 
-//        val btnGoToScan = findViewById<Button>(R.id.btnGoToScan)
+//        val btnGoToScan = binding.btnGoToScan
 //
 //        btnGoToScan.setOnClickListener {
-//            val Intent = Intent(this, Scan::class.java)
-//            startActivity(Intent)
+//            val intent = Intent(this, Scan::class.java)
+//            startActivity(intent)
 //        }
     }
-
 }
+
+
 
 
 // w projekcie będę używał aktywności (activities), żywych danych (live data), fragmentów (fragments) i modeli widoków (view model) i wątków (threads)
 // live data jest jeszcze do ogarnięcia, nie do końca rozumiem na czym polega jego działanie
+
+// próbuje zrobić tak, żeby porównać aktualny fragment z fragmentem skanowania, jeśli to to samo to chowam pasek nawigacji
+// można też spróbować dostać się do frgamentu nawigacji poprzez fragment skanowania
+// może dałoby się użyć tutaj liveData - jeśli fragment skanowania jest używany zmienia wartość zmiennej, mainActivity to widzi i chowa pasek, jak skanowanie nie jest używane to main activity włącza pasek spowrotem
+
+// okazuje się, że to dla mnie za trudne żeby tak zrobić, dlatego poradziłem sobie buttonami. Za każdym kliknięciem buttona aktywności są tworzone od zera. Głupie to, fragmenty są o wiele lepsze
+//w sumie to usunąłem wywołanie funkcji finish() przy włączaniu aktywności skanowania, może tak jest lepiej.
