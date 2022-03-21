@@ -1,5 +1,6 @@
 package com.example.smartrecordmobileapp.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.smartrecordmobileapp.R
 import com.example.smartrecordmobileapp.databinding.FragmentStoreBinding
+import com.example.smartrecordmobileapp.ui.scanning.Scan
 
 class StoreFragment : Fragment() {
 
@@ -33,16 +35,23 @@ class StoreFragment : Fragment() {
         _binding = FragmentStoreBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        //setup navigation from store to scanning
-        val btnGoToScan: Button = binding.btnGoToScan
-        btnGoToScan.setOnClickListener { Navigation.findNavController(binding.root).navigate(R.id.action_navigation_store_to_navigation_scanning) }
-
-
         val textView: TextView = binding.textStore
         storeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+        startScanActivity()
+
         return root
+    }
+
+    fun startScanActivity(){
+        val btnGoToScan = binding.btnGoToScanStore
+
+        btnGoToScan.setOnClickListener {
+            requireActivity().run{
+                startActivity(Intent(this, Scan::class.java))
+            }
+        }
     }
 
     override fun onDestroyView() {
