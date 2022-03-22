@@ -45,8 +45,6 @@ class Scan : AppCompatActivity() {
         val btnGoToMainActivity = binding.btnClose
 
         btnGoToMainActivity.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
             finish()
         }
     }
