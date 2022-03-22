@@ -14,7 +14,8 @@
         <activity
             android:name=".ui.scanning.Scan"
             android:exported="false"
-            android:label="@string/title_scan" />
+            android:label="@string/title_scan"
+            android:theme="@style/Theme.SmartRecordMobileApp.NoActionBar"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
