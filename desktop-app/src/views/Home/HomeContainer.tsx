@@ -17,6 +17,7 @@ import {HomeContainerProps} from "./HomeContainerProps";
 import {HomeContainerState} from "./HomeContainerState";
 import {HomeWidgets} from "../../api/entities/HomeWidgets";
 import {ChartBar} from "../../api/entities/ChartBar";
+import {Shortage} from "../../api/entities/Shortage";
 
 function HomeContainer(props:HomeContainerProps) {
 
@@ -26,6 +27,7 @@ function HomeContainer(props:HomeContainerProps) {
         widgets:null,
         rentalChart:[],
         retrievalChart:[],
+        shortages:[]
     });
 
     useEffect(()=>{
@@ -53,13 +55,14 @@ function HomeContainer(props:HomeContainerProps) {
 
     async function loadData(): Promise<void> {
 
-        const onSuccess = (widgets:HomeWidgets, rentalChart:ChartBar[], retrievalChart:ChartBar[]) => {
+        const onSuccess = (widgets:HomeWidgets, rentalChart:ChartBar[], retrievalChart:ChartBar[], shortages: Shortage[]) => {
             setState((s) => {
                 return {
                     ...s,
                     widgets:widgets,
                     rentalChart:rentalChart,
-                    retrievalChart:retrievalChart
+                    retrievalChart:retrievalChart,
+                    shortages: shortages
                 };
             });
         };
@@ -72,7 +75,8 @@ function HomeContainer(props:HomeContainerProps) {
                     ...s,
                     widgets: null,
                     rentalChart: [],
-                    retrievalChart: []
+                    retrievalChart: [],
+                    shortages: []
                 };
             });
         };
@@ -86,7 +90,8 @@ function HomeContainer(props:HomeContainerProps) {
     const childProps = {
         widgets: state.widgets,
         rentalChart: state.rentalChart,
-        retrievalChart: state.retrievalChart
+        retrievalChart: state.retrievalChart,
+        shortages: state.shortages
     };
 
 

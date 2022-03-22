@@ -7,7 +7,9 @@ import org.hibernate.search.engine.search.query.SearchResult;
 import org.hibernate.search.mapper.orm.Search;
 import org.hibernate.search.mapper.orm.session.SearchSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -15,12 +17,12 @@ import java.util.List;
 
 @Service
 public class ItemViewService {
-    private final ItemRepository itemRepository;
+    private final ItemViewRepository itemViewRepository;
     private final EntityManager entityManager;
 
     @Autowired
-    public ItemViewService(ItemRepository itemRepository, EntityManager entityManager) {
-        this.itemRepository = itemRepository;
+    public ItemViewService(ItemViewRepository itemViewRepository, EntityManager entityManager) {
+        this.itemViewRepository = itemViewRepository;
         this.entityManager = entityManager;
     }
 
@@ -48,5 +50,10 @@ public class ItemViewService {
 
             return result.hits();
         }
+    }
+
+    public ItemView getItemById(Long id){
+        return itemViewRepository.findById(id)
+                .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,"Przedmiot nie istnieje"));
     }
 }

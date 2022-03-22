@@ -10,7 +10,7 @@ import {ApiViewEvents} from "../../utilities/ApiViewEvents";
 import {UIError} from "../../errors/UiError";
 import {ApiViewNames} from "../../utilities/ApiViewNames";
 import {ErrorFactory} from "../../errors/ErrorFactory";
-import {ItemSortBy} from "../../api/enums/ItemSortBy";
+import {ItemSort} from "../../api/enums/ItemSort";
 import {ItemView} from "../../api/entities/ItemView";
 
 export class ItemsContainerViewModel {
@@ -40,7 +40,7 @@ export class ItemsContainerViewModel {
         onError: (error: UIError) => void,
         search:string,
         offset:number,
-        sort:ItemSortBy): Promise<void> {
+        sort:ItemSort): Promise<void> {
 
         try {
             this._apiViewEvents.onViewLoading(ApiViewNames.Main);

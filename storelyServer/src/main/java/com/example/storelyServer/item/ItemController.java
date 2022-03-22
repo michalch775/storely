@@ -2,6 +2,8 @@ package com.example.storelyServer.item;
 
 import com.example.storelyServer.itemTemplate.ItemTemplate;
 import com.example.storelyServer.itemTemplate.ItemTemplateService;
+import com.example.storelyServer.rental.Rental;
+import com.example.storelyServer.rental.RentalSort;
 import com.example.storelyServer.templates.ResponseId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -40,6 +42,22 @@ public class ItemController {
             return itemService.getItemByCode(itemId);
         }
         return itemService.getItemById(itemId);
+    }
+
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_EMPLOYEE','ROLE_WAREHOUSEMAN')")
+    @GetMapping(path = "template/{itemId}")
+    public List<Item> getItemsByTemplateId(@PathVariable Long itemId){
+        return itemService.getItemsByTemplateId(itemId);
+    }
+
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @GetMapping(path = "{itemId}/rental")
+    public List<Rental> getItemRentals(@PathVariable Long itemId,
+                                       @RequestParam(required = false, defaultValue = "") String search,
+                                       @RequestParam(required = false, defaultValue = "0") Integer offset,
+                                       @RequestParam(required = false, defaultValue = "DATE") RentalSort sort){
+
+        return itemService.getItemRentalsById(itemId, search, offset, sort);
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")

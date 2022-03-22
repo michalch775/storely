@@ -13,7 +13,7 @@ import {ReloadMainViewEvent} from "../../events/ReloadMainViewEvent";
 import {SetErrorEvent} from "../../events/SetErrorEvent";
 import ItemsView from "./ItemsView";
 import {UIError} from "../../errors/UiError";
-import {ItemSortBy} from "../../api/enums/ItemSortBy";
+import {ItemSort} from "../../api/enums/ItemSort";
 import {ItemView} from "../../api/entities/ItemView";
 
 function ItemsContainer(props: ItemsContainerProps): JSX.Element {
@@ -47,7 +47,7 @@ function ItemsContainer(props: ItemsContainerProps): JSX.Element {
         await loadData();
     }
 
-    async function loadData(search="", offset=0, sort:ItemSortBy=ItemSortBy.ADDED): Promise<void> {
+    async function loadData(search="", offset=0, sort:ItemSort=ItemSort.ADDED): Promise<void> {
 
         const onSuccess = (items: ItemView[]) => {
             if(items.length<10)
@@ -80,9 +80,9 @@ function ItemsContainer(props: ItemsContainerProps): JSX.Element {
 
 
     const childProps = {
-        items:state.items,
-        onReload:loadData,
-        hasMore:state.hasMore
+        items: state.items,
+        onReload: loadData,
+        hasMore: state.hasMore
     };
 
     return (

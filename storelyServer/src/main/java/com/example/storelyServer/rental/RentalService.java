@@ -2,20 +2,21 @@ package com.example.storelyServer.rental;
 
 import com.example.storelyServer.item.Item;
 import com.example.storelyServer.item.ItemRepository;
-import com.example.storelyServer.templates.ResponseCode;
-import com.example.storelyServer.templates.ResponseId;
+import com.example.storelyServer.shortage.ShortageSort;
 import com.example.storelyServer.user.User;
 import com.example.storelyServer.user.UserRepository;
+import org.hibernate.search.engine.search.query.SearchResult;
+import org.hibernate.search.mapper.orm.Search;
+import org.hibernate.search.mapper.orm.session.SearchSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.persistence.EntityManager;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -29,23 +30,58 @@ public class RentalService {
     private final RentalRepository rentalRepository;
     private final ItemRepository itemRepository;
     private final UserRepository userRepository;
+    private final EntityManager entityManager;
 
 
     @Autowired
-    public RentalService(RentalRepository rentalRepository, ItemRepository itemRepository, UserRepository userRepository) {
+    public RentalService(RentalRepository rentalRepository, ItemRepository itemRepository,
+                         UserRepository userRepository, EntityManager entityManager) {
+
         this.rentalRepository = rentalRepository;
         this.itemRepository = itemRepository;
         this.userRepository = userRepository;
+        this.entityManager = entityManager;
     }
 
     /**
      * zwraca wypozyczenia
      * @return <code>List<Rental></code> lista wypozyczen
      */
-    public List<Rental> getRentals() {
+    public List<Rental> getRentalsOld() {
         return rentalRepository.findAll();
     }
 
+    public List<Rental> getRentals(String word, Integer offset, RentalSort sort, RentalFilter returnable) {
+
+        SearchSession searchSession = Search.session(entityManager);
+
+        if(word.length()>0) {
+            SearchResult<Rental> result = searchSession.search(Rental.class)
+                    .where(f -> f.bool()
+                                    .must( f.wildcard().field("item.itemTemplate.isReturnable")
+                                            .matching(returnable.getValue()))
+                                    .must( f.match().fields("item.itemTemplate.name",
+                                                    "item.itemTemplate.category.name", "item.itemTemplate.groups.name",
+                                                    "user.name", "user.surname", "user.email")
+                                            .matching(word)
+                                            .fuzzy(2)))
+                    .sort( f -> f.field( sort.getValue() ).order(sort.getOrder())
+                            .then().field( "rentDate" ).asc() )
+                    .fetch(offset, 10);
+
+            return result.hits();
+        }
+        else{
+            SearchResult<Rental> result = searchSession.search(Rental.class)
+                    .where(f->f.wildcard().field("item.itemTemplate.isReturnable")
+                            .matching(returnable.getValue()))
+                    .sort( f -> f.field( sort.getValue() ).order(sort.getOrder())
+                            .then().field( "rentDate" ).asc() )
+                    .fetch(offset, 10);
+
+            return result.hits();
+        }
+    }
 
     /**
      * dodaje nowe wypozyczenie
@@ -212,7 +248,6 @@ public class RentalService {
     }
      */
 
-
     /**
      * zwraca wypozyczenia uzytkownika
      * @param email email uzytkownika, ktorego wypozyczenia zwraca
@@ -222,7 +257,6 @@ public class RentalService {
         return rentalRepository.findByUser_email(email);
 
     }
-
 
     /**
      * zamyka wypozyczenie, czyli robi zwrot przedmiotu

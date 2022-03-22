@@ -38,6 +38,9 @@ public class ItemView {
 
     private Integer timeLimit;
 
+    private String description;
+
+
     @GenericField(sortable = Sortable.YES)
     private Integer quantity;
 
@@ -112,6 +115,10 @@ public class ItemView {
 
     public Integer getQuantity() {
         return quantity;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }
 

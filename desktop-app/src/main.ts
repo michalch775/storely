@@ -1,7 +1,11 @@
-import {Menu, session, shell} from "electron";
-import DefaultMenu from "electron-default-menu";
+/*
+ * All Rights Reserved
+ *
+ * Copyright (c) 2022 Michał Chruścielski
+ */
 
-import { app, BrowserWindow, ipcMain } from 'electron';
+import {app, BrowserWindow, Menu, session, shell} from "electron";
+import DefaultMenu from "electron-default-menu";
 import {ConfigurationLoader} from "./configuration/ConfigurationLoader";
 import {Configuration} from "./configuration/Configuration";
 import {MainEvents} from "./ipc/MainEvents";
@@ -63,7 +67,7 @@ class Main {
         this._window = new BrowserWindow({
             width: 1200,
             height: 800,
-            minWidth: 600,
+            minWidth: 800,
             minHeight: 500,
             webPreferences: {
                 nodeIntegration: false,

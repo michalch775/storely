@@ -24,6 +24,7 @@ public class Item {
     @SequenceGenerator(name = "item_sequence", sequenceName = "item_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "item_sequence")
     private Long id;
+
     @GenericField(sortable = Sortable.YES)
     private Integer quantity;
 
@@ -41,9 +42,8 @@ public class Item {
     private ItemTemplate itemTemplate;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "item")
     private Set<Rental> rentals = new HashSet<>();
-
 
     public Item(Integer quantity, Long code, ItemTemplate itemTemplate) {
         this.quantity = quantity;

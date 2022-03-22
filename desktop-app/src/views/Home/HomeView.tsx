@@ -10,29 +10,21 @@ import HomeChartComponent from "./HomeChartComponent";
 
 import styles from '../../styles/Home.module.scss';
 import {HomeViewProps} from "./HomeViewProps";
+import {Shortage} from "../../api/entities/Shortage";
 
 function Home(props:HomeViewProps) {
 
-    function renderItem(){
+    function renderItem(shortage: Shortage, key: number){
         return(
-            <tr className={styles.main}>
-                <td>Woda Cisowianka niegazowana</td>
-                <td>42  /  50</td>
-                <td>21</td>
-                <td className={styles.barTd}>
-                    <div className={styles.flex}>
-                        <div>84%</div>
-                        <div className={styles.bar}>
-                            <div className={styles.barRed}
-                                style={{width:84}}/>
-                        </div>
-                    </div>
-                </td>
+            <tr className={styles.main} key={key}>
+                <td>{shortage.name}</td>
+                <td>{`${shortage.quantity}   /   ${shortage.criticalQuantity}`}</td>
+                <td>{shortage.averageRentals}</td>
+                <td>{Math.round(shortage.cover * 100)}%</td>
             </tr>
         );
     }
-
-
+    
     return (
         <div className={styles.main}>
             <div className={styles.widgets}>
@@ -67,7 +59,7 @@ function Home(props:HomeViewProps) {
                             </tr>
                         </thead>
                         <tbody>
-                            {renderItem()}
+                            {props.shortages.map((x, i)=>renderItem(x, i))}
                         </tbody>
                     </table>
                 </div>

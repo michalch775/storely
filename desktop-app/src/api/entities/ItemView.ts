@@ -1,3 +1,9 @@
+/*
+ * All Rights Reserved
+ *
+ * Copyright (c) 2022 Michał Chruścielski
+ */
+
 import {Group} from "./Group";
 import {Category} from "./Category";
 
@@ -12,4 +18,5 @@ export interface ItemView {
     category:Category;
     returnable:boolean;
     added:Date|null;
+    description:string;
 }

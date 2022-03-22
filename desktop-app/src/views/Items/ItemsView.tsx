@@ -8,12 +8,11 @@ import styles from '../../styles/Items.module.scss';
 import MediumWidget from "../../items/MediumWidget";
 import SearchComponent from "../../components/Search/SearchComponent";
 import SortSwitchComponent from "../../components/SortSwitch/SortSwitchComponent";
-import Filter from "../../components/Filter";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {ItemsViewState} from "./ItemsViewState";
 import {ItemsViewProps} from "./ItemsViewProps";
 import InfiniteScroll from "react-infinite-scroller";
-import {ItemSortBy} from "../../api/enums/ItemSortBy";
+import {ItemSort} from "../../api/enums/ItemSort";
 import {ItemView} from "../../api/entities/ItemView";
 
 function ItemsView(props:ItemsViewProps):JSX.Element {
@@ -21,12 +20,8 @@ function ItemsView(props:ItemsViewProps):JSX.Element {
     const [state, setState] = useState<ItemsViewState>({
         offset: 0,
         text:"",
-        sortBy:ItemSortBy.ADDED,
+        sortBy:ItemSort.ADDED,
         isLoading:false
-    });
-
-    useEffect(()=>{
-        console.log(props);
     });
 
     async function reload(value:string){
@@ -37,7 +32,7 @@ function ItemsView(props:ItemsViewProps):JSX.Element {
         }
     }
 
-    async function reload_sort(value:ItemSortBy){
+    async function reload_sort(value:ItemSort){
         if(!state.isLoading){
             await setState((prevState) => ({...prevState, offset: 0, sortBy:value, isLoading: true}));
             await props.onReload(state.text, state.offset, value);
@@ -57,7 +52,7 @@ function ItemsView(props:ItemsViewProps):JSX.Element {
 
     function renderItem(item:ItemView, key:number){
         return(
-            <tr className={styles.item } key={key}>
+            <tr className={styles.item} key={key}>
                 <td>{item.name}</td>
                 <td>{item.quantity}</td>
                 <td>21</td>
@@ -65,18 +60,19 @@ function ItemsView(props:ItemsViewProps):JSX.Element {
                 <td>{item.returnable ? "zwrotne" : "bezzwrotne"}</td>
             </tr>);
     }
+
     const sortSwitchValues = [
         {
             value:"data",
-            enum:ItemSortBy.ADDED
+            enum:ItemSort.ADDED
         },
         {
             value:"nazwa",
-            enum:ItemSortBy.NAME
+            enum:ItemSort.NAME
         },
         {
             value:"ilość",
-            enum:ItemSortBy.QUANTITY
+            enum:ItemSort.QUANTITY
         },
 
     ];
@@ -96,7 +92,6 @@ function ItemsView(props:ItemsViewProps):JSX.Element {
                     <div className={styles.listHeaderFlex}>
                         <SearchComponent onChange={reload}/>
                         <SortSwitchComponent onChange={reload_sort} values={sortSwitchValues}/>
-                        <Filter/>
                     </div>
                 </div>
                 <InfiniteScroll
@@ -117,9 +112,7 @@ function ItemsView(props:ItemsViewProps):JSX.Element {
                             </tr>
                         </thead>
                         <tbody>
-
                             {props.items.map((item, key) => renderItem(item, key))}
-
                         </tbody>
 
                     </table>

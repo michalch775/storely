@@ -14691,7 +14691,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var electron_default_menu__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(electron_default_menu__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _configuration_ConfigurationLoader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./configuration/ConfigurationLoader */ "./configuration/ConfigurationLoader.ts");
 /* harmony import */ var _ipc_MainEvents__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ipc/MainEvents */ "./ipc/MainEvents.ts");
-
+/*
+ * All Rights Reserved
+ *
+ * Copyright (c) 2022 Michał Chruścielski
+ */
 
 
 
@@ -14735,7 +14739,7 @@ class Main {
         this._window = new electron__WEBPACK_IMPORTED_MODULE_0__.BrowserWindow({
             width: 1200,
             height: 800,
-            minWidth: 600,
+            minWidth: 800,
             minHeight: 500,
             webPreferences: {
                 nodeIntegration: false,

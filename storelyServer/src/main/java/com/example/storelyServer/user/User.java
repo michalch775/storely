@@ -5,6 +5,7 @@ import com.example.storelyServer.rental.Rental;
 import com.example.storelyServer.security.ApplicationUserRole;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.search.engine.backend.types.Sortable;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -25,32 +26,38 @@ public class User implements UserDetails {
     @Column(unique = true, nullable = false, updatable = false)
     @GenericField
     private Long id;
+
     @FullTextField
+    @KeywordField(sortable = Sortable.YES, name = "name_sort")
     private String name;
 
     private String password;
+
     @FullTextField
+    @KeywordField(sortable = Sortable.YES, name = "surname_sort")
     private String surname;
+
     @Column(unique = true, nullable = false)
     @FullTextField
     private String email;
+
     @Column(nullable = false, updatable = false)
+    @GenericField(sortable = Sortable.YES)
     private LocalDateTime registered = LocalDateTime.now();
-    //@GenericField TODO
+
+    @GenericField
     private ApplicationUserRole role = ApplicationUserRole.EMPLOYEE;
+
     private boolean isEnabled = true;
 
-
     @JsonIgnore
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "user")
     private Set<Rental> rentals = new HashSet<>();
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="groupId", referencedColumnName = "id")
     @IndexedEmbedded
     private Group group;
-
-
 
     public User(String name,
                 String surname,

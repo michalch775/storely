@@ -1,5 +1,7 @@
 package com.example.storelyServer.user;
 
+import com.example.storelyServer.shortage.Shortage;
+import com.example.storelyServer.shortage.ShortageSort;
 import org.apache.lucene.search.Query;
 import org.hibernate.search.engine.search.query.SearchResult;
 import org.hibernate.search.mapper.orm.Search;
@@ -38,7 +40,7 @@ public class UserService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("Nie znaleziono uzytkowika"));
     }
 
-    public List<User> getUserSearch(String word, Integer offset) {
+    public List<User> getUserSearchOldXD(String word, Integer offset) {
         SearchSession searchSession = Search.session(entityManager);
 
         SearchResult<User> result = searchSession.search(User.class)
@@ -53,6 +55,33 @@ public class UserService implements UserDetailsService {
 
         return hits;
     }
+
+    public List<User> getUserSearch(String word, Integer offset, UserSort sort) {
+        SearchSession searchSession = Search.session(entityManager);
+        if(word.length()>0) {
+            SearchResult<User> result = searchSession.search(User.class)
+                    .where(f -> f.match()
+                            .fields("surname", "email", "name",
+                                    "group.name")
+                            .matching(word)
+                            .fuzzy(2))
+                    .sort( f -> f.field( sort.getValue() ).order(sort.getOrder())
+                            .then().field( "surname_sort" ).asc() )
+                    .fetch(offset, 10);
+
+            return result.hits();
+        }
+        else{
+            SearchResult<User> result = searchSession.search(User.class)
+                    .where(f->f.matchAll())
+                    .sort( f -> f.field( sort.getValue() ).order(sort.getOrder())
+                            .then().field( "surname_sort" ).asc() )
+                    .fetch(offset, 10);
+
+            return result.hits();
+        }
+    }
+
 
 
 

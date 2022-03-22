@@ -35,11 +35,11 @@ public enum ShortageSort {
     public SortOrder getOrder(){
         switch (this){
             case ADDED:
-            case QUANTITY:
             case NAME:
-                return SortOrder.DESC;
-            case CRITICAL:
             case AVG:
+                return SortOrder.DESC;
+            case QUANTITY:
+            case CRITICAL:
             case COVER:
             default:
                 return SortOrder.ASC;

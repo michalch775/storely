@@ -17,6 +17,13 @@ import {ApiViewEvents} from "./utilities/ApiViewEvents";
 import {ApiViewNames} from "./utilities/ApiViewNames";
 import {LoginContainerViewModel} from "./views/Login/LoginContainerViewModel";
 import {HomeContainerViewModel} from "./views/Home/HomeContainerViewModel";
+import {ShortagesContainerViewModel} from "./views/Shortages/ShortagesContainerViewModel";
+import {UsersContainerViewModel} from "./views/Users/UsersContainerViewModel";
+import {ReturnableRentalsContainerViewModel} from "./views/ReturnableRentals/ReturnableRentalsContainerViewModel";
+import {
+    NonReturnableRentalsContainerViewModel
+} from "./views/NonReturnableRentals/NonReturnableRentalsContainerViewModel";
+import {ItemContainerViewModel} from "./views/Item/ItemContainerViewModel";
 
 export class AppViewModel{
     private _apiClient : ApiClient | null;
@@ -25,7 +32,12 @@ export class AppViewModel{
     private _itemsContainerViewModel: ItemsContainerViewModel | null;
     private _loginContainerViewModel: LoginContainerViewModel | null;
     private _homeContainerViewModel: HomeContainerViewModel | null;
+    private _shortagesContainerViewModel: ShortagesContainerViewModel | null;
+    private _usersContainerViewModel: UsersContainerViewModel | null;
+    private _returnableRentalsContainerViewModel: ReturnableRentalsContainerViewModel | null;
+    private _nonReturnableRentalsContainerViewModel: NonReturnableRentalsContainerViewModel | null;
 
+    private _itemContainerViewModel: ItemContainerViewModel | null;
 
 
     private readonly _ipcEvents: RendererEvents;
@@ -49,6 +61,13 @@ export class AppViewModel{
         this._itemsContainerViewModel = null;
         this._loginContainerViewModel = null;
         this._homeContainerViewModel = null;
+        this._shortagesContainerViewModel = null;
+        this._usersContainerViewModel =  null;
+        this._returnableRentalsContainerViewModel =  null;
+        this._nonReturnableRentalsContainerViewModel =  null;
+
+        this._itemContainerViewModel =  null;
+
 
 
         this._isInitialised = false;
@@ -135,6 +154,80 @@ export class AppViewModel{
         return this._homeContainerViewModel;
     }
 
+    public getShortagesViewModel(): ShortagesContainerViewModel {
+
+        if (!this._shortagesContainerViewModel) {
+
+            this._shortagesContainerViewModel = new ShortagesContainerViewModel
+            (
+                this._apiClient!,
+                this._eventBus,
+                this._apiViewEvents,
+            );
+        }
+
+        return this._shortagesContainerViewModel;
+    }
+
+    public getUsersViewModel(): UsersContainerViewModel {
+
+        if (!this._usersContainerViewModel) {
+
+            this._usersContainerViewModel = new UsersContainerViewModel
+            (
+                this._apiClient!,
+                this._eventBus,
+                this._apiViewEvents,
+            );
+        }
+
+        return this._usersContainerViewModel;
+    }
+
+    public getReturnableRentalsViewModel(): ReturnableRentalsContainerViewModel {
+
+        if (!this._returnableRentalsContainerViewModel) {
+
+            this._returnableRentalsContainerViewModel = new ReturnableRentalsContainerViewModel
+            (
+                this._apiClient!,
+                this._eventBus,
+                this._apiViewEvents,
+            );
+        }
+
+        return this._returnableRentalsContainerViewModel;
+    }
+
+    public getNonReturnableRentalsViewModel(): NonReturnableRentalsContainerViewModel {
+
+        if (!this._nonReturnableRentalsContainerViewModel) {
+
+            this._nonReturnableRentalsContainerViewModel = new NonReturnableRentalsContainerViewModel
+            (
+                this._apiClient!,
+                this._eventBus,
+                this._apiViewEvents,
+            );
+        }
+
+        return this._nonReturnableRentalsContainerViewModel;
+    }
+
+    public getItemViewModel(): ItemContainerViewModel {
+
+        if (!this._itemContainerViewModel) {
+
+            this._itemContainerViewModel = new ItemContainerViewModel
+            (
+                this._apiClient!,
+                this._eventBus,
+                this._apiViewEvents,
+            );
+        }
+
+        return this._itemContainerViewModel;
+    }
 
     public reloadMainView(): void {
         this._eventBus.emit(EventNames.ReloadMainView, null, new ReloadMainViewEvent());

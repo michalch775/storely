@@ -7,8 +7,11 @@
 import axios, {AxiosRequestConfig, Method} from 'axios';
 import {Authenticator} from "../../auth/Authenticator";
 import {ErrorFactory} from "../../errors/ErrorFactory";
-import {ItemSortBy} from "../enums/ItemSortBy";
+import {ItemSort} from "../enums/ItemSort";
 import {ShortageSort} from "../enums/ShortageSort";
+import {UserSort} from "../enums/UserSort";
+import {RentalReturnable} from "../enums/RentalReturnable";
+import {RentalSort} from "../enums/RentalSort";
 
 export class ApiClient {
 
@@ -26,9 +29,22 @@ export class ApiClient {
 
     }
 
+    //RENTAL REQUEST
+    public async getRentals(search: string, offset: number, sort: RentalSort, returnable: RentalReturnable){
+        return await this._request(
+            `rental?search=${search}&offset=${offset}&sort=${RentalSort[sort]}&returnable=${RentalReturnable[returnable]}`,
+            "GET");
+
+    }
+
+    //USER REQUEST todo
+    public async getUsers(search:string, offset:number, sort:UserSort){
+        return await this._request(`user?search=${search}&offset=${offset}&sort=${UserSort[sort]}`, "GET");
+    }
+
     //  SHORTAGE REQUESTS
     public async getShortages(search:string, offset:number, sort:ShortageSort){
-        return await this._request(`itemview?search=${search}&offset=${offset}&sort=${ShortageSort[sort]}`, "GET");
+        return await this._request(`shortage?search=${search}&offset=${offset}&sort=${ShortageSort[sort]}`, "GET");
     }
 
     // ITEM REQUESTS
@@ -40,9 +56,21 @@ export class ApiClient {
         return await this._request(`item/${id}`, "GET");
     }
 
-    public async getItems(search:string, offset:number, sort:ItemSortBy){
-        console.log(`itemview?search=${search}&offset=${offset}&sort=${ItemSortBy[sort]}`);
-        return await this._request(`itemview?search=${search}&offset=${offset}&sort=${ItemSortBy[sort]}`, "GET");
+    public async getItemRentalsById(id: number, search:string, offset:number, sort:RentalSort){
+        return await this._request(`item/${id}/rental?search=${search}&offset=${offset}&sort=${RentalSort[sort]}`, "GET");
+    }
+
+    public async getItems(search:string, offset:number, sort:ItemSort){
+        console.log(`itemview?search=${search}&offset=${offset}&sort=${ItemSort[sort]}`);
+        return await this._request(`itemview?search=${search}&offset=${offset}&sort=${ItemSort[sort]}`, "GET");
+    }
+
+    public async getItemViewById(id: number){
+        return await this._request(`itemview/${id}`, "GET");
+    }
+
+    public async getItemsByTemplateId(id: number){
+        return await this._request(`item/template/${id}`, "GET");
     }
 
     //  HOME REQUESTS 

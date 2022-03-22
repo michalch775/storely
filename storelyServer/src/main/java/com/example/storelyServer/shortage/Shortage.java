@@ -21,6 +21,8 @@ public class Shortage {
     @KeywordField(sortable = Sortable.YES, name = "name_sort")
     @FullTextField
     private String name;
+    @FullTextField
+    private String model;
     @GenericField(sortable = Sortable.YES)
     private Integer criticalQuantity;
     @GenericField(sortable = Sortable.YES)
@@ -96,5 +98,9 @@ public class Shortage {
 
     public Float getCover() {
         return cover;
+    }
+
+    public String getModel() {
+        return model;
     }
 }

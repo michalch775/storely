@@ -1,5 +1,7 @@
 package com.example.storelyServer.item;
 
+import com.example.storelyServer.rental.Rental;
+import com.example.storelyServer.rental.RentalSort;
 import com.example.storelyServer.user.User;
 import org.hibernate.search.engine.search.query.SearchResult;
 import org.hibernate.search.engine.search.sort.dsl.SortOrder;
@@ -70,14 +72,38 @@ public class ItemService  {
         //return itemRepository.findAll();
     }
 
-    /**
-     * zwraca przedmiot po id
-     * @param itemId id przedmiotu
-     * @return <code>Item</code> przedmiot
-     */
-    public Item getItemById(Long itemId){
-        return itemRepository.findById(itemId)
-                .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,"Przedmiot nie istnieje"));
+    public List<Rental> getItemRentalsById(Long id, String word, Integer offset, RentalSort sort) {
+
+        SearchSession searchSession = Search.session(entityManager);
+
+        if(word.length()>0) {
+            SearchResult<Rental> result = searchSession.search(Rental.class)
+                    .where(f -> f.bool()
+                            .must( f.match().fields("item.itemTemplate.id").matching(id))
+                            .must( f.match().fields("item.itemTemplate.name",
+                                            "item.itemTemplate.category.name", "item.itemTemplate.groups.name",
+                                            "user.name", "user.surname", "user.email")
+                                    .matching(word).fuzzy(2)))
+                    .sort( f -> f.field( sort.getValue() ).order(sort.getOrder())
+                            .then().field( "item.itemTemplate.name_sort" ).asc() )
+                    .fetch(offset, 10);
+
+            List<Rental> hits = result.hits();
+
+            return hits;
+        }
+        else{
+            SearchResult<Rental> result = searchSession.search(Rental.class)
+                    .where(f -> f.match().field("item.itemTemplate.id").matching(id))
+                    .sort( f -> f.field( sort.getValue() ).order(sort.getOrder())
+                            .then().field( "item.itemTemplate.name_sort" ).asc() )
+                    .fetch(offset, 10);
+
+            List<Rental> hits = result.hits();
+
+            return hits;
+        }
+        //return itemRepository.findAll();
     }
 
     /**
@@ -88,6 +114,20 @@ public class ItemService  {
     public Item getItemByCode(Long code){
         return itemRepository.findItemByCode(code)
                 .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,"Przedmiot nie istnieje"));
+    }
+
+    /**
+     * zwraca przedmiot po numerze kodu kreskowego/qr
+     * @param id kod kreskowy
+     * @return <code>Item</code> przedmiot
+     */
+    public Item getItemById(Long id){
+        return itemRepository.findById(id)
+                .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,"Przedmiot nie istnieje"));
+    }
+
+    public List<Item> getItemsByTemplateId(Long id){
+        return itemRepository.findItemsByItemTemplateId(id);
     }
 
     /**

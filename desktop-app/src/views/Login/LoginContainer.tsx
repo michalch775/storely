@@ -1,9 +1,14 @@
+/*
+ * All Rights Reserved
+ *
+ * Copyright (c) 2022 Michał Chruścielski
+ */
+
 import LoginView from "./LoginView";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {EventNames} from "../../events/EventNames";
 import {NavigateEvent} from "../../events/NavigateEvent";
 import {ReloadMainViewEvent} from "../../events/ReloadMainViewEvent";
-import {Item} from "../../api/entities/Item";
 import {UIError} from "../../errors/UiError";
 import {SetErrorEvent} from "../../events/SetErrorEvent";
 import {LoginContainerProps} from "./LoginContainerProps";
@@ -23,7 +28,7 @@ function LoginContainer(props:LoginContainerProps):JSX.Element {
 
     async function startup(): Promise<void> {
 
-        model.eventBus.emit(EventNames.Navigate, null, new NavigateEvent(true));
+        model.eventBus.emit(EventNames.Navigate, null, new NavigateEvent(false));
 
         model.eventBus.on(EventNames.ReloadMainView, onReload);
 
@@ -62,7 +67,7 @@ function LoginContainer(props:LoginContainerProps):JSX.Element {
     const childProps = {
         error:state.error,
         onLogin:login
-    }
+    };
 
     return (
         <LoginView {...childProps}/>

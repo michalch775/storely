@@ -5,7 +5,7 @@
  */
 
 :root{
---lightMain:#278BFF;
+--lightMain:#008DFF;
 --lighterMain:#3693FF;
 --darkMain:#0076FF;
 --mediumMain:#0080FF;
@@ -21,8 +21,12 @@
 --switchText:#4D4D4D;
 --switchContrastText:#fff;
 --inputPlaceholder:#8D8D8D;
---inputBackground:#EAEAEA;
-  --deepMain:#1F71D0;
+  --inputBackground:#EAEAEA;
+  //--deepMain:#1F71D0;
+  --deepMain: #0073D6;
+  --specialGray:#F2F3F5;
+  --lightGray:#868686;
+
 }
 @media (prefers-color-scheme: dark) {
   :root{

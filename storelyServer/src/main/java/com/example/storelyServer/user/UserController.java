@@ -40,9 +40,10 @@ public class UserController {
     @GetMapping
     public List<User> listUsers(
             @RequestParam(required = false, defaultValue = "") String search,
-            @RequestParam(required = false, defaultValue = "0") Integer offset){
+            @RequestParam(required = false, defaultValue = "0") Integer offset,
+            @RequestParam(required = false, defaultValue = "NAME") UserSort sort){
 
-        return userService.getUserSearch(search, offset);
+        return userService.getUserSearch(search, offset, sort);
         //return userService.getUsers(page, search);
     }
 

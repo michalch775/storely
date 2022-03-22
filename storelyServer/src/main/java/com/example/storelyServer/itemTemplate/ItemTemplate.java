@@ -1,16 +1,17 @@
 package com.example.storelyServer.itemTemplate;
 
 import com.example.storelyServer.category.Category;
+import com.example.storelyServer.utilities.BooleanAsStringBinder;
 import com.example.storelyServer.group.Group;
 import com.example.storelyServer.item.Item;
-import com.example.storelyServer.user.UserRepository;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.search.engine.backend.types.Sortable;
+import org.hibernate.search.mapper.pojo.bridge.mapping.annotation.ValueBinderRef;
+import org.hibernate.search.mapper.pojo.common.annotation.Param;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.*;
 
 import javax.persistence.*;
-import java.sql.Time;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,6 +20,7 @@ import java.util.Set;
 @Indexed
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class ItemTemplate {
+
     @Id
     @SequenceGenerator(
             name = "item_template_sequence",
@@ -30,16 +32,28 @@ public class ItemTemplate {
             strategy = GenerationType.SEQUENCE,
             generator = "item_template_sequence"
     )
+    @GenericField
     private Long id;
+
     @KeywordField(name="name_sort",sortable = Sortable.YES)
     @FullTextField
     private String name;
+
     @FullTextField
     private String model;
+
     @FullTextField
     private String description; //TODO: as varchar 5000 signs
+
+    @GenericField(valueBinder = @ValueBinderRef(type = BooleanAsStringBinder.class,
+            params = {
+                    @Param(name = "trueAsString", value = "true"),
+                    @Param(name = "falseAsString", value = "false")
+            }))
     private boolean isReturnable = true;
+
     private Integer timeLimit = 48;
+
     private Integer criticalQuantity = 0;
 
 
@@ -61,9 +75,6 @@ public class ItemTemplate {
     @JsonIgnore
     @OneToMany(mappedBy = "itemTemplate", cascade = CascadeType.DETACH)
     private Set<Item> items = new HashSet<>();
-
-
-
 
     public ItemTemplate(Long id, String name,
                         String description, boolean isReturnable,

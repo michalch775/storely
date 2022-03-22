@@ -12,6 +12,8 @@ import {ApiViewNames} from "../../utilities/ApiViewNames";
 import {ErrorFactory} from "../../errors/ErrorFactory";
 import {ChartBar} from "../../api/entities/ChartBar";
 import {HomeWidgets} from "../../api/entities/HomeWidgets";
+import {ShortageSort} from "../../api/enums/ShortageSort";
+import {Shortage} from "../../api/entities/Shortage";
 
 
 export class HomeContainerViewModel {
@@ -38,7 +40,7 @@ export class HomeContainerViewModel {
 
 
     public async callApi(
-        onSuccess: (widgets:HomeWidgets, rentalChart:ChartBar[], retrievalChart:ChartBar[]) => void,
+        onSuccess: (widgets:HomeWidgets, rentalChart:ChartBar[], retrievalChart:ChartBar[], shortages: Shortage[]) => void,
         onError: (error: UIError) => void): Promise<void> {
 
         try {
@@ -46,8 +48,11 @@ export class HomeContainerViewModel {
             const rentalChart = await this._apiClient.getRentalChart();
             const retrievalChart = await this._apiClient.getRetrievalChart();
             const widgets = await this._apiClient.getHomeWidgets();
+            const shortages = await this._apiClient.getShortages("", 0, ShortageSort.QUANTITY);
+            const shortagesS2 = await this._apiClient.getShortages("", 10, ShortageSort.QUANTITY);
+            shortages.push(...shortagesS2);
             this._apiViewEvents.onViewLoaded(ApiViewNames.Main);
-            onSuccess(widgets, rentalChart, retrievalChart);
+            onSuccess(widgets, rentalChart, retrievalChart, shortages);
 
 
         } catch (e) {
