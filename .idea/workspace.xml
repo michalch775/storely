@@ -9,11 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eae25114-1142-4259-938a-76a12b555627" name="Default Changelist" comment="main activities design apply">
-      <change beforePath="$PROJECT_DIR$/smartRecordMobile/smartRecordMobileApp/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/smartRecordMobile/smartRecordMobileApp/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartRecordMobile/smartRecordMobileApp/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/smartRecordMobile/smartRecordMobileApp/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smartRecordServer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/smartRecordServer/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="eae25114-1142-4259-938a-76a12b555627" name="Default Changelist" comment="main activities design apply" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,6 +25,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="21YP2F8r0j3KUb202bHUhmMj7Ad" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
