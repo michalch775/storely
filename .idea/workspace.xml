@@ -9,7 +9,12 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eae25114-1142-4259-938a-76a12b555627" name="Default Changelist" comment="main activities design apply" />
+    <list default="true" id="eae25114-1142-4259-938a-76a12b555627" name="Default Changelist" comment="main activities design apply">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/Design/mobile-app-interface.xd" beforeDir="false" afterPath="$PROJECT_DIR$/files/Design/mobile-app-interface.xd" afterDir="false" />
+    </list>
+    <list id="5ed87fa7-1ec7-44a0-a7c9-171b0717a9dc" name="Revert &quot;disabled window title in ScanActivity.kt&quot;" comment="Revert &quot;disabled window title in ScanActivity.kt&quot;&#10;&#10;This reverts commit f03fd838" />
+    <list id="abaa6bd8-7e35-43fb-9b11-1e41ef11aa76" name="Revert &quot;disabled window title in ScanActivity.kt&quot;-2" comment="Revert &quot;disabled window title in ScanActivity.kt&quot;&#10;&#10;This reverts commit f03fd838" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

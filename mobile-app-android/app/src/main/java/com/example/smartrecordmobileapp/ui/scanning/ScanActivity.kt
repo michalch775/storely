@@ -57,16 +57,14 @@ class Scan : AppCompatActivity() {
             formats = CodeScanner.ALL_FORMATS
 
             autoFocusMode = AutoFocusMode.SAFE
-            scanMode = ScanMode.SINGLE
+            scanMode = ScanMode.CONTINUOUS
             isAutoFocusEnabled = true
             isFlashEnabled = false
 
             decodeCallback = DecodeCallback {
                 runOnUiThread {
 
-                    val tv_textView = findViewById<TextView>(R.id.tv_textView)
 
-                    tv_textView.text = it.text
                 }
             }
 
