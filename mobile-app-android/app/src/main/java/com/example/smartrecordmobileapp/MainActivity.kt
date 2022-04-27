@@ -38,13 +38,6 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
 
-
-//        val btnGoToScan = binding.btnGoToScan
-//
-//        btnGoToScan.setOnClickListener {
-//            val intent = Intent(this, Scan::class.java)
-//            startActivity(intent)
-//        }
     }
 }
 

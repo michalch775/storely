@@ -49,7 +49,7 @@ class Scan : AppCompatActivity() {
 
 
     private fun codeScanner() {
-        val scanView = findViewById<CodeScannerView>(R.id.scanView)
+        val scanView = findViewById<CodeScannerView>(R.id.scanView) //zamienić na binding
         codeScanner = CodeScanner(this, scanView)
 
         codeScanner.apply {

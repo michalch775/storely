@@ -39,6 +39,7 @@ class StoreFragment : Fragment() {
         storeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+
         startScanActivity()
 
         return root
