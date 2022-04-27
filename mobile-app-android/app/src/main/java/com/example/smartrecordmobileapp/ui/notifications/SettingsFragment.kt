@@ -38,7 +38,7 @@ class SettingsFragment : Fragment() {
             textView.text = it
         })
 
-        increaseText()
+        setupIncreasingButton()
 
         return root
     }
@@ -46,9 +46,9 @@ class SettingsFragment : Fragment() {
     /**
      * increaseNumbTextView - staje się wskaźnikiem na element widoku poprzez binding i przypisuje wartość danemu elementowi
      * increaseButton - staje się wskaźnikiem na element widoku - || -
-     * viewModel.currentNumbToIncrease.value = ++viewModel.number - incrementuje zmienną z viewModel i przypisuje ją do objektu
+     * viewModel.currentNumbToIncrease.value = ++viewModel.number - incrementuje zmienną z viewModel i przypisuje ją do obiektu
      */
-    private fun increaseText() {
+    private fun setupIncreasingButton() {
 
         val increaseNumbTextView: TextView = binding.increaseNumbTextView
         viewModel.currentNumbToIncrease.observe(viewLifecycleOwner, {
@@ -66,12 +66,4 @@ class SettingsFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-
 }
-
-//fragmenty wchodzą w interakcje z użytkownikiem i prezentują mu dane
-//z kolei view model wykonuje operacje na danych
-//  user -> fragment -> viewmodel -> fragment -> xml -> user
-//  viewModel.text.observe --- w ten sposób pobierasz liveData, na liveData pracuje viewModel
-// w fragmencie/aktywności używasz bindingu
