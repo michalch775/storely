@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "smartRecordMobileApp"
 include ':app'
+include ':appp'

@@ -27,7 +27,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="100dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="120dp"
         android:text="dodaj"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -36,7 +36,7 @@
         android:id="@+id/increaseNumbTextView"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="120dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:gravity="center"
