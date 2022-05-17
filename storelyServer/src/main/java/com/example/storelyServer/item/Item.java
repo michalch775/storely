@@ -3,6 +3,8 @@ package com.example.storelyServer.item;
 import com.example.storelyServer.itemTemplate.ItemTemplate;
 import com.example.storelyServer.rental.Rental;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.search.engine.backend.types.Sortable;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.GenericField;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
@@ -42,7 +44,8 @@ public class Item {
     private ItemTemplate itemTemplate;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "item")
+    @OneToMany(mappedBy = "item", cascade = CascadeType.DETACH)
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
     private Set<Rental> rentals = new HashSet<>();
 
     public Item(Integer quantity, Long code, ItemTemplate itemTemplate) {

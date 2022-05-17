@@ -16,6 +16,8 @@ import InfiniteScroll from "react-infinite-scroller";
 import {RentalSort} from "../../api/enums/RentalSort";
 import {Rental} from "../../api/entities/Rental";
 import {NonReturnableItemViewState} from "./NonReturnableItemViewState";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 function NonReturnableItemView(props: NonReturnableItemViewProps): JSX.Element|null {
 
@@ -45,7 +47,6 @@ function NonReturnableItemView(props: NonReturnableItemViewProps): JSX.Element|n
         }
     }
 
-
     async function loadMore(){
         if(!state.isLoading) {
             await setState((prevState) => ({...prevState, offset: prevState.offset + 10, isLoading: true}));
@@ -54,6 +55,9 @@ function NonReturnableItemView(props: NonReturnableItemViewProps): JSX.Element|n
         }
     }
 
+    async function delete_item(){
+        await props.onDelete();
+    }
 
     function renderItem(rental: Rental, key: number){
         const rentDate = new Date(rental.rentDate).toLocaleString();
@@ -97,7 +101,42 @@ function NonReturnableItemView(props: NonReturnableItemViewProps): JSX.Element|n
                 <div className={styles.back} onClick={()=>navigate(-1)}>Powrót</div>
                 <h1>{props.item.name}</h1>
                 <div className={styles.buttons}>
-                    <button>Usuń</button>
+                    <Popup
+                        trigger={<button className="button"> Usuń </button>}
+                        modal
+                        nested
+                    >
+                        {(close:any) => (
+                            <div className="modal">
+                                <button className="close" onClick={close}>
+                                    &times;
+                                </button>
+                                <div className="header">Usuwuanie przedmiotu</div>
+                                <div className="content">
+                                    <p>Czy nas pewno chcesz usunąć ten przedmiot?</p>
+                                </div>
+                                <div className="actions">
+                                    <button
+                                        className="button"
+                                        onClick={() => {
+                                            delete_item();
+                                            close();
+                                        }}
+                                    >
+                                        Usuń
+                                    </button>
+                                    <button
+                                        className="button"
+                                        onClick={() => {
+                                            close();
+                                        }}
+                                    >
+                                        Anuluj
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+                    </Popup>
                     <button>Edytuj</button>
                 </div>
             </nav>

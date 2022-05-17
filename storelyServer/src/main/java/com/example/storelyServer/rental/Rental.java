@@ -39,12 +39,12 @@ public class Rental {
     private Integer quantity;
 
     @IndexedEmbedded
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "userId", referencedColumnName = "id")
     private User user;
 
     @IndexedEmbedded
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "itemId", referencedColumnName = "id")
     private Item item;
 

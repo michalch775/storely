@@ -36,4 +36,13 @@ public class ItemTemplateService {
         }
         itemTemplateRepository.save(itemTemplate);
     }
+
+    public void removeItemTemplate(Long id){
+        if(itemTemplateRepository.findById(id).isPresent()) {
+            itemTemplateRepository.deleteById(id);
+        }
+        else{
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Ten przedmiot nie istnieje");
+        }
+    }
 }

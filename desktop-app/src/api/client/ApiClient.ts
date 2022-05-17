@@ -52,6 +52,10 @@ export class ApiClient {
         return await this._request(`item/${code}?byCode=true`, "GET");
     }
 
+    public async removeItemById(id:number){
+        return await this._request(`itemview/${id}`, "DELETE");
+    }
+
     public async getItemById(id:number){
         return await this._request(`item/${id}`, "GET");
     }

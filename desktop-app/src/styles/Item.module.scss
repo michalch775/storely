@@ -6,6 +6,8 @@
 
 @import "../_mixins";
 
+
+
 .main {
   overflow-y: scroll;
   width: 100%;
@@ -51,6 +53,7 @@
       button:last-child {
         @include button;
       }
+
     }
   }
 

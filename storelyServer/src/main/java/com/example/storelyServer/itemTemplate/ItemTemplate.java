@@ -6,12 +6,14 @@ import com.example.storelyServer.group.Group;
 import com.example.storelyServer.item.Item;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import net.bytebuddy.implementation.bind.annotation.Default;
 import org.hibernate.search.engine.backend.types.Sortable;
 import org.hibernate.search.mapper.pojo.bridge.mapping.annotation.ValueBinderRef;
 import org.hibernate.search.mapper.pojo.common.annotation.Param;
 import org.hibernate.search.mapper.pojo.mapping.definition.annotation.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -52,6 +54,7 @@ public class ItemTemplate {
             }))
     private boolean isReturnable = true;
 
+    @NotNull
     private Integer timeLimit = 48;
 
     private Integer criticalQuantity = 0;
@@ -68,12 +71,12 @@ public class ItemTemplate {
             joinColumns = @JoinColumn(name = "groupId"),
             inverseJoinColumns = @JoinColumn(name = "itemId")
     )
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.DETACH)
     @IndexedEmbedded
     private Set<Group> groups = new HashSet<>();
 
     @JsonIgnore
-    @OneToMany(mappedBy = "itemTemplate", cascade = CascadeType.DETACH)
+    @OneToMany(mappedBy = "itemTemplate", cascade = CascadeType.REMOVE)
     private Set<Item> items = new HashSet<>();
 
     public ItemTemplate(Long id, String name,

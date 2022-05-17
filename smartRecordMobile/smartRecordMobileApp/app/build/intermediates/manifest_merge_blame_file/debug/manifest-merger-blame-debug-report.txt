@@ -1,0 +1,86 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.smartrecordmobileapp"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.CAMERA" />
+11-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml:5:5-64
+11-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml:5:22-62
+12
+13    <application
+13-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml:7:5-28:19
+14        android:allowBackup="true"
+14-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml:8:9-35
+15        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+15-->[androidx.core:core:1.7.0] /Users/michal/.gradle/caches/transforms-3/ae3d7ae4493d11c21b25c5d58a0c4179/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
+16        android:debuggable="true"
+17        android:icon="@mipmap/ic_launcher"
+17-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml:9:9-43
+18        android:label="@string/app_name"
+18-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml:10:9-41
+19        android:roundIcon="@mipmap/ic_launcher_round"
+19-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml:11:9-54
+20        android:supportsRtl="true"
+20-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml:12:9-35
+21        android:testOnly="true"
+22        android:theme="@style/Theme.SmartRecordMobileApp" >
+22-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml:13:9-58
+23        <activity
+23-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml:14:9-17:50
+24            android:name="com.example.smartrecordmobileapp.ui.scanning.Scan"
+24-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml:15:13-45
+25            android:exported="false"
+25-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml:16:13-37
+26            android:label="@string/title_scan" />
+26-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml:17:13-47
+27        <activity
+27-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml:18:9-27:20
+28            android:name="com.example.smartrecordmobileapp.MainActivity"
+28-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml:19:13-41
+29            android:exported="true"
+29-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml:20:13-36
+30            android:label="@string/app_name" >
+30-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml:21:13-45
+31            <intent-filter>
+31-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml:22:13-26:29
+32                <action android:name="android.intent.action.MAIN" />
+32-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml:23:17-69
+32-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml:23:25-66
+33
+34                <category android:name="android.intent.category.LAUNCHER" />
+34-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml:25:17-77
+34-->/Users/michal/Documents/storely/smartRecordMobile/smartRecordMobileApp/app/src/main/AndroidManifest.xml:25:27-74
+35            </intent-filter>
+36        </activity>
+37
+38        <provider
+38-->[androidx.emoji2:emoji2:1.0.0] /Users/michal/.gradle/caches/transforms-3/3d24b7c5ded344cd4260b8f2ad9ed030/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
+39            android:name="androidx.startup.InitializationProvider"
+39-->[androidx.emoji2:emoji2:1.0.0] /Users/michal/.gradle/caches/transforms-3/3d24b7c5ded344cd4260b8f2ad9ed030/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:27:13-67
+40            android:authorities="com.example.smartrecordmobileapp.androidx-startup"
+40-->[androidx.emoji2:emoji2:1.0.0] /Users/michal/.gradle/caches/transforms-3/3d24b7c5ded344cd4260b8f2ad9ed030/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:28:13-68
+41            android:exported="false" >
+41-->[androidx.emoji2:emoji2:1.0.0] /Users/michal/.gradle/caches/transforms-3/3d24b7c5ded344cd4260b8f2ad9ed030/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:29:13-37
+42            <meta-data
+42-->[androidx.emoji2:emoji2:1.0.0] /Users/michal/.gradle/caches/transforms-3/3d24b7c5ded344cd4260b8f2ad9ed030/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
+43                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+43-->[androidx.emoji2:emoji2:1.0.0] /Users/michal/.gradle/caches/transforms-3/3d24b7c5ded344cd4260b8f2ad9ed030/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:32:17-75
+44                android:value="androidx.startup" />
+44-->[androidx.emoji2:emoji2:1.0.0] /Users/michal/.gradle/caches/transforms-3/3d24b7c5ded344cd4260b8f2ad9ed030/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:33:17-49
+45            <meta-data
+45-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/michal/.gradle/caches/transforms-3/c55501271c534953631a61ceacf50e00/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
+46                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+46-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/michal/.gradle/caches/transforms-3/c55501271c534953631a61ceacf50e00/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
+47                android:value="androidx.startup" />
+47-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/michal/.gradle/caches/transforms-3/c55501271c534953631a61ceacf50e00/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
+48        </provider>
+49    </application>
+50
+51</manifest>

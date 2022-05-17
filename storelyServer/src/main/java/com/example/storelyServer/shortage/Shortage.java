@@ -16,19 +16,26 @@ public class Shortage {
 
     @Id
     private Long id;
+
     @GenericField(sortable = Sortable.YES)
     private Integer quantity;
+
     @KeywordField(sortable = Sortable.YES, name = "name_sort")
     @FullTextField
     private String name;
+
     @FullTextField
     private String model;
+
     @GenericField(sortable = Sortable.YES)
     private Integer criticalQuantity;
+
     @GenericField(sortable = Sortable.YES)
     private Integer averageRentals;
+
     @GenericField(sortable = Sortable.YES)
     private LocalDateTime added;
+
     @GenericField(sortable = Sortable.YES)
     private Float cover;
 

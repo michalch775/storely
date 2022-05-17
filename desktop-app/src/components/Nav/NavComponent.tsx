@@ -69,7 +69,7 @@ function NavComponent(props:NavComponentProps):JSX.Element {
                 <li><Link to="users" className={styles.linkBox}>Użytkownicy</Link></li>
                 <li><Link to="returnable-rentals" className={styles.linkBox}>Wydania zwrotne</Link></li>
                 <li><Link to="nonreturnable-rentals" className={styles.linkBox}>Wydania bezzwrotne</Link></li>
-                <li><Link to="/item/2" className={styles.linkBox}>item test</Link></li>
+                <li><Link to="/item/1" className={styles.linkBox}>item test</Link></li>
 
 
             </ul>

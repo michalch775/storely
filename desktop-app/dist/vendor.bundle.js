@@ -16099,6 +16099,33 @@ function styleChanged(style, prevStyle) {
 
 /***/ }),
 
+/***/ "../node_modules/css-loader/dist/cjs.js!../node_modules/sass-loader/dist/cjs.js!../node_modules/reactjs-popup/dist/index.css":
+/*!***********************************************************************************************************************************!*\
+  !*** ../node_modules/css-loader/dist/cjs.js!../node_modules/sass-loader/dist/cjs.js!../node_modules/reactjs-popup/dist/index.css ***!
+  \***********************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../css-loader/dist/runtime/sourceMaps.js */ "../node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../css-loader/dist/runtime/api.js */ "../node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".popup-content {\n  margin: auto;\n  background: #fff;\n  width: 50%;\n  padding: 5px;\n  border: 1px solid #d7d7d7;\n}\n\n[role=tooltip].popup-content {\n  width: 200px;\n  box-shadow: 0 0 3px rgba(0, 0, 0, 0.16);\n  border-radius: 5px;\n}\n\n.popup-overlay {\n  background: rgba(0, 0, 0, 0.5);\n}\n\n[data-popup=tooltip].popup-overlay {\n  background: transparent;\n}\n\n.popup-arrow {\n  -webkit-filter: drop-shadow(0 -3px 3px rgba(0, 0, 0, 0.16));\n  filter: drop-shadow(0 -3px 3px rgba(0, 0, 0, 0.16));\n  color: #fff;\n  stroke-width: 2px;\n  stroke: #d7d7d7;\n  stroke-dasharray: 30px;\n  stroke-dashoffset: -54px;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n}", "",{"version":3,"sources":["webpack://./../node_modules/reactjs-popup/dist/index.css"],"names":[],"mappings":"AAAA;EAAe,YAAA;EAAY,gBAAA;EAAgB,UAAA;EAAU,YAAA;EAAY,yBAAA;AAMjE;;AAN0F;EAA6B,YAAA;EAAY,uCAAA;EAAmC,kBAAA;AAYtK;;AAZwL;EAAe,8BAAA;AAgBvM;;AAhBiO;EAAmC,uBAAA;AAoBpQ;;AApB2R;EAAa,2DAAA;EAAuD,mDAAA;EAA+C,WAAA;EAAW,iBAAA;EAAiB,eAAA;EAAe,sBAAA;EAAsB,wBAAA;EAAwB,OAAA;EAAO,QAAA;EAAQ,MAAA;EAAM,SAAA;AAkC5f","sourcesContent":[".popup-content{margin:auto;background:#fff;width:50%;padding:5px;border:1px solid #d7d7d7}[role=tooltip].popup-content{width:200px;box-shadow:0 0 3px rgba(0,0,0,.16);border-radius:5px}.popup-overlay{background:rgba(0,0,0,.5)}[data-popup=tooltip].popup-overlay{background:transparent}.popup-arrow{-webkit-filter:drop-shadow(0 -3px 3px rgba(0,0,0,.16));filter:drop-shadow(0 -3px 3px rgba(0,0,0,.16));color:#fff;stroke-width:2px;stroke:#d7d7d7;stroke-dasharray:30px;stroke-dashoffset:-54px;left:0;right:0;top:0;bottom:0}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "../node_modules/css-loader/dist/runtime/api.js":
 /*!******************************************************!*\
   !*** ../node_modules/css-loader/dist/runtime/api.js ***!
@@ -17497,7 +17524,7 @@ module.exports = checkPropTypes;
 
 
 
-var ReactIs = __webpack_require__(/*! react-is */ "../node_modules/react-is/index.js");
+var ReactIs = __webpack_require__(/*! react-is */ "../node_modules/prop-types/node_modules/react-is/index.js");
 var assign = __webpack_require__(/*! object-assign */ "../node_modules/object-assign/index.js");
 
 var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "../node_modules/prop-types/lib/ReactPropTypesSecret.js");
@@ -18116,7 +18143,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
  */
 
 if (true) {
-  var ReactIs = __webpack_require__(/*! react-is */ "../node_modules/react-is/index.js");
+  var ReactIs = __webpack_require__(/*! react-is */ "../node_modules/prop-types/node_modules/react-is/index.js");
 
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
@@ -18157,6 +18184,214 @@ module.exports = ReactPropTypesSecret;
 /***/ ((module) => {
 
 module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
+
+
+/***/ }),
+
+/***/ "../node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js":
+/*!************************************************************************************!*\
+  !*** ../node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+/** @license React v16.13.1
+ * react-is.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+
+
+if (true) {
+  (function() {
+'use strict';
+
+// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+// nor polyfill, then a plain number is used for performance.
+var hasSymbol = typeof Symbol === 'function' && Symbol.for;
+var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
+var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
+var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
+var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
+var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
+var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
+var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
+// (unstable) APIs that have been removed. Can we remove the symbols?
+
+var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;
+var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
+var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
+var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
+var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 0xead8;
+var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
+var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
+var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for('react.block') : 0xead9;
+var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for('react.fundamental') : 0xead5;
+var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for('react.responder') : 0xead6;
+var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for('react.scope') : 0xead7;
+
+function isValidElementType(type) {
+  return typeof type === 'string' || typeof type === 'function' || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
+  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
+}
+
+function typeOf(object) {
+  if (typeof object === 'object' && object !== null) {
+    var $$typeof = object.$$typeof;
+
+    switch ($$typeof) {
+      case REACT_ELEMENT_TYPE:
+        var type = object.type;
+
+        switch (type) {
+          case REACT_ASYNC_MODE_TYPE:
+          case REACT_CONCURRENT_MODE_TYPE:
+          case REACT_FRAGMENT_TYPE:
+          case REACT_PROFILER_TYPE:
+          case REACT_STRICT_MODE_TYPE:
+          case REACT_SUSPENSE_TYPE:
+            return type;
+
+          default:
+            var $$typeofType = type && type.$$typeof;
+
+            switch ($$typeofType) {
+              case REACT_CONTEXT_TYPE:
+              case REACT_FORWARD_REF_TYPE:
+              case REACT_LAZY_TYPE:
+              case REACT_MEMO_TYPE:
+              case REACT_PROVIDER_TYPE:
+                return $$typeofType;
+
+              default:
+                return $$typeof;
+            }
+
+        }
+
+      case REACT_PORTAL_TYPE:
+        return $$typeof;
+    }
+  }
+
+  return undefined;
+} // AsyncMode is deprecated along with isAsyncMode
+
+var AsyncMode = REACT_ASYNC_MODE_TYPE;
+var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
+var ContextConsumer = REACT_CONTEXT_TYPE;
+var ContextProvider = REACT_PROVIDER_TYPE;
+var Element = REACT_ELEMENT_TYPE;
+var ForwardRef = REACT_FORWARD_REF_TYPE;
+var Fragment = REACT_FRAGMENT_TYPE;
+var Lazy = REACT_LAZY_TYPE;
+var Memo = REACT_MEMO_TYPE;
+var Portal = REACT_PORTAL_TYPE;
+var Profiler = REACT_PROFILER_TYPE;
+var StrictMode = REACT_STRICT_MODE_TYPE;
+var Suspense = REACT_SUSPENSE_TYPE;
+var hasWarnedAboutDeprecatedIsAsyncMode = false; // AsyncMode should be deprecated
+
+function isAsyncMode(object) {
+  {
+    if (!hasWarnedAboutDeprecatedIsAsyncMode) {
+      hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
+
+      console['warn']('The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
+    }
+  }
+
+  return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
+}
+function isConcurrentMode(object) {
+  return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
+}
+function isContextConsumer(object) {
+  return typeOf(object) === REACT_CONTEXT_TYPE;
+}
+function isContextProvider(object) {
+  return typeOf(object) === REACT_PROVIDER_TYPE;
+}
+function isElement(object) {
+  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+}
+function isForwardRef(object) {
+  return typeOf(object) === REACT_FORWARD_REF_TYPE;
+}
+function isFragment(object) {
+  return typeOf(object) === REACT_FRAGMENT_TYPE;
+}
+function isLazy(object) {
+  return typeOf(object) === REACT_LAZY_TYPE;
+}
+function isMemo(object) {
+  return typeOf(object) === REACT_MEMO_TYPE;
+}
+function isPortal(object) {
+  return typeOf(object) === REACT_PORTAL_TYPE;
+}
+function isProfiler(object) {
+  return typeOf(object) === REACT_PROFILER_TYPE;
+}
+function isStrictMode(object) {
+  return typeOf(object) === REACT_STRICT_MODE_TYPE;
+}
+function isSuspense(object) {
+  return typeOf(object) === REACT_SUSPENSE_TYPE;
+}
+
+exports.AsyncMode = AsyncMode;
+exports.ConcurrentMode = ConcurrentMode;
+exports.ContextConsumer = ContextConsumer;
+exports.ContextProvider = ContextProvider;
+exports.Element = Element;
+exports.ForwardRef = ForwardRef;
+exports.Fragment = Fragment;
+exports.Lazy = Lazy;
+exports.Memo = Memo;
+exports.Portal = Portal;
+exports.Profiler = Profiler;
+exports.StrictMode = StrictMode;
+exports.Suspense = Suspense;
+exports.isAsyncMode = isAsyncMode;
+exports.isConcurrentMode = isConcurrentMode;
+exports.isContextConsumer = isContextConsumer;
+exports.isContextProvider = isContextProvider;
+exports.isElement = isElement;
+exports.isForwardRef = isForwardRef;
+exports.isFragment = isFragment;
+exports.isLazy = isLazy;
+exports.isMemo = isMemo;
+exports.isPortal = isPortal;
+exports.isProfiler = isProfiler;
+exports.isStrictMode = isStrictMode;
+exports.isSuspense = isSuspense;
+exports.isValidElementType = isValidElementType;
+exports.typeOf = typeOf;
+  })();
+}
+
+
+/***/ }),
+
+/***/ "../node_modules/prop-types/node_modules/react-is/index.js":
+/*!*****************************************************************!*\
+  !*** ../node_modules/prop-types/node_modules/react-is/index.js ***!
+  \*****************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+if (false) {} else {
+  module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ "../node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js");
+}
 
 
 /***/ }),
@@ -45061,214 +45296,6 @@ module.exports = __webpack_require__(/*! ./dist/InfiniteScroll */ "../node_modul
 
 /***/ }),
 
-/***/ "../node_modules/react-is/cjs/react-is.development.js":
-/*!************************************************************!*\
-  !*** ../node_modules/react-is/cjs/react-is.development.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-/** @license React v16.13.1
- * react-is.development.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-
-
-if (true) {
-  (function() {
-'use strict';
-
-// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
-// nor polyfill, then a plain number is used for performance.
-var hasSymbol = typeof Symbol === 'function' && Symbol.for;
-var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
-var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
-var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
-var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
-var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
-var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
-var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
-// (unstable) APIs that have been removed. Can we remove the symbols?
-
-var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;
-var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
-var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
-var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
-var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 0xead8;
-var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
-var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
-var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for('react.block') : 0xead9;
-var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for('react.fundamental') : 0xead5;
-var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for('react.responder') : 0xead6;
-var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for('react.scope') : 0xead7;
-
-function isValidElementType(type) {
-  return typeof type === 'string' || typeof type === 'function' || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
-  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
-}
-
-function typeOf(object) {
-  if (typeof object === 'object' && object !== null) {
-    var $$typeof = object.$$typeof;
-
-    switch ($$typeof) {
-      case REACT_ELEMENT_TYPE:
-        var type = object.type;
-
-        switch (type) {
-          case REACT_ASYNC_MODE_TYPE:
-          case REACT_CONCURRENT_MODE_TYPE:
-          case REACT_FRAGMENT_TYPE:
-          case REACT_PROFILER_TYPE:
-          case REACT_STRICT_MODE_TYPE:
-          case REACT_SUSPENSE_TYPE:
-            return type;
-
-          default:
-            var $$typeofType = type && type.$$typeof;
-
-            switch ($$typeofType) {
-              case REACT_CONTEXT_TYPE:
-              case REACT_FORWARD_REF_TYPE:
-              case REACT_LAZY_TYPE:
-              case REACT_MEMO_TYPE:
-              case REACT_PROVIDER_TYPE:
-                return $$typeofType;
-
-              default:
-                return $$typeof;
-            }
-
-        }
-
-      case REACT_PORTAL_TYPE:
-        return $$typeof;
-    }
-  }
-
-  return undefined;
-} // AsyncMode is deprecated along with isAsyncMode
-
-var AsyncMode = REACT_ASYNC_MODE_TYPE;
-var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
-var ContextConsumer = REACT_CONTEXT_TYPE;
-var ContextProvider = REACT_PROVIDER_TYPE;
-var Element = REACT_ELEMENT_TYPE;
-var ForwardRef = REACT_FORWARD_REF_TYPE;
-var Fragment = REACT_FRAGMENT_TYPE;
-var Lazy = REACT_LAZY_TYPE;
-var Memo = REACT_MEMO_TYPE;
-var Portal = REACT_PORTAL_TYPE;
-var Profiler = REACT_PROFILER_TYPE;
-var StrictMode = REACT_STRICT_MODE_TYPE;
-var Suspense = REACT_SUSPENSE_TYPE;
-var hasWarnedAboutDeprecatedIsAsyncMode = false; // AsyncMode should be deprecated
-
-function isAsyncMode(object) {
-  {
-    if (!hasWarnedAboutDeprecatedIsAsyncMode) {
-      hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
-
-      console['warn']('The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
-    }
-  }
-
-  return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
-}
-function isConcurrentMode(object) {
-  return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
-}
-function isContextConsumer(object) {
-  return typeOf(object) === REACT_CONTEXT_TYPE;
-}
-function isContextProvider(object) {
-  return typeOf(object) === REACT_PROVIDER_TYPE;
-}
-function isElement(object) {
-  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
-}
-function isForwardRef(object) {
-  return typeOf(object) === REACT_FORWARD_REF_TYPE;
-}
-function isFragment(object) {
-  return typeOf(object) === REACT_FRAGMENT_TYPE;
-}
-function isLazy(object) {
-  return typeOf(object) === REACT_LAZY_TYPE;
-}
-function isMemo(object) {
-  return typeOf(object) === REACT_MEMO_TYPE;
-}
-function isPortal(object) {
-  return typeOf(object) === REACT_PORTAL_TYPE;
-}
-function isProfiler(object) {
-  return typeOf(object) === REACT_PROFILER_TYPE;
-}
-function isStrictMode(object) {
-  return typeOf(object) === REACT_STRICT_MODE_TYPE;
-}
-function isSuspense(object) {
-  return typeOf(object) === REACT_SUSPENSE_TYPE;
-}
-
-exports.AsyncMode = AsyncMode;
-exports.ConcurrentMode = ConcurrentMode;
-exports.ContextConsumer = ContextConsumer;
-exports.ContextProvider = ContextProvider;
-exports.Element = Element;
-exports.ForwardRef = ForwardRef;
-exports.Fragment = Fragment;
-exports.Lazy = Lazy;
-exports.Memo = Memo;
-exports.Portal = Portal;
-exports.Profiler = Profiler;
-exports.StrictMode = StrictMode;
-exports.Suspense = Suspense;
-exports.isAsyncMode = isAsyncMode;
-exports.isConcurrentMode = isConcurrentMode;
-exports.isContextConsumer = isContextConsumer;
-exports.isContextProvider = isContextProvider;
-exports.isElement = isElement;
-exports.isForwardRef = isForwardRef;
-exports.isFragment = isFragment;
-exports.isLazy = isLazy;
-exports.isMemo = isMemo;
-exports.isPortal = isPortal;
-exports.isProfiler = isProfiler;
-exports.isStrictMode = isStrictMode;
-exports.isSuspense = isSuspense;
-exports.isValidElementType = isValidElementType;
-exports.typeOf = typeOf;
-  })();
-}
-
-
-/***/ }),
-
-/***/ "../node_modules/react-is/index.js":
-/*!*****************************************!*\
-  !*** ../node_modules/react-is/index.js ***!
-  \*****************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-
-if (false) {} else {
-  module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ "../node_modules/react-is/cjs/react-is.development.js");
-}
-
-
-/***/ }),
-
 /***/ "../node_modules/react-router-dom/index.js":
 /*!*************************************************!*\
   !*** ../node_modules/react-router-dom/index.js ***!
@@ -50307,6 +50334,654 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "../node_modules/reactjs-popup/dist/reactjs-popup.esm.js":
+/*!***************************************************************!*\
+  !*** ../node_modules/reactjs-popup/dist/reactjs-popup.esm.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "Popup": () => (/* binding */ Popup)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "../node_modules/react-dom/index.js");
+
+
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+var useOnEscape = function useOnEscape(handler, active) {
+  if (active === void 0) {
+    active = true;
+  }
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (!active) return;
+
+    var listener = function listener(event) {
+      // check if key is an Escape
+      if (event.key === 'Escape') handler(event);
+    };
+
+    document.addEventListener('keyup', listener);
+    return function () {
+      if (!active) return;
+      document.removeEventListener('keyup', listener);
+    };
+  }, [handler, active]);
+};
+var useRepositionOnResize = function useRepositionOnResize(handler, active) {
+  if (active === void 0) {
+    active = true;
+  }
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (!active) return;
+
+    var listener = function listener() {
+      handler();
+    };
+
+    window.addEventListener('resize', listener);
+    return function () {
+      if (!active) return;
+      window.removeEventListener('resize', listener);
+    };
+  }, [handler, active]);
+};
+var useOnClickOutside = function useOnClickOutside(ref, handler, active) {
+  if (active === void 0) {
+    active = true;
+  }
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (!active) return;
+
+    var listener = function listener(event) {
+      // Do nothing if clicking ref's element or descendent elements
+      var refs = Array.isArray(ref) ? ref : [ref];
+      var contains = false;
+      refs.forEach(function (r) {
+        if (!r.current || r.current.contains(event.target)) {
+          contains = true;
+          return;
+        }
+      });
+      event.stopPropagation();
+      if (!contains) handler(event);
+    };
+
+    document.addEventListener('mousedown', listener);
+    document.addEventListener('touchstart', listener);
+    return function () {
+      if (!active) return;
+      document.removeEventListener('mousedown', listener);
+      document.removeEventListener('touchstart', listener);
+    };
+  }, [ref, handler, active]);
+}; // Make sure that user is not able TAB out of the Modal content on Open
+
+var useTabbing = function useTabbing(contentRef, active) {
+  if (active === void 0) {
+    active = true;
+  }
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (!active) return;
+
+    var listener = function listener(event) {
+      // check if key is an Tab
+      if (event.keyCode === 9) {
+        var _contentRef$current;
+
+        var els = contentRef === null || contentRef === void 0 ? void 0 : (_contentRef$current = contentRef.current) === null || _contentRef$current === void 0 ? void 0 : _contentRef$current.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]');
+        var focusableEls = Array.prototype.slice.call(els);
+
+        if (focusableEls.length === 1) {
+          event.preventDefault();
+          return;
+        }
+
+        var firstFocusableEl = focusableEls[0];
+        var lastFocusableEl = focusableEls[focusableEls.length - 1];
+
+        if (event.shiftKey && document.activeElement === firstFocusableEl) {
+          event.preventDefault();
+          lastFocusableEl.focus();
+        } else if (document.activeElement === lastFocusableEl) {
+          event.preventDefault();
+          firstFocusableEl.focus();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', listener);
+    return function () {
+      if (!active) return;
+      document.removeEventListener('keydown', listener);
+    };
+  }, [contentRef, active]);
+};
+var useIsomorphicLayoutEffect = typeof window !== 'undefined' ? react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect : react__WEBPACK_IMPORTED_MODULE_0__.useEffect;
+
+var Style = {
+  popupContent: {
+    tooltip: {
+      position: 'absolute',
+      zIndex: 999
+    },
+    modal: {
+      position: 'relative',
+      margin: 'auto'
+    }
+  },
+  popupArrow: {
+    height: '8px',
+    width: '16px',
+    position: 'absolute',
+    background: 'transparent',
+    color: '#FFF',
+    zIndex: -1
+  },
+  overlay: {
+    tooltip: {
+      position: 'fixed',
+      top: '0',
+      bottom: '0',
+      left: '0',
+      right: '0',
+      zIndex: 999
+    },
+    modal: {
+      position: 'fixed',
+      top: '0',
+      bottom: '0',
+      left: '0',
+      right: '0',
+      display: 'flex',
+      zIndex: 999
+    }
+  }
+};
+
+var POSITION_TYPES = ['top left', 'top center', 'top right', 'right top', 'right center', 'right bottom', 'bottom left', 'bottom center', 'bottom right', 'left top', 'left center', 'left bottom'];
+
+var getCoordinatesForPosition = function getCoordinatesForPosition(triggerBounding, ContentBounding, position, //PopupPosition | PopupPosition[],
+arrow, _ref) {
+  var offsetX = _ref.offsetX,
+      offsetY = _ref.offsetY;
+  var margin = arrow ? 8 : 0;
+  var args = position.split(' '); // the step N 1 : center the popup content => ok
+
+  var CenterTop = triggerBounding.top + triggerBounding.height / 2;
+  var CenterLeft = triggerBounding.left + triggerBounding.width / 2;
+  var height = ContentBounding.height,
+      width = ContentBounding.width;
+  var top = CenterTop - height / 2;
+  var left = CenterLeft - width / 2;
+  var transform = '';
+  var arrowTop = '0%';
+  var arrowLeft = '0%'; // the  step N 2 : => ok
+
+  switch (args[0]) {
+    case 'top':
+      top -= height / 2 + triggerBounding.height / 2 + margin;
+      transform = "rotate(180deg)  translateX(50%)";
+      arrowTop = '100%';
+      arrowLeft = '50%';
+      break;
+
+    case 'bottom':
+      top += height / 2 + triggerBounding.height / 2 + margin;
+      transform = "rotate(0deg) translateY(-100%) translateX(-50%)";
+      arrowLeft = '50%';
+      break;
+
+    case 'left':
+      left -= width / 2 + triggerBounding.width / 2 + margin;
+      transform = " rotate(90deg)  translateY(50%) translateX(-25%)";
+      arrowLeft = '100%';
+      arrowTop = '50%';
+      break;
+
+    case 'right':
+      left += width / 2 + triggerBounding.width / 2 + margin;
+      transform = "rotate(-90deg)  translateY(-150%) translateX(25%)";
+      arrowTop = '50%';
+      break;
+  }
+
+  switch (args[1]) {
+    case 'top':
+      top = triggerBounding.top;
+      arrowTop = triggerBounding.height / 2 + "px";
+      break;
+
+    case 'bottom':
+      top = triggerBounding.top - height + triggerBounding.height;
+      arrowTop = height - triggerBounding.height / 2 + "px";
+      break;
+
+    case 'left':
+      left = triggerBounding.left;
+      arrowLeft = triggerBounding.width / 2 + "px";
+      break;
+
+    case 'right':
+      left = triggerBounding.left - width + triggerBounding.width;
+      arrowLeft = width - triggerBounding.width / 2 + "px";
+      break;
+  }
+
+  top = args[0] === 'top' ? top - offsetY : top + offsetY;
+  left = args[0] === 'left' ? left - offsetX : left + offsetX;
+  return {
+    top: top,
+    left: left,
+    transform: transform,
+    arrowLeft: arrowLeft,
+    arrowTop: arrowTop
+  };
+};
+
+var getTooltipBoundary = function getTooltipBoundary(keepTooltipInside) {
+  // add viewport
+  var boundingBox = {
+    top: 0,
+    left: 0,
+
+    /* eslint-disable-next-line no-undef */
+    width: window.innerWidth,
+
+    /* eslint-disable-next-line no-undef */
+    height: window.innerHeight
+  };
+
+  if (typeof keepTooltipInside === 'string') {
+    /* eslint-disable-next-line no-undef */
+    var selector = document.querySelector(keepTooltipInside);
+
+    if (true) {
+      if (selector === null) throw new Error(keepTooltipInside + " selector does not exist : keepTooltipInside must be a valid html selector 'class' or 'Id'  or a boolean value");
+    }
+
+    if (selector !== null) boundingBox = selector.getBoundingClientRect();
+  }
+
+  return boundingBox;
+};
+
+var calculatePosition = function calculatePosition(triggerBounding, ContentBounding, position, arrow, _ref2, keepTooltipInside) {
+  var offsetX = _ref2.offsetX,
+      offsetY = _ref2.offsetY;
+  var bestCoords = {
+    arrowLeft: '0%',
+    arrowTop: '0%',
+    left: 0,
+    top: 0,
+    transform: 'rotate(135deg)'
+  };
+  var i = 0;
+  var wrapperBox = getTooltipBoundary(keepTooltipInside);
+  var positions = Array.isArray(position) ? position : [position]; // keepTooltipInside would be activated if the  keepTooltipInside exist or the position is Array
+
+  if (keepTooltipInside || Array.isArray(position)) positions = [].concat(positions, POSITION_TYPES); // add viewPort for WarpperBox
+  // wrapperBox.top = wrapperBox.top + window.scrollY;
+  // wrapperBox.left = wrapperBox.left + window.scrollX;
+
+  while (i < positions.length) {
+    bestCoords = getCoordinatesForPosition(triggerBounding, ContentBounding, positions[i], arrow, {
+      offsetX: offsetX,
+      offsetY: offsetY
+    });
+    var contentBox = {
+      top: bestCoords.top,
+      left: bestCoords.left,
+      width: ContentBounding.width,
+      height: ContentBounding.height
+    };
+
+    if (contentBox.top <= wrapperBox.top || contentBox.left <= wrapperBox.left || contentBox.top + contentBox.height >= wrapperBox.top + wrapperBox.height || contentBox.left + contentBox.width >= wrapperBox.left + wrapperBox.width) {
+      i++;
+    } else {
+      break;
+    }
+  }
+
+  return bestCoords;
+};
+
+var popupIdCounter = 0;
+
+var getRootPopup = function getRootPopup() {
+  var PopupRoot = document.getElementById('popup-root');
+
+  if (PopupRoot === null) {
+    PopupRoot = document.createElement('div');
+    PopupRoot.setAttribute('id', 'popup-root');
+    document.body.appendChild(PopupRoot);
+  }
+
+  return PopupRoot;
+};
+
+var Popup = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(function (_ref, ref) {
+  var _ref$trigger = _ref.trigger,
+      trigger = _ref$trigger === void 0 ? null : _ref$trigger,
+      _ref$onOpen = _ref.onOpen,
+      onOpen = _ref$onOpen === void 0 ? function () {} : _ref$onOpen,
+      _ref$onClose = _ref.onClose,
+      onClose = _ref$onClose === void 0 ? function () {} : _ref$onClose,
+      _ref$defaultOpen = _ref.defaultOpen,
+      defaultOpen = _ref$defaultOpen === void 0 ? false : _ref$defaultOpen,
+      _ref$open = _ref.open,
+      open = _ref$open === void 0 ? undefined : _ref$open,
+      _ref$disabled = _ref.disabled,
+      disabled = _ref$disabled === void 0 ? false : _ref$disabled,
+      _ref$nested = _ref.nested,
+      nested = _ref$nested === void 0 ? false : _ref$nested,
+      _ref$closeOnDocumentC = _ref.closeOnDocumentClick,
+      closeOnDocumentClick = _ref$closeOnDocumentC === void 0 ? true : _ref$closeOnDocumentC,
+      _ref$repositionOnResi = _ref.repositionOnResize,
+      repositionOnResize = _ref$repositionOnResi === void 0 ? true : _ref$repositionOnResi,
+      _ref$closeOnEscape = _ref.closeOnEscape,
+      closeOnEscape = _ref$closeOnEscape === void 0 ? true : _ref$closeOnEscape,
+      _ref$on = _ref.on,
+      on = _ref$on === void 0 ? ['click'] : _ref$on,
+      _ref$contentStyle = _ref.contentStyle,
+      contentStyle = _ref$contentStyle === void 0 ? {} : _ref$contentStyle,
+      _ref$arrowStyle = _ref.arrowStyle,
+      arrowStyle = _ref$arrowStyle === void 0 ? {} : _ref$arrowStyle,
+      _ref$overlayStyle = _ref.overlayStyle,
+      overlayStyle = _ref$overlayStyle === void 0 ? {} : _ref$overlayStyle,
+      _ref$className = _ref.className,
+      className = _ref$className === void 0 ? '' : _ref$className,
+      _ref$position = _ref.position,
+      position = _ref$position === void 0 ? 'bottom center' : _ref$position,
+      _ref$modal = _ref.modal,
+      modal = _ref$modal === void 0 ? false : _ref$modal,
+      _ref$lockScroll = _ref.lockScroll,
+      lockScroll = _ref$lockScroll === void 0 ? false : _ref$lockScroll,
+      _ref$arrow = _ref.arrow,
+      arrow = _ref$arrow === void 0 ? true : _ref$arrow,
+      _ref$offsetX = _ref.offsetX,
+      offsetX = _ref$offsetX === void 0 ? 0 : _ref$offsetX,
+      _ref$offsetY = _ref.offsetY,
+      offsetY = _ref$offsetY === void 0 ? 0 : _ref$offsetY,
+      _ref$mouseEnterDelay = _ref.mouseEnterDelay,
+      mouseEnterDelay = _ref$mouseEnterDelay === void 0 ? 100 : _ref$mouseEnterDelay,
+      _ref$mouseLeaveDelay = _ref.mouseLeaveDelay,
+      mouseLeaveDelay = _ref$mouseLeaveDelay === void 0 ? 100 : _ref$mouseLeaveDelay,
+      _ref$keepTooltipInsid = _ref.keepTooltipInside,
+      keepTooltipInside = _ref$keepTooltipInsid === void 0 ? false : _ref$keepTooltipInsid,
+      children = _ref.children;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(open || defaultOpen),
+      isOpen = _useState[0],
+      setIsOpen = _useState[1];
+
+  var triggerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var contentRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var arrowRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var focusedElBeforeOpen = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var popupId = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)("popup-" + ++popupIdCounter);
+  var isModal = modal ? true : !trigger;
+  var timeOut = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(0);
+  useIsomorphicLayoutEffect(function () {
+    if (isOpen) {
+      focusedElBeforeOpen.current = document.activeElement;
+      setPosition();
+      focusContentOnOpen(); // for accessibility
+
+      lockScrolll();
+    } else {
+      resetScroll();
+    }
+
+    return function () {
+      clearTimeout(timeOut.current);
+    };
+  }, [isOpen]); // for uncontrolled popup we need to sync isOpen with open prop
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (typeof open === 'boolean') {
+      if (open) openPopup();else closePopup();
+    }
+  }, [open, disabled]);
+
+  var openPopup = function openPopup(event) {
+    if (isOpen || disabled) return;
+    setIsOpen(true);
+    setTimeout(function () {
+      return onOpen(event);
+    }, 0);
+  };
+
+  var closePopup = function closePopup(event) {
+    var _focusedElBeforeOpen$;
+
+    if (!isOpen || disabled) return;
+    setIsOpen(false);
+    if (isModal) (_focusedElBeforeOpen$ = focusedElBeforeOpen.current) === null || _focusedElBeforeOpen$ === void 0 ? void 0 : _focusedElBeforeOpen$.focus();
+    setTimeout(function () {
+      return onClose(event);
+    }, 0);
+  };
+
+  var togglePopup = function togglePopup(event) {
+    event === null || event === void 0 ? void 0 : event.stopPropagation();
+    if (!isOpen) openPopup(event);else closePopup(event);
+  };
+
+  var onMouseEnter = function onMouseEnter(event) {
+    clearTimeout(timeOut.current);
+    timeOut.current = setTimeout(function () {
+      return openPopup(event);
+    }, mouseEnterDelay);
+  };
+
+  var onContextMenu = function onContextMenu(event) {
+    event === null || event === void 0 ? void 0 : event.preventDefault();
+    togglePopup();
+  };
+
+  var onMouseLeave = function onMouseLeave(event) {
+    clearTimeout(timeOut.current);
+    timeOut.current = setTimeout(function () {
+      return closePopup(event);
+    }, mouseLeaveDelay);
+  };
+
+  var lockScrolll = function lockScrolll() {
+    if (isModal && lockScroll) document.getElementsByTagName('body')[0].style.overflow = 'hidden'; // migrate to document.body
+  };
+
+  var resetScroll = function resetScroll() {
+    if (isModal && lockScroll) document.getElementsByTagName('body')[0].style.overflow = 'auto';
+  };
+
+  var focusContentOnOpen = function focusContentOnOpen() {
+    var _contentRef$current;
+
+    var focusableEls = contentRef === null || contentRef === void 0 ? void 0 : (_contentRef$current = contentRef.current) === null || _contentRef$current === void 0 ? void 0 : _contentRef$current.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]');
+    var firstEl = Array.prototype.slice.call(focusableEls)[0];
+    firstEl === null || firstEl === void 0 ? void 0 : firstEl.focus();
+  };
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useImperativeHandle)(ref, function () {
+    return {
+      open: function open() {
+        openPopup();
+      },
+      close: function close() {
+        closePopup();
+      },
+      toggle: function toggle() {
+        togglePopup();
+      }
+    };
+  }); // set Position
+
+  var setPosition = function setPosition() {
+    if (isModal || !isOpen) return;
+    if (!(triggerRef === null || triggerRef === void 0 ? void 0 : triggerRef.current) || !(triggerRef === null || triggerRef === void 0 ? void 0 : triggerRef.current) || !(contentRef === null || contentRef === void 0 ? void 0 : contentRef.current)) return; /// show error as one of ref is undefined
+
+    var trigger = triggerRef.current.getBoundingClientRect();
+    var content = contentRef.current.getBoundingClientRect();
+    var cords = calculatePosition(trigger, content, position, arrow, {
+      offsetX: offsetX,
+      offsetY: offsetY
+    }, keepTooltipInside);
+    contentRef.current.style.top = cords.top + window.scrollY + "px";
+    contentRef.current.style.left = cords.left + window.scrollX + "px";
+
+    if (arrow && !!arrowRef.current) {
+      var _arrowStyle$top, _arrowStyle$left;
+
+      arrowRef.current.style.transform = cords.transform;
+      arrowRef.current.style.setProperty('-ms-transform', cords.transform);
+      arrowRef.current.style.setProperty('-webkit-transform', cords.transform);
+      arrowRef.current.style.top = ((_arrowStyle$top = arrowStyle.top) === null || _arrowStyle$top === void 0 ? void 0 : _arrowStyle$top.toString()) || cords.arrowTop;
+      arrowRef.current.style.left = ((_arrowStyle$left = arrowStyle.left) === null || _arrowStyle$left === void 0 ? void 0 : _arrowStyle$left.toString()) || cords.arrowLeft;
+    }
+  }; // hooks
+
+
+  useOnEscape(closePopup, closeOnEscape); // can be optimized if we disabled for hover
+
+  useTabbing(contentRef, isOpen && isModal);
+  useRepositionOnResize(setPosition, repositionOnResize);
+  useOnClickOutside(!!trigger ? [contentRef, triggerRef] : [contentRef], closePopup, closeOnDocumentClick && !nested); // we need to add a ne
+  // render the trigger element and add events
+
+  var renderTrigger = function renderTrigger() {
+    var triggerProps = {
+      key: 'T',
+      ref: triggerRef,
+      'aria-describedby': popupId.current
+    };
+    var onAsArray = Array.isArray(on) ? on : [on];
+
+    for (var i = 0, len = onAsArray.length; i < len; i++) {
+      switch (onAsArray[i]) {
+        case 'click':
+          triggerProps.onClick = togglePopup;
+          break;
+
+        case 'right-click':
+          triggerProps.onContextMenu = onContextMenu;
+          break;
+
+        case 'hover':
+          triggerProps.onMouseEnter = onMouseEnter;
+          triggerProps.onMouseLeave = onMouseLeave;
+          break;
+
+        case 'focus':
+          triggerProps.onFocus = onMouseEnter;
+          triggerProps.onBlur = onMouseLeave;
+          break;
+      }
+    }
+
+    if (typeof trigger === 'function') {
+      var comp = trigger(isOpen);
+      return !!trigger && react__WEBPACK_IMPORTED_MODULE_0__.cloneElement(comp, triggerProps);
+    }
+
+    return !!trigger && react__WEBPACK_IMPORTED_MODULE_0__.cloneElement(trigger, triggerProps);
+  };
+
+  var addWarperAction = function addWarperAction() {
+    var popupContentStyle = isModal ? Style.popupContent.modal : Style.popupContent.tooltip;
+    var childrenElementProps = {
+      className: "popup-content " + (className !== '' ? className.split(' ').map(function (c) {
+        return c + "-content";
+      }).join(' ') : ''),
+      style: _extends({}, popupContentStyle, contentStyle, {
+        pointerEvents: 'auto'
+      }),
+      ref: contentRef,
+      onClick: function onClick(e) {
+        e.stopPropagation();
+      }
+    };
+
+    if (!modal && on.indexOf('hover') >= 0) {
+      childrenElementProps.onMouseEnter = onMouseEnter;
+      childrenElementProps.onMouseLeave = onMouseLeave;
+    }
+
+    return childrenElementProps;
+  };
+
+  var renderContent = function renderContent() {
+    return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", Object.assign({}, addWarperAction(), {
+      key: "C",
+      role: isModal ? 'dialog' : 'tooltip',
+      id: popupId.current
+    }), arrow && !isModal && react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      ref: arrowRef,
+      style: Style.popupArrow
+    }, react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", {
+      "data-testid": "arrow",
+      className: "popup-arrow " + (className !== '' ? className.split(' ').map(function (c) {
+        return c + "-arrow";
+      }).join(' ') : ''),
+      viewBox: "0 0 32 16",
+      style: _extends({
+        position: 'absolute'
+      }, arrowStyle)
+    }, react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+      d: "M16 0l16 16H0z",
+      fill: "currentcolor"
+    }))), children && typeof children === 'function' ? children(closePopup, isOpen) : children);
+  };
+
+  var overlay = !(on.indexOf('hover') >= 0);
+  var ovStyle = isModal ? Style.overlay.modal : Style.overlay.tooltip;
+  var content = [overlay && react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    key: "O",
+    "data-testid": "overlay",
+    "data-popup": isModal ? 'modal' : 'tooltip',
+    className: "popup-overlay " + (className !== '' ? className.split(' ').map(function (c) {
+      return c + "-overlay";
+    }).join(' ') : ''),
+    style: _extends({}, ovStyle, overlayStyle, {
+      pointerEvents: closeOnDocumentClick && nested || isModal ? 'auto' : 'none'
+    }),
+    onClick: closeOnDocumentClick && nested ? closePopup : undefined,
+    tabIndex: -1
+  }, isModal && renderContent()), !isModal && renderContent()];
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, renderTrigger(), isOpen && react_dom__WEBPACK_IMPORTED_MODULE_1__.createPortal(content, getRootPopup()));
+});
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Popup);
+
+//# sourceMappingURL=reactjs-popup.esm.js.map
+
+
+/***/ }),
+
 /***/ "../node_modules/requires-port/index.js":
 /*!**********************************************!*\
   !*** ../node_modules/requires-port/index.js ***!
@@ -51399,6 +52074,61 @@ if (false) {} else {
 if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/scheduler-tracing.development.js */ "../node_modules/scheduler/cjs/scheduler-tracing.development.js");
 }
+
+
+/***/ }),
+
+/***/ "../node_modules/reactjs-popup/dist/index.css":
+/*!****************************************************!*\
+  !*** ../node_modules/reactjs-popup/dist/index.css ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../style-loader/dist/runtime/styleDomAPI.js */ "../node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../style-loader/dist/runtime/insertBySelector.js */ "../node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../style-loader/dist/runtime/insertStyleElement.js */ "../node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../style-loader/dist/runtime/styleTagTransform.js */ "../node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _css_loader_dist_cjs_js_sass_loader_dist_cjs_js_index_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../css-loader/dist/cjs.js!../../sass-loader/dist/cjs.js!./index.css */ "../node_modules/css-loader/dist/cjs.js!../node_modules/sass-loader/dist/cjs.js!../node_modules/reactjs-popup/dist/index.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_sass_loader_dist_cjs_js_index_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_sass_loader_dist_cjs_js_index_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _css_loader_dist_cjs_js_sass_loader_dist_cjs_js_index_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _css_loader_dist_cjs_js_sass_loader_dist_cjs_js_index_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),

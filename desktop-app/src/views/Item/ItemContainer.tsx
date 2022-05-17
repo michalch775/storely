@@ -18,8 +18,12 @@ import NonReturnableItemView from "./NonReturnableItemView";
 import {useParams} from "react-router-dom";
 import {Item} from "../../api/entities/Item";
 import {ItemView} from "../../api/entities/ItemView";
+import {useNavigate} from "react-router";
+import ReturnableItemView from "./ReturnableItemView";
 
 function ItemContainer(props: ItemProps): JSX.Element {
+
+    const navigate = useNavigate();
 
     const model = props.viewModel;
     const {itemId} = useParams();
@@ -49,6 +53,19 @@ function ItemContainer(props: ItemProps): JSX.Element {
 
     async function onReload(event: ReloadMainViewEvent): Promise<void> {
         await loadData();
+    }
+
+    async function onDelete(){
+        const onSuccess = () => {
+            navigate(-1);
+        };
+
+        const onError = (error: UIError) => {
+            model.eventBus.emit(EventNames.SetError, null, new SetErrorEvent('item', error));
+            navigate(0);
+        };
+
+        await model.remove(onSuccess, onError, parseInt(itemId!));
     }
 
     async function loadData(search="", offset=0, sort:RentalSort=RentalSort.DATE): Promise<void> {
@@ -83,13 +100,14 @@ function ItemContainer(props: ItemProps): JSX.Element {
             setState((s)=>({...s, rentals:[], hasMore:true}));
 
         model.eventBus.emit(EventNames.SetError, null, new SetErrorEvent('item', null));
-        await model.callApi(onSuccess, onError, itemId, search, offset, sort);
+        await model.getData(onSuccess, onError, itemId, search, offset, sort);
     }
 
     const childProps = {
         item: state.item,
         rentals: state.rentals,
         onReload: loadData,
+        onDelete: onDelete,
         hasMore: state.hasMore,
         entities: state.entities
     };
@@ -98,7 +116,7 @@ function ItemContainer(props: ItemProps): JSX.Element {
         return(<div>item null</div>);
     }
     else if(state.entities!=null){
-        return (<div>returnable byczq</div>);
+        return (<ReturnableItemView {...childProps}/>);
     }
     else{
         return (<NonReturnableItemView {...childProps}/>);

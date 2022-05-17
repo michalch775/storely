@@ -36,7 +36,7 @@ export class ItemContainerViewModel {
         return this._eventBus;
     }
 
-    public async callApi(
+    public async getData(
         onSuccess: (rentals: Rental[], item: ItemView, entities: Item[] | null) => void,
         onError: (error: UIError) => void,
         itemId: any,
@@ -58,7 +58,27 @@ export class ItemContainerViewModel {
 
         }
         catch (e) {
-            console.log("XD catch", e);
+            const error = ErrorFactory.fromException(e);
+            this._apiViewEvents.onViewLoadFailed(ApiViewNames.Main, error);
+            onError(error);
+        }
+    }
+
+    public async remove(
+        onSuccess: () => void,
+        onError: (error: UIError) => void,
+        itemId: number): Promise<void> {
+
+        try {
+            this._apiViewEvents.onViewLoading(ApiViewNames.Main);
+
+            await this._apiClient.removeItemById(itemId);
+
+            this._apiViewEvents.onViewLoaded(ApiViewNames.Main);
+            onSuccess();
+
+        }
+        catch (e) {
             const error = ErrorFactory.fromException(e);
             this._apiViewEvents.onViewLoadFailed(ApiViewNames.Main, error);
             onError(error);

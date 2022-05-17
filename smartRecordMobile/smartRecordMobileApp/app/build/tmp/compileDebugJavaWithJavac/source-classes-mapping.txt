@@ -1,0 +1,12 @@
+com/example/smartrecordmobileapp/databinding/FragmentRentalsBinding.java
+ com.example.smartrecordmobileapp.databinding.FragmentRentalsBinding
+com/example/smartrecordmobileapp/databinding/FragmentStoreBinding.java
+ com.example.smartrecordmobileapp.databinding.FragmentStoreBinding
+com/example/smartrecordmobileapp/databinding/FragmentSettingsBinding.java
+ com.example.smartrecordmobileapp.databinding.FragmentSettingsBinding
+com/example/smartrecordmobileapp/BuildConfig.java
+ com.example.smartrecordmobileapp.BuildConfig
+com/example/smartrecordmobileapp/databinding/ActivityScanBinding.java
+ com.example.smartrecordmobileapp.databinding.ActivityScanBinding
+com/example/smartrecordmobileapp/databinding/ActivityMainBinding.java
+ com.example.smartrecordmobileapp.databinding.ActivityMainBinding
